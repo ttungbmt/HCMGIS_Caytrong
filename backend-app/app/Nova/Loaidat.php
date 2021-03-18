@@ -3,19 +3,25 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Larabase\Nova\Actions\DownloadExcel;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Timothyasp\Color\Color;
 
-class DmLoaidat extends Resource
+class Loaidat extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\DmLoaidat::class;
+    public static $model = \App\Models\Loaidat::class;
+
+    public static function group()
+    {
+        return __('Directory');
+    }
 
     public static function label()
     {
@@ -96,6 +102,8 @@ class DmLoaidat extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel
+        ];
     }
 }

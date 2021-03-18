@@ -1,0 +1,58 @@
+{
+  "name": "larabase/nova",
+  "description": "A wonderful administration interface for Laravel.",
+  "keywords": [
+    "laravel",
+    "admin"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Truong Thanh Tung",
+      "email": "ttungbmt@gmail.com"
+    }
+  ],
+  "require": {
+      "larabase/nova-theme": "*@dev",
+      "vyuldashev/nova-permission": "*@dev",
+      "mastani/nova-password-reset": "^1.1",
+      "titasgailius/search-relations": "^1.0",
+      "maatwebsite/laravel-nova-excel": "^1.2",
+      "ebess/advanced-nova-media-library": "^3.4",
+      "infinety-es/nova-filemanager": "^2.8",
+      "optimistdigital/nova-multiselect-field": "^2.0",
+      "kabbouchi/nova-impersonate": "^1.4",
+      "owenmelbz/nova-radio-field": "^1.0",
+      "digital-creative/collapsible-resource-manager": "^1.2",
+      "eminiarts/nova-tabs": "^1.3",
+      "optimistdigital/nova-tailwind": "^1.0.0",
+      "kabbouchi/nova-logs-tool": "^0.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Larabase\\Nova\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "dont-discover": [
+
+      ],
+      "providers": [
+
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ttungbmt/nova-base"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "version": "0.0.1"
+}

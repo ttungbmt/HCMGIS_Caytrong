@@ -1,0 +1,45 @@
+$width: 15px;
+$height: 15px;
+
+$bounce_height: 30px;
+
+#app-loader {
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+}
+
+.bounceball {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  width: $width;
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+    background-color: #fbae17;
+    transform-origin: 50%;
+    animation: bounce-ball 500ms alternate infinite ease;
+  }
+}
+
+@keyframes bounce-ball {
+  0% {
+    top: $bounce_height;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: $height;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}

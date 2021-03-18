@@ -34,6 +34,11 @@ class HcPhuong extends Resource
         'maphuong', 'tenphuong',
     ];
 
+    public static function group()
+    {
+        return __('Directory');
+    }
+
     public static function label()
     {
         return __('app.hc_phuong');

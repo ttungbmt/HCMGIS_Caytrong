@@ -32,6 +32,11 @@ class HcQuan extends Resource
         'maquan', 'tenquan',
     ];
 
+    public static function group()
+    {
+        return __('Directory');
+    }
+
     public static function label()
     {
         return __('app.hc_quan');

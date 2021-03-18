@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Larabase\Database\Eloquent\GeoModel;
 
-class Ranhthua extends Model
+class Ranhthua extends GeoModel
 {
     use HasFactory;
 
@@ -14,6 +14,14 @@ class Ranhthua extends Model
     protected $fillable = [];
 
     public $timestamps = false;
+
+    protected $postgisTypes = [
+        'geom' => [
+            'type' => 'MultiPolygon',
+            'geomtype' => 'geometry',
+            'srid' => 4326
+        ],
+    ];
 
     public function phuong()
     {

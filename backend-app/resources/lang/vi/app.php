@@ -14,8 +14,10 @@ return [
     "tenphuong" => "Tên phường",
     "pg_ranhthua" => "Ranh thửa",
 
-    "thuadat" => "Thửa đất",
+    "caytrong" => "Cây trồng",
+    "loai_ctr" => "Loại cây trồng",
 
+    "thuadat" => "Thửa đất",
     'mathua' => 'Mã thửa',
     'sh_bando' => 'Số hiệu bản đồ',
     'sh_thua' => 'Số hiệu thửa',

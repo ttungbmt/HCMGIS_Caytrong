@@ -1,0 +1,144 @@
+@import "_scrollbar";
+@import "_loader";
+
+/************************* Header **************************/
+.page-header {
+}
+
+.page-header .site-title {
+}
+
+.page-header .global-search {
+}
+
+.page-header .user-name {
+}
+
+.page-header .user-menu {
+}
+
+/************************* Sidebar **************************/
+.page-sidebar {
+}
+
+.page-sidebar .bg-logo {
+}
+
+.page-sidebar h3 {
+}
+
+.page-sidebar ul li {
+}
+
+/************************* Content **************************/
+.content div[data-testid="content"] {
+  padding-top: 10px;
+}
+
+.page-content {
+}
+
+.page-footer {
+}
+
+/************************* Resource Index **************************/
+.resource-index {
+}
+
+.resource-index .index-actions-container {
+}
+
+.resource-index .index-actions-container .action-select {
+}
+
+.resource-index .index-actions-container .action-select select {
+}
+
+.resource-index .index-actions-container .action-select button {
+}
+
+.resource-index .index-actions-container .delete-menu {
+}
+
+.resource-index .index-actions-container .filters-select {
+}
+
+.resource-index .index-actions-container .filters-menu {
+}
+
+.resource-index .index-actions-container .filters-menu .filter-title {
+}
+
+.resource-index .index-actions-container .filters-menu .filter-options {
+}
+
+/************************* Resource Detail **************************/
+.resource-detail {
+}
+
+.resource-detail .details-actions-container {
+}
+
+/************************* Resource Forms **************************/
+.resource-form {
+}
+
+.resource-form .form-group {
+}
+
+.resource-form .form-footer {
+}
+
+.resource-form .form-errors {
+}
+
+.resource-edit {
+}
+
+.resource-create {
+}
+
+/************************* Cards **************************/
+.card-panel-container {
+}
+
+.card-panel-container .card-panel {
+}
+
+/************************* Form **************************/
+/*
+.form-input, .form-select {
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+.form-input:focus,
+.form-input:active {
+  text-shadow: none;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+*/
+
+input[type="radio"].checkbox {
+  border-radius: 50%;
+}
+
+/************************* Button **************************/
+/*
+.btn-default {
+  border-radius: 4px;
+  text-shadow: none;
+  box-shadow: var(--shadow-button);
+}
+
+.btn-default:hover {
+  box-shadow: var(--shadow-button-hover);
+}
+
+.btn-default:active {
+  text-shadow: none;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+*/

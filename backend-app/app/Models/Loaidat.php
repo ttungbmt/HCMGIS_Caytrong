@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DmLoaidat extends Model
+class Loaidat extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,4 @@ class DmLoaidat extends Model
     protected $fillable = ['st', 'loaidat', 'madat', 'somau', 'fillColor',];
 
     public $timestamps = false;
-
-
 }

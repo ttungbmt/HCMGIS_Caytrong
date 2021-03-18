@@ -1744,14 +1744,39 @@
                         return $instance->getDefaultUserProvider();
         }
                     /**
+         * Log a user into the application without firing the Login event.
+         *
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @return void 
+         * @static 
+         */ 
+        public static function quietLogin($user)
+        {
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
+                        $instance->quietLogin($user);
+        }
+                    /**
+         * Logout the user without updating remember_token
+         * and without firing the Logout event.
+         *
+         * @param void
+         * @return void 
+         * @static 
+         */ 
+        public static function quietLogout()
+        {
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
+                        $instance->quietLogout();
+        }
+                    /**
          * Get the currently authenticated user.
          *
          * @return \App\Models\User|null 
          * @static 
          */ 
         public static function user()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->user();
         }
                     /**
@@ -1761,8 +1786,8 @@
          * @static 
          */ 
         public static function id()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->id();
         }
                     /**
@@ -1773,8 +1798,8 @@
          * @static 
          */ 
         public static function once($credentials = [])
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->once($credentials);
         }
                     /**
@@ -1785,8 +1810,8 @@
          * @static 
          */ 
         public static function onceUsingId($id)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->onceUsingId($id);
         }
                     /**
@@ -1797,8 +1822,8 @@
          * @static 
          */ 
         public static function validate($credentials = [])
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->validate($credentials);
         }
                     /**
@@ -1810,8 +1835,8 @@
          * @static 
          */ 
         public static function basic($field = 'email', $extraConditions = [])
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->basic($field, $extraConditions);
         }
                     /**
@@ -1823,8 +1848,8 @@
          * @static 
          */ 
         public static function onceBasic($field = 'email', $extraConditions = [])
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->onceBasic($field, $extraConditions);
         }
                     /**
@@ -1836,8 +1861,8 @@
          * @static 
          */ 
         public static function attempt($credentials = [], $remember = false)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->attempt($credentials, $remember);
         }
                     /**
@@ -1849,8 +1874,8 @@
          * @static 
          */ 
         public static function loginUsingId($id, $remember = false)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->loginUsingId($id, $remember);
         }
                     /**
@@ -1862,8 +1887,8 @@
          * @static 
          */ 
         public static function login($user, $remember = false)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         $instance->login($user, $remember);
         }
                     /**
@@ -1873,8 +1898,8 @@
          * @static 
          */ 
         public static function logout()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         $instance->logout();
         }
                     /**
@@ -1886,8 +1911,8 @@
          * @static 
          */ 
         public static function logoutCurrentDevice()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         $instance->logoutCurrentDevice();
         }
                     /**
@@ -1902,8 +1927,8 @@
          * @static 
          */ 
         public static function logoutOtherDevices($password, $attribute = 'password')
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->logoutOtherDevices($password, $attribute);
         }
                     /**
@@ -1914,8 +1939,8 @@
          * @static 
          */ 
         public static function attempting($callback)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         $instance->attempting($callback);
         }
                     /**
@@ -1925,8 +1950,8 @@
          * @static 
          */ 
         public static function getLastAttempted()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getLastAttempted();
         }
                     /**
@@ -1936,8 +1961,8 @@
          * @static 
          */ 
         public static function getName()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getName();
         }
                     /**
@@ -1947,8 +1972,8 @@
          * @static 
          */ 
         public static function getRecallerName()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getRecallerName();
         }
                     /**
@@ -1958,8 +1983,8 @@
          * @static 
          */ 
         public static function viaRemember()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->viaRemember();
         }
                     /**
@@ -1970,8 +1995,8 @@
          * @static 
          */ 
         public static function getCookieJar()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getCookieJar();
         }
                     /**
@@ -1982,8 +2007,8 @@
          * @static 
          */ 
         public static function setCookieJar($cookie)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         $instance->setCookieJar($cookie);
         }
                     /**
@@ -1993,8 +2018,8 @@
          * @static 
          */ 
         public static function getDispatcher()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getDispatcher();
         }
                     /**
@@ -2005,8 +2030,8 @@
          * @static 
          */ 
         public static function setDispatcher($events)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         $instance->setDispatcher($events);
         }
                     /**
@@ -2016,8 +2041,8 @@
          * @static 
          */ 
         public static function getSession()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getSession();
         }
                     /**
@@ -2027,20 +2052,20 @@
          * @static 
          */ 
         public static function getUser()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getUser();
         }
                     /**
          * Set the current user.
          *
          * @param \Illuminate\Contracts\Auth\Authenticatable $user
-         * @return \Illuminate\Auth\SessionGuard 
+         * @return \Lab404\Impersonate\Guard\SessionGuard 
          * @static 
          */ 
         public static function setUser($user)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->setUser($user);
         }
                     /**
@@ -2050,20 +2075,20 @@
          * @static 
          */ 
         public static function getRequest()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getRequest();
         }
                     /**
          * Set the current request instance.
          *
          * @param \Symfony\Component\HttpFoundation\Request $request
-         * @return \Illuminate\Auth\SessionGuard 
+         * @return \Lab404\Impersonate\Guard\SessionGuard 
          * @static 
          */ 
         public static function setRequest($request)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->setRequest($request);
         }
                     /**
@@ -2074,8 +2099,8 @@
          * @static 
          */ 
         public static function authenticate()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->authenticate();
         }
                     /**
@@ -2085,8 +2110,8 @@
          * @static 
          */ 
         public static function hasUser()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->hasUser();
         }
                     /**
@@ -2096,8 +2121,8 @@
          * @static 
          */ 
         public static function check()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->check();
         }
                     /**
@@ -2107,8 +2132,8 @@
          * @static 
          */ 
         public static function guest()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->guest();
         }
                     /**
@@ -2118,8 +2143,8 @@
          * @static 
          */ 
         public static function getProvider()
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         return $instance->getProvider();
         }
                     /**
@@ -2130,8 +2155,8 @@
          * @static 
          */ 
         public static function setProvider($provider)
-        {
-                        /** @var \Illuminate\Auth\SessionGuard $instance */
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        /** @var \Lab404\Impersonate\Guard\SessionGuard $instance */
                         $instance->setProvider($provider);
         }
                     /**
@@ -2143,8 +2168,8 @@
          * @static 
          */ 
         public static function macro($name, $macro)
-        {
-                        \Illuminate\Auth\SessionGuard::macro($name, $macro);
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        \Lab404\Impersonate\Guard\SessionGuard::macro($name, $macro);
         }
                     /**
          * Mix another object into the class.
@@ -2156,8 +2181,8 @@
          * @static 
          */ 
         public static function mixin($mixin, $replace = true)
-        {
-                        \Illuminate\Auth\SessionGuard::mixin($mixin, $replace);
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        \Lab404\Impersonate\Guard\SessionGuard::mixin($mixin, $replace);
         }
                     /**
          * Checks if macro is registered.
@@ -2167,8 +2192,8 @@
          * @static 
          */ 
         public static function hasMacro($name)
-        {
-                        return \Illuminate\Auth\SessionGuard::hasMacro($name);
+        {            //Method inherited from \Illuminate\Auth\SessionGuard         
+                        return \Lab404\Impersonate\Guard\SessionGuard::hasMacro($name);
         }
          
     }
@@ -4396,6 +4421,16 @@
                         $instance->setReconnector($reconnector);
         }
                     /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getSchemaBuilder()
+        {
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
+                        return $instance->getSchemaBuilder();
+        }
+                    /**
          * Bind values to their parameters in the given statement.
          *
          * @param \PDOStatement $statement
@@ -4404,20 +4439,9 @@
          * @static 
          */ 
         public static function bindValues($statement, $bindings)
-        {
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+        {            //Method inherited from \Illuminate\Database\PostgresConnection         
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->bindValues($statement, $bindings);
-        }
-                    /**
-         * Get a schema builder instance for the connection.
-         *
-         * @return \Illuminate\Database\Schema\PostgresBuilder 
-         * @static 
-         */ 
-        public static function getSchemaBuilder()
-        {
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
-                        return $instance->getSchemaBuilder();
         }
                     /**
          * Get the schema state for the connection.
@@ -4428,8 +4452,8 @@
          * @static 
          */ 
         public static function getSchemaState($files = null, $processFactory = null)
-        {
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+        {            //Method inherited from \Illuminate\Database\PostgresConnection         
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getSchemaState($files, $processFactory);
         }
                     /**
@@ -4440,7 +4464,7 @@
          */ 
         public static function useDefaultQueryGrammar()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->useDefaultQueryGrammar();
         }
                     /**
@@ -4451,7 +4475,7 @@
          */ 
         public static function useDefaultSchemaGrammar()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->useDefaultSchemaGrammar();
         }
                     /**
@@ -4462,7 +4486,7 @@
          */ 
         public static function useDefaultPostProcessor()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->useDefaultPostProcessor();
         }
                     /**
@@ -4475,7 +4499,7 @@
          */ 
         public static function table($table, $as = null)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->table($table, $as);
         }
                     /**
@@ -4486,7 +4510,7 @@
          */ 
         public static function query()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->query();
         }
                     /**
@@ -4500,7 +4524,7 @@
          */ 
         public static function selectOne($query, $bindings = [], $useReadPdo = true)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->selectOne($query, $bindings, $useReadPdo);
         }
                     /**
@@ -4513,7 +4537,7 @@
          */ 
         public static function selectFromWriteConnection($query, $bindings = [])
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->selectFromWriteConnection($query, $bindings);
         }
                     /**
@@ -4527,7 +4551,7 @@
          */ 
         public static function select($query, $bindings = [], $useReadPdo = true)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->select($query, $bindings, $useReadPdo);
         }
                     /**
@@ -4541,7 +4565,7 @@
          */ 
         public static function cursor($query, $bindings = [], $useReadPdo = true)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->cursor($query, $bindings, $useReadPdo);
         }
                     /**
@@ -4554,7 +4578,7 @@
          */ 
         public static function insert($query, $bindings = [])
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->insert($query, $bindings);
         }
                     /**
@@ -4567,7 +4591,7 @@
          */ 
         public static function update($query, $bindings = [])
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->update($query, $bindings);
         }
                     /**
@@ -4580,7 +4604,7 @@
          */ 
         public static function delete($query, $bindings = [])
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->delete($query, $bindings);
         }
                     /**
@@ -4593,7 +4617,7 @@
          */ 
         public static function statement($query, $bindings = [])
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->statement($query, $bindings);
         }
                     /**
@@ -4606,7 +4630,7 @@
          */ 
         public static function affectingStatement($query, $bindings = [])
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->affectingStatement($query, $bindings);
         }
                     /**
@@ -4618,7 +4642,7 @@
          */ 
         public static function unprepared($query)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->unprepared($query);
         }
                     /**
@@ -4630,7 +4654,7 @@
          */ 
         public static function pretend($callback)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->pretend($callback);
         }
                     /**
@@ -4642,7 +4666,7 @@
          */ 
         public static function prepareBindings($bindings)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->prepareBindings($bindings);
         }
                     /**
@@ -4656,7 +4680,7 @@
          */ 
         public static function logQuery($query, $bindings, $time = null)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->logQuery($query, $bindings, $time);
         }
                     /**
@@ -4668,7 +4692,7 @@
          */ 
         public static function listen($callback)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->listen($callback);
         }
                     /**
@@ -4680,7 +4704,7 @@
          */ 
         public static function raw($value)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->raw($value);
         }
                     /**
@@ -4692,7 +4716,7 @@
          */ 
         public static function recordsHaveBeenModified($value = true)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->recordsHaveBeenModified($value);
         }
                     /**
@@ -4703,7 +4727,7 @@
          */ 
         public static function forgetRecordModificationState()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->forgetRecordModificationState();
         }
                     /**
@@ -4714,7 +4738,7 @@
          */ 
         public static function isDoctrineAvailable()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->isDoctrineAvailable();
         }
                     /**
@@ -4727,7 +4751,7 @@
          */ 
         public static function getDoctrineColumn($table, $column)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getDoctrineColumn($table, $column);
         }
                     /**
@@ -4738,7 +4762,7 @@
          */ 
         public static function getDoctrineSchemaManager()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getDoctrineSchemaManager();
         }
                     /**
@@ -4749,7 +4773,7 @@
          */ 
         public static function getDoctrineConnection()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getDoctrineConnection();
         }
                     /**
@@ -4760,7 +4784,7 @@
          */ 
         public static function getPdo()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getPdo();
         }
                     /**
@@ -4771,7 +4795,7 @@
          */ 
         public static function getRawPdo()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getRawPdo();
         }
                     /**
@@ -4782,7 +4806,7 @@
          */ 
         public static function getReadPdo()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getReadPdo();
         }
                     /**
@@ -4793,31 +4817,31 @@
          */ 
         public static function getRawReadPdo()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getRawReadPdo();
         }
                     /**
          * Set the PDO connection.
          *
          * @param \PDO|\Closure|null $pdo
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setPdo($pdo)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setPdo($pdo);
         }
                     /**
          * Set the PDO connection used for reading.
          *
          * @param \PDO|\Closure|null $pdo
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setReadPdo($pdo)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setReadPdo($pdo);
         }
                     /**
@@ -4828,7 +4852,7 @@
          */ 
         public static function getName()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getName();
         }
                     /**
@@ -4840,7 +4864,7 @@
          */ 
         public static function getConfig($option = null)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getConfig($option);
         }
                     /**
@@ -4851,7 +4875,7 @@
          */ 
         public static function getDriverName()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getDriverName();
         }
                     /**
@@ -4862,19 +4886,19 @@
          */ 
         public static function getQueryGrammar()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getQueryGrammar();
         }
                     /**
          * Set the query grammar used by the connection.
          *
          * @param \Illuminate\Database\Query\Grammars\Grammar $grammar
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setQueryGrammar($grammar)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setQueryGrammar($grammar);
         }
                     /**
@@ -4885,19 +4909,19 @@
          */ 
         public static function getSchemaGrammar()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getSchemaGrammar();
         }
                     /**
          * Set the schema grammar used by the connection.
          *
          * @param \Illuminate\Database\Schema\Grammars\Grammar $grammar
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setSchemaGrammar($grammar)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setSchemaGrammar($grammar);
         }
                     /**
@@ -4908,19 +4932,19 @@
          */ 
         public static function getPostProcessor()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getPostProcessor();
         }
                     /**
          * Set the query post processor used by the connection.
          *
          * @param \Illuminate\Database\Query\Processors\Processor $processor
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setPostProcessor($processor)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setPostProcessor($processor);
         }
                     /**
@@ -4931,19 +4955,19 @@
          */ 
         public static function getEventDispatcher()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getEventDispatcher();
         }
                     /**
          * Set the event dispatcher instance on the connection.
          *
          * @param \Illuminate\Contracts\Events\Dispatcher $events
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setEventDispatcher($events)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setEventDispatcher($events);
         }
                     /**
@@ -4954,19 +4978,19 @@
          */ 
         public static function unsetEventDispatcher()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->unsetEventDispatcher();
         }
                     /**
          * Set the transaction manager instance on the connection.
          *
          * @param \Illuminate\Database\DatabaseTransactionsManager $manager
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setTransactionManager($manager)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setTransactionManager($manager);
         }
                     /**
@@ -4977,7 +5001,7 @@
          */ 
         public static function unsetTransactionManager()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->unsetTransactionManager();
         }
                     /**
@@ -4988,7 +5012,7 @@
          */ 
         public static function pretending()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->pretending();
         }
                     /**
@@ -4999,7 +5023,7 @@
          */ 
         public static function getQueryLog()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getQueryLog();
         }
                     /**
@@ -5010,7 +5034,7 @@
          */ 
         public static function flushQueryLog()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->flushQueryLog();
         }
                     /**
@@ -5021,7 +5045,7 @@
          */ 
         public static function enableQueryLog()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->enableQueryLog();
         }
                     /**
@@ -5032,7 +5056,7 @@
          */ 
         public static function disableQueryLog()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->disableQueryLog();
         }
                     /**
@@ -5043,7 +5067,7 @@
          */ 
         public static function logging()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->logging();
         }
                     /**
@@ -5054,19 +5078,19 @@
          */ 
         public static function getDatabaseName()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getDatabaseName();
         }
                     /**
          * Set the name of the connected database.
          *
          * @param string $database
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setDatabaseName($database)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setDatabaseName($database);
         }
                     /**
@@ -5077,19 +5101,19 @@
          */ 
         public static function getTablePrefix()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->getTablePrefix();
         }
                     /**
          * Set the table prefix in use by the connection.
          *
          * @param string $prefix
-         * @return \Illuminate\Database\PostgresConnection 
+         * @return \MStaack\LaravelPostgis\PostgisConnection 
          * @static 
          */ 
         public static function setTablePrefix($prefix)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->setTablePrefix($prefix);
         }
                     /**
@@ -5101,7 +5125,7 @@
          */ 
         public static function withTablePrefix($grammar)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->withTablePrefix($grammar);
         }
                     /**
@@ -5114,7 +5138,7 @@
          */ 
         public static function resolverFor($driver, $callback)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        \Illuminate\Database\PostgresConnection::resolverFor($driver, $callback);
+                        \MStaack\LaravelPostgis\PostgisConnection::resolverFor($driver, $callback);
         }
                     /**
          * Get the connection resolver for the given driver.
@@ -5125,7 +5149,7 @@
          */ 
         public static function getResolver($driver)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        return \Illuminate\Database\PostgresConnection::getResolver($driver);
+                        return \MStaack\LaravelPostgis\PostgisConnection::getResolver($driver);
         }
                     /**
          * Execute a Closure within a transaction.
@@ -5138,7 +5162,7 @@
          */ 
         public static function transaction($callback, $attempts = 1)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->transaction($callback, $attempts);
         }
                     /**
@@ -5150,7 +5174,7 @@
          */ 
         public static function beginTransaction()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->beginTransaction();
         }
                     /**
@@ -5162,7 +5186,7 @@
          */ 
         public static function commit()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->commit();
         }
                     /**
@@ -5175,7 +5199,7 @@
          */ 
         public static function rollBack($toLevel = null)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->rollBack($toLevel);
         }
                     /**
@@ -5186,7 +5210,7 @@
          */ 
         public static function transactionLevel()
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         return $instance->transactionLevel();
         }
                     /**
@@ -5198,7 +5222,7 @@
          */ 
         public static function afterCommit($callback)
         {            //Method inherited from \Illuminate\Database\Connection         
-                        /** @var \Illuminate\Database\PostgresConnection $instance */
+                        /** @var \MStaack\LaravelPostgis\PostgisConnection $instance */
                         $instance->afterCommit($callback);
         }
          
@@ -11708,6 +11732,16 @@
                     /**
          * 
          *
+         * @see \Lab404\Impersonate\ImpersonateServiceProvider::registerRoutesMacro()
+         * @static 
+         */ 
+        public static function impersonate()
+        {
+                        return \Illuminate\Routing\Router::impersonate();
+        }
+                    /**
+         * 
+         *
          * @see \Laravel\Ui\AuthRouteMethods::auth()
          * @param mixed $options
          * @static 
@@ -11755,6 +11789,41 @@
      */ 
         class Schema {
                     /**
+         * Create a new command set with a Closure.
+         *
+         * @param string $table
+         * @param \Closure $callback
+         * @return \MStaack\LaravelPostgis\Schema\Blueprint 
+         * @static 
+         */ 
+        public static function createBlueprint($table, $callback = null)
+        {
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
+                        return $instance->createBlueprint($table, $callback);
+        }
+                    /**
+         * Enable foreign key constraints.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function enablePostgis()
+        {
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
+                        return $instance->enablePostgis();
+        }
+                    /**
+         * Disable foreign key constraints.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function disablePostgis()
+        {
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
+                        return $instance->disablePostgis();
+        }
+                    /**
          * Create a database in the schema.
          *
          * @param string $name
@@ -11762,8 +11831,8 @@
          * @static 
          */ 
         public static function createDatabase($name)
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->createDatabase($name);
         }
                     /**
@@ -11774,8 +11843,8 @@
          * @static 
          */ 
         public static function dropDatabaseIfExists($name)
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->dropDatabaseIfExists($name);
         }
                     /**
@@ -11786,8 +11855,8 @@
          * @static 
          */ 
         public static function hasTable($table)
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->hasTable($table);
         }
                     /**
@@ -11797,8 +11866,8 @@
          * @static 
          */ 
         public static function dropAllTables()
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->dropAllTables();
         }
                     /**
@@ -11808,8 +11877,8 @@
          * @static 
          */ 
         public static function dropAllViews()
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->dropAllViews();
         }
                     /**
@@ -11819,8 +11888,8 @@
          * @static 
          */ 
         public static function dropAllTypes()
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->dropAllTypes();
         }
                     /**
@@ -11830,8 +11899,8 @@
          * @static 
          */ 
         public static function getAllTables()
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->getAllTables();
         }
                     /**
@@ -11841,8 +11910,8 @@
          * @static 
          */ 
         public static function getAllViews()
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->getAllViews();
         }
                     /**
@@ -11852,8 +11921,8 @@
          * @static 
          */ 
         public static function getAllTypes()
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->getAllTypes();
         }
                     /**
@@ -11864,8 +11933,8 @@
          * @static 
          */ 
         public static function getColumnListing($table)
-        {
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+        {            //Method inherited from \Illuminate\Database\Schema\PostgresBuilder         
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->getColumnListing($table);
         }
                     /**
@@ -11877,7 +11946,7 @@
          */ 
         public static function defaultStringLength($length)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        \Illuminate\Database\Schema\PostgresBuilder::defaultStringLength($length);
+                        \MStaack\LaravelPostgis\Schema\Builder::defaultStringLength($length);
         }
                     /**
          * Set the default morph key type for migrations.
@@ -11888,7 +11957,7 @@
          */ 
         public static function defaultMorphKeyType($type)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        \Illuminate\Database\Schema\PostgresBuilder::defaultMorphKeyType($type);
+                        \MStaack\LaravelPostgis\Schema\Builder::defaultMorphKeyType($type);
         }
                     /**
          * Set the default morph key type for migrations to UUIDs.
@@ -11898,7 +11967,7 @@
          */ 
         public static function morphUsingUuids()
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        \Illuminate\Database\Schema\PostgresBuilder::morphUsingUuids();
+                        \MStaack\LaravelPostgis\Schema\Builder::morphUsingUuids();
         }
                     /**
          * Determine if the given table has a given column.
@@ -11910,7 +11979,7 @@
          */ 
         public static function hasColumn($table, $column)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->hasColumn($table, $column);
         }
                     /**
@@ -11923,7 +11992,7 @@
          */ 
         public static function hasColumns($table, $columns)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->hasColumns($table, $columns);
         }
                     /**
@@ -11936,7 +12005,7 @@
          */ 
         public static function getColumnType($table, $column)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->getColumnType($table, $column);
         }
                     /**
@@ -11949,7 +12018,7 @@
          */ 
         public static function table($table, $callback)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->table($table, $callback);
         }
                     /**
@@ -11962,7 +12031,7 @@
          */ 
         public static function create($table, $callback)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->create($table, $callback);
         }
                     /**
@@ -11974,7 +12043,7 @@
          */ 
         public static function drop($table)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->drop($table);
         }
                     /**
@@ -11986,7 +12055,7 @@
          */ 
         public static function dropIfExists($table)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->dropIfExists($table);
         }
                     /**
@@ -11999,7 +12068,7 @@
          */ 
         public static function dropColumns($table, $columns)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->dropColumns($table, $columns);
         }
                     /**
@@ -12012,7 +12081,7 @@
          */ 
         public static function rename($from, $to)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->rename($from, $to);
         }
                     /**
@@ -12023,7 +12092,7 @@
          */ 
         public static function enableForeignKeyConstraints()
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->enableForeignKeyConstraints();
         }
                     /**
@@ -12034,7 +12103,7 @@
          */ 
         public static function disableForeignKeyConstraints()
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->disableForeignKeyConstraints();
         }
                     /**
@@ -12050,7 +12119,7 @@
          */ 
         public static function registerCustomDoctrineType($class, $name, $type)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->registerCustomDoctrineType($class, $name, $type);
         }
                     /**
@@ -12061,19 +12130,19 @@
          */ 
         public static function getConnection()
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->getConnection();
         }
                     /**
          * Set the database connection instance.
          *
          * @param \Illuminate\Database\Connection $connection
-         * @return \Illuminate\Database\Schema\PostgresBuilder 
+         * @return \MStaack\LaravelPostgis\Schema\Builder 
          * @static 
          */ 
         public static function setConnection($connection)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         return $instance->setConnection($connection);
         }
                     /**
@@ -12085,7 +12154,7 @@
          */ 
         public static function blueprintResolver($resolver)
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
-                        /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
+                        /** @var \MStaack\LaravelPostgis\Schema\Builder $instance */
                         $instance->blueprintResolver($resolver);
         }
          
@@ -13943,6 +14012,20 @@
                     /**
          * Get the evaluated view contents for the given view.
          *
+         * @param string $view
+         * @param array $data
+         * @param array $mergeData
+         * @return \Illuminate\Contracts\View\View|string|\View 
+         * @static 
+         */ 
+        public static function make($view, $data = [], $mergeData = [])
+        {
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
+                        return $instance->make($view, $data, $mergeData);
+        }
+                    /**
+         * Get the evaluated view contents for the given view.
+         *
          * @param string $path
          * @param \Illuminate\Contracts\Support\Arrayable|array $data
          * @param array $mergeData
@@ -13950,23 +14033,9 @@
          * @static 
          */ 
         public static function file($path, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->file($path, $data, $mergeData);
-        }
-                    /**
-         * Get the evaluated view contents for the given view.
-         *
-         * @param string $view
-         * @param \Illuminate\Contracts\Support\Arrayable|array $data
-         * @param array $mergeData
-         * @return \Illuminate\Contracts\View\View 
-         * @static 
-         */ 
-        public static function make($view, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
-                        return $instance->make($view, $data, $mergeData);
         }
                     /**
          * Get the first view that actually exists from the given list.
@@ -13979,8 +14048,8 @@
          * @static 
          */ 
         public static function first($views, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->first($views, $data, $mergeData);
         }
                     /**
@@ -13994,8 +14063,8 @@
          * @static 
          */ 
         public static function renderWhen($condition, $view, $data = [], $mergeData = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderWhen($condition, $view, $data, $mergeData);
         }
                     /**
@@ -14009,8 +14078,8 @@
          * @static 
          */ 
         public static function renderEach($view, $data, $iterator, $empty = 'raw|')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderEach($view, $data, $iterator, $empty);
         }
                     /**
@@ -14021,8 +14090,8 @@
          * @static 
          */ 
         public static function exists($view)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->exists($view);
         }
                     /**
@@ -14034,8 +14103,8 @@
          * @static 
          */ 
         public static function getEngineFromPath($path)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getEngineFromPath($path);
         }
                     /**
@@ -14047,8 +14116,8 @@
          * @static 
          */ 
         public static function share($key, $value = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->share($key, $value);
         }
                     /**
@@ -14058,8 +14127,8 @@
          * @static 
          */ 
         public static function incrementRender()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->incrementRender();
         }
                     /**
@@ -14069,8 +14138,8 @@
          * @static 
          */ 
         public static function decrementRender()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->decrementRender();
         }
                     /**
@@ -14080,8 +14149,8 @@
          * @static 
          */ 
         public static function doneRendering()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->doneRendering();
         }
                     /**
@@ -14092,8 +14161,8 @@
          * @static 
          */ 
         public static function hasRenderedOnce($id)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->hasRenderedOnce($id);
         }
                     /**
@@ -14104,8 +14173,8 @@
          * @static 
          */ 
         public static function markAsRenderedOnce($id)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->markAsRenderedOnce($id);
         }
                     /**
@@ -14116,8 +14185,8 @@
          * @static 
          */ 
         public static function addLocation($location)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->addLocation($location);
         }
                     /**
@@ -14125,12 +14194,12 @@
          *
          * @param string $namespace
          * @param string|array $hints
-         * @return \Illuminate\View\Factory 
+         * @return \Webwizo\Shortcodes\View\Factory 
          * @static 
          */ 
         public static function addNamespace($namespace, $hints)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->addNamespace($namespace, $hints);
         }
                     /**
@@ -14138,12 +14207,12 @@
          *
          * @param string $namespace
          * @param string|array $hints
-         * @return \Illuminate\View\Factory 
+         * @return \Webwizo\Shortcodes\View\Factory 
          * @static 
          */ 
         public static function prependNamespace($namespace, $hints)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->prependNamespace($namespace, $hints);
         }
                     /**
@@ -14151,12 +14220,12 @@
          *
          * @param string $namespace
          * @param string|array $hints
-         * @return \Illuminate\View\Factory 
+         * @return \Webwizo\Shortcodes\View\Factory 
          * @static 
          */ 
         public static function replaceNamespace($namespace, $hints)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->replaceNamespace($namespace, $hints);
         }
                     /**
@@ -14169,8 +14238,8 @@
          * @static 
          */ 
         public static function addExtension($extension, $engine, $resolver = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->addExtension($extension, $engine, $resolver);
         }
                     /**
@@ -14180,8 +14249,8 @@
          * @static 
          */ 
         public static function flushState()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushState();
         }
                     /**
@@ -14191,8 +14260,8 @@
          * @static 
          */ 
         public static function flushStateIfDoneRendering()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushStateIfDoneRendering();
         }
                     /**
@@ -14202,8 +14271,8 @@
          * @static 
          */ 
         public static function getExtensions()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getExtensions();
         }
                     /**
@@ -14213,8 +14282,8 @@
          * @static 
          */ 
         public static function getEngineResolver()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getEngineResolver();
         }
                     /**
@@ -14224,8 +14293,8 @@
          * @static 
          */ 
         public static function getFinder()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getFinder();
         }
                     /**
@@ -14236,8 +14305,8 @@
          * @static 
          */ 
         public static function setFinder($finder)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->setFinder($finder);
         }
                     /**
@@ -14247,8 +14316,8 @@
          * @static 
          */ 
         public static function flushFinderCache()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushFinderCache();
         }
                     /**
@@ -14258,8 +14327,8 @@
          * @static 
          */ 
         public static function getDispatcher()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getDispatcher();
         }
                     /**
@@ -14270,8 +14339,8 @@
          * @static 
          */ 
         public static function setDispatcher($events)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->setDispatcher($events);
         }
                     /**
@@ -14281,8 +14350,8 @@
          * @static 
          */ 
         public static function getContainer()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getContainer();
         }
                     /**
@@ -14293,8 +14362,8 @@
          * @static 
          */ 
         public static function setContainer($container)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->setContainer($container);
         }
                     /**
@@ -14306,8 +14375,8 @@
          * @static 
          */ 
         public static function shared($key, $default = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->shared($key, $default);
         }
                     /**
@@ -14317,8 +14386,8 @@
          * @static 
          */ 
         public static function getShared()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getShared();
         }
                     /**
@@ -14330,8 +14399,8 @@
          * @static 
          */ 
         public static function macro($name, $macro)
-        {
-                        \Illuminate\View\Factory::macro($name, $macro);
+        {            //Method inherited from \Illuminate\View\Factory         
+                        \Webwizo\Shortcodes\View\Factory::macro($name, $macro);
         }
                     /**
          * Mix another object into the class.
@@ -14343,8 +14412,8 @@
          * @static 
          */ 
         public static function mixin($mixin, $replace = true)
-        {
-                        \Illuminate\View\Factory::mixin($mixin, $replace);
+        {            //Method inherited from \Illuminate\View\Factory         
+                        \Webwizo\Shortcodes\View\Factory::mixin($mixin, $replace);
         }
                     /**
          * Checks if macro is registered.
@@ -14354,8 +14423,8 @@
          * @static 
          */ 
         public static function hasMacro($name)
-        {
-                        return \Illuminate\View\Factory::hasMacro($name);
+        {            //Method inherited from \Illuminate\View\Factory         
+                        return \Webwizo\Shortcodes\View\Factory::hasMacro($name);
         }
                     /**
          * Start a component rendering process.
@@ -14366,8 +14435,8 @@
          * @static 
          */ 
         public static function startComponent($view, $data = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startComponent($view, $data);
         }
                     /**
@@ -14379,8 +14448,8 @@
          * @static 
          */ 
         public static function startComponentFirst($names, $data = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startComponentFirst($names, $data);
         }
                     /**
@@ -14390,8 +14459,8 @@
          * @static 
          */ 
         public static function renderComponent()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderComponent();
         }
                     /**
@@ -14403,8 +14472,8 @@
          * @static 
          */ 
         public static function slot($name, $content = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->slot($name, $content);
         }
                     /**
@@ -14414,8 +14483,8 @@
          * @static 
          */ 
         public static function endSlot()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->endSlot();
         }
                     /**
@@ -14427,8 +14496,8 @@
          * @static 
          */ 
         public static function creator($views, $callback)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->creator($views, $callback);
         }
                     /**
@@ -14439,8 +14508,8 @@
          * @static 
          */ 
         public static function composers($composers)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->composers($composers);
         }
                     /**
@@ -14452,8 +14521,8 @@
          * @static 
          */ 
         public static function composer($views, $callback)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->composer($views, $callback);
         }
                     /**
@@ -14464,8 +14533,8 @@
          * @static 
          */ 
         public static function callComposer($view)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->callComposer($view);
         }
                     /**
@@ -14476,8 +14545,8 @@
          * @static 
          */ 
         public static function callCreator($view)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->callCreator($view);
         }
                     /**
@@ -14489,8 +14558,8 @@
          * @static 
          */ 
         public static function startSection($section, $content = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startSection($section, $content);
         }
                     /**
@@ -14502,8 +14571,8 @@
          * @static 
          */ 
         public static function inject($section, $content)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->inject($section, $content);
         }
                     /**
@@ -14513,8 +14582,8 @@
          * @static 
          */ 
         public static function yieldSection()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->yieldSection();
         }
                     /**
@@ -14526,8 +14595,8 @@
          * @static 
          */ 
         public static function stopSection($overwrite = false)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->stopSection($overwrite);
         }
                     /**
@@ -14538,8 +14607,8 @@
          * @static 
          */ 
         public static function appendSection()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->appendSection();
         }
                     /**
@@ -14551,8 +14620,8 @@
          * @static 
          */ 
         public static function yieldContent($section, $default = '')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->yieldContent($section, $default);
         }
                     /**
@@ -14563,8 +14632,8 @@
          * @static 
          */ 
         public static function parentPlaceholder($section = '')
-        {
-                        return \Illuminate\View\Factory::parentPlaceholder($section);
+        {            //Method inherited from \Illuminate\View\Factory         
+                        return \Webwizo\Shortcodes\View\Factory::parentPlaceholder($section);
         }
                     /**
          * Check if the section exists.
@@ -14574,8 +14643,8 @@
          * @static 
          */ 
         public static function hasSection($name)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->hasSection($name);
         }
                     /**
@@ -14586,8 +14655,8 @@
          * @static 
          */ 
         public static function sectionMissing($name)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->sectionMissing($name);
         }
                     /**
@@ -14599,8 +14668,8 @@
          * @static 
          */ 
         public static function getSection($name, $default = null)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getSection($name, $default);
         }
                     /**
@@ -14610,8 +14679,8 @@
          * @static 
          */ 
         public static function getSections()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getSections();
         }
                     /**
@@ -14621,8 +14690,8 @@
          * @static 
          */ 
         public static function flushSections()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushSections();
         }
                     /**
@@ -14633,8 +14702,8 @@
          * @static 
          */ 
         public static function addLoop($data)
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->addLoop($data);
         }
                     /**
@@ -14644,8 +14713,8 @@
          * @static 
          */ 
         public static function incrementLoopIndices()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->incrementLoopIndices();
         }
                     /**
@@ -14655,8 +14724,8 @@
          * @static 
          */ 
         public static function popLoop()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->popLoop();
         }
                     /**
@@ -14666,8 +14735,8 @@
          * @static 
          */ 
         public static function getLastLoop()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getLastLoop();
         }
                     /**
@@ -14677,8 +14746,8 @@
          * @static 
          */ 
         public static function getLoopStack()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->getLoopStack();
         }
                     /**
@@ -14690,8 +14759,8 @@
          * @static 
          */ 
         public static function startPush($section, $content = '')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startPush($section, $content);
         }
                     /**
@@ -14702,8 +14771,8 @@
          * @static 
          */ 
         public static function stopPush()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->stopPush();
         }
                     /**
@@ -14715,8 +14784,8 @@
          * @static 
          */ 
         public static function startPrepend($section, $content = '')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startPrepend($section, $content);
         }
                     /**
@@ -14727,8 +14796,8 @@
          * @static 
          */ 
         public static function stopPrepend()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->stopPrepend();
         }
                     /**
@@ -14740,8 +14809,8 @@
          * @static 
          */ 
         public static function yieldPushContent($section, $default = '')
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->yieldPushContent($section, $default);
         }
                     /**
@@ -14751,8 +14820,8 @@
          * @static 
          */ 
         public static function flushStacks()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->flushStacks();
         }
                     /**
@@ -14763,8 +14832,8 @@
          * @static 
          */ 
         public static function startTranslation($replacements = [])
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         $instance->startTranslation($replacements);
         }
                     /**
@@ -14774,8 +14843,8 @@
          * @static 
          */ 
         public static function renderTranslation()
-        {
-                        /** @var \Illuminate\View\Factory $instance */
+        {            //Method inherited from \Illuminate\View\Factory         
+                        /** @var \Webwizo\Shortcodes\View\Factory $instance */
                         return $instance->renderTranslation();
         }
          
@@ -14803,6 +14872,33 @@
      *
      */ 
         class Collection {
+                    /**
+         * 
+         *
+         * @see \Maatwebsite\Excel\Mixins\DownloadCollection::downloadExcel()
+         * @param string $fileName
+         * @param string|null $writerType
+         * @param mixed $withHeadings
+         * @static 
+         */ 
+        public static function downloadExcel($fileName, $writerType = null, $withHeadings = false)
+        {
+                        return \Illuminate\Support\Collection::downloadExcel($fileName, $writerType, $withHeadings);
+        }
+                    /**
+         * 
+         *
+         * @see \Maatwebsite\Excel\Mixins\StoreCollection::storeExcel()
+         * @param string $filePath
+         * @param string|null $disk
+         * @param string|null $writerType
+         * @param mixed $withHeadings
+         * @static 
+         */ 
+        public static function storeExcel($filePath, $disk = null, $writerType = null, $withHeadings = false)
+        {
+                        return \Illuminate\Support\Collection::storeExcel($filePath, $disk, $writerType, $withHeadings);
+        }
                     /**
          * 
          *
@@ -15053,6 +15149,70 @@
         {
                         /** @var \Facade\FlareClient\Flare $instance */
                         return $instance->group($groupName, $properties);
+        }
+         
+    }
+     
+}
+
+    namespace Intervention\Image\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Image {
+                    /**
+         * Overrides configuration settings
+         *
+         * @param array $config
+         * @return self 
+         * @static 
+         */ 
+        public static function configure($config = [])
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->configure($config);
+        }
+                    /**
+         * Initiates an Image instance from different input types
+         *
+         * @param mixed $data
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function make($data)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->make($data);
+        }
+                    /**
+         * Creates an empty image canvas
+         *
+         * @param int $width
+         * @param int $height
+         * @param mixed $background
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function canvas($width, $height, $background = null)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->canvas($width, $height, $background);
+        }
+                    /**
+         * Create new cached image and run callback
+         * (requires additional package intervention/imagecache)
+         *
+         * @param \Closure $callback
+         * @param int $lifetime
+         * @param boolean $returnObj
+         * @return \Image 
+         * @static 
+         */ 
+        public static function cache($callback, $lifetime = null, $returnObj = false)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->cache($callback, $lifetime, $returnObj);
         }
          
     }
@@ -15595,6 +15755,17 @@
      
 }
 
+    namespace KABBOUCHI\Ward { 
+            /**
+     * 
+     *
+     */ 
+        class Ward {
+         
+    }
+     
+}
+
     namespace Laravel\Nova { 
             /**
      * 
@@ -15966,6 +16137,961 @@
      
 }
 
+    namespace Maatwebsite\Excel\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Excel {
+                    /**
+         * 
+         *
+         * @param object $export
+         * @param string|null $fileName
+         * @param string $writerType
+         * @param array $headers
+         * @throws \PhpOffice\PhpSpreadsheet\Exception
+         * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+         * @return \Symfony\Component\HttpFoundation\BinaryFileResponse 
+         * @static 
+         */ 
+        public static function download($export, $fileName, $writerType = null, $headers = [])
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->download($export, $fileName, $writerType, $headers);
+        }
+                    /**
+         * 
+         *
+         * @param object $export
+         * @param string $filePath
+         * @param string|null $disk
+         * @param string $writerType
+         * @param mixed $diskOptions
+         * @throws \PhpOffice\PhpSpreadsheet\Exception
+         * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+         * @return bool 
+         * @static 
+         */ 
+        public static function store($export, $filePath, $diskName = null, $writerType = null, $diskOptions = [])
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->store($export, $filePath, $diskName, $writerType, $diskOptions);
+        }
+                    /**
+         * 
+         *
+         * @param object $export
+         * @param string $filePath
+         * @param string|null $disk
+         * @param string $writerType
+         * @param mixed $diskOptions
+         * @return \Illuminate\Foundation\Bus\PendingDispatch 
+         * @static 
+         */ 
+        public static function queue($export, $filePath, $disk = null, $writerType = null, $diskOptions = [])
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->queue($export, $filePath, $disk, $writerType, $diskOptions);
+        }
+                    /**
+         * 
+         *
+         * @param object $export
+         * @param string $writerType
+         * @return string 
+         * @static 
+         */ 
+        public static function raw($export, $writerType)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->raw($export, $writerType);
+        }
+                    /**
+         * 
+         *
+         * @param object $import
+         * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $filePath
+         * @param string|null $disk
+         * @param string|null $readerType
+         * @return \Maatwebsite\Excel\Reader|\Illuminate\Foundation\Bus\PendingDispatch 
+         * @static 
+         */ 
+        public static function import($import, $filePath, $disk = null, $readerType = null)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->import($import, $filePath, $disk, $readerType);
+        }
+                    /**
+         * 
+         *
+         * @param object $import
+         * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $filePath
+         * @param string|null $disk
+         * @param string|null $readerType
+         * @return array 
+         * @static 
+         */ 
+        public static function toArray($import, $filePath, $disk = null, $readerType = null)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->toArray($import, $filePath, $disk, $readerType);
+        }
+                    /**
+         * 
+         *
+         * @param object $import
+         * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $filePath
+         * @param string|null $disk
+         * @param string|null $readerType
+         * @return \Illuminate\Support\Collection 
+         * @static 
+         */ 
+        public static function toCollection($import, $filePath, $disk = null, $readerType = null)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->toCollection($import, $filePath, $disk, $readerType);
+        }
+                    /**
+         * 
+         *
+         * @param \Illuminate\Contracts\Queue\ShouldQueue $import
+         * @param string|\Symfony\Component\HttpFoundation\File\UploadedFile $filePath
+         * @param string|null $disk
+         * @param string $readerType
+         * @return \Illuminate\Foundation\Bus\PendingDispatch 
+         * @static 
+         */ 
+        public static function queueImport($import, $filePath, $disk = null, $readerType = null)
+        {
+                        /** @var \Maatwebsite\Excel\Excel $instance */
+                        return $instance->queueImport($import, $filePath, $disk, $readerType);
+        }
+                    /**
+         * 
+         *
+         * @param string $concern
+         * @param callable $handler
+         * @param string $event
+         * @static 
+         */ 
+        public static function extend($concern, $handler, $event = 'Maatwebsite\\Excel\\Events\\BeforeWriting')
+        {
+                        return \Maatwebsite\Excel\Excel::extend($concern, $handler, $event);
+        }
+                    /**
+         * When asserting downloaded, stored, queued or imported, use regular expression
+         * to look for a matching file path.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function matchByRegex()
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        $instance->matchByRegex();
+        }
+                    /**
+         * When asserting downloaded, stored, queued or imported, use regular string
+         * comparison for matching file path.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function doNotMatchByRegex()
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        $instance->doNotMatchByRegex();
+        }
+                    /**
+         * 
+         *
+         * @param string $fileName
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertDownloaded($fileName, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertDownloaded($fileName, $callback);
+        }
+                    /**
+         * 
+         *
+         * @param string $filePath
+         * @param string|callable|null $disk
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertStored($filePath, $disk = null, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertStored($filePath, $disk, $callback);
+        }
+                    /**
+         * 
+         *
+         * @param string $filePath
+         * @param string|callable|null $disk
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertQueued($filePath, $disk = null, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertQueued($filePath, $disk, $callback);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function assertQueuedWithChain($chain)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertQueuedWithChain($chain);
+        }
+                    /**
+         * 
+         *
+         * @param string $filePath
+         * @param string|callable|null $disk
+         * @param callable|null $callback
+         * @static 
+         */ 
+        public static function assertImported($filePath, $disk = null, $callback = null)
+        {
+                        /** @var \Maatwebsite\Excel\Fakes\ExcelFake $instance */
+                        return $instance->assertImported($filePath, $disk, $callback);
+        }
+         
+    }
+     
+}
+
+    namespace Nwidart\Modules\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Module {
+                    /**
+         * Add other module location.
+         *
+         * @param string $path
+         * @return \Nwidart\Modules\Laravel\LaravelFileRepository 
+         * @static 
+         */ 
+        public static function addLocation($path)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->addLocation($path);
+        }
+                    /**
+         * Get all additional paths.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getPaths()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getPaths();
+        }
+                    /**
+         * Get scanned modules paths.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getScanPaths()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getScanPaths();
+        }
+                    /**
+         * Get & scan all modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function scan()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->scan();
+        }
+                    /**
+         * Get all modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function all()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->all();
+        }
+                    /**
+         * Get cached modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getCached()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getCached();
+        }
+                    /**
+         * Get all modules as collection instance.
+         *
+         * @return \Nwidart\Modules\Collection 
+         * @static 
+         */ 
+        public static function toCollection()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->toCollection();
+        }
+                    /**
+         * Get modules by status.
+         *
+         * @param $status
+         * @return array 
+         * @static 
+         */ 
+        public static function getByStatus($status)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getByStatus($status);
+        }
+                    /**
+         * Determine whether the given module exist.
+         *
+         * @param $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->has($name);
+        }
+                    /**
+         * Get list of enabled modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function allEnabled()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->allEnabled();
+        }
+                    /**
+         * Get list of disabled modules.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function allDisabled()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->allDisabled();
+        }
+                    /**
+         * Get count from all modules.
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function count()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->count();
+        }
+                    /**
+         * Get all ordered modules.
+         *
+         * @param string $direction
+         * @return array 
+         * @static 
+         */ 
+        public static function getOrdered($direction = 'asc')
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getOrdered($direction);
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function getPath()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getPath();
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function register()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->register();
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function boot()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->boot();
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function find($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->find($name);
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function findByAlias($alias)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->findByAlias($alias);
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function findRequirements($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->findRequirements($name);
+        }
+                    /**
+         * Find a specific module, if there return that, otherwise throw exception.
+         *
+         * @param $name
+         * @return \Module 
+         * @throws ModuleNotFoundException
+         * @static 
+         */ 
+        public static function findOrFail($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->findOrFail($name);
+        }
+                    /**
+         * Get all modules as laravel collection instance.
+         *
+         * @param $status
+         * @return \Nwidart\Modules\Collection 
+         * @static 
+         */ 
+        public static function collections($status = 1)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->collections($status);
+        }
+                    /**
+         * Get module path for a specific module.
+         *
+         * @param $module
+         * @return string 
+         * @static 
+         */ 
+        public static function getModulePath($module)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getModulePath($module);
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function assetPath($module)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->assetPath($module);
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function config($key, $default = null)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->config($key, $default);
+        }
+                    /**
+         * Get storage path for module used.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getUsedStoragePath()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getUsedStoragePath();
+        }
+                    /**
+         * Set module used for cli session.
+         *
+         * @param $name
+         * @throws ModuleNotFoundException
+         * @static 
+         */ 
+        public static function setUsed($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->setUsed($name);
+        }
+                    /**
+         * Forget the module used for cli session.
+         *
+         * @static 
+         */ 
+        public static function forgetUsed()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->forgetUsed();
+        }
+                    /**
+         * Get module used for cli session.
+         *
+         * @return string 
+         * @throws \Nwidart\Modules\Exceptions\ModuleNotFoundException
+         * @static 
+         */ 
+        public static function getUsedNow()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getUsedNow();
+        }
+                    /**
+         * Get laravel filesystem instance.
+         *
+         * @return \Nwidart\Modules\Filesystem 
+         * @static 
+         */ 
+        public static function getFiles()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getFiles();
+        }
+                    /**
+         * Get module assets path.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getAssetsPath()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getAssetsPath();
+        }
+                    /**
+         * Get asset url from a specific module.
+         *
+         * @param string $asset
+         * @return string 
+         * @throws InvalidAssetPath
+         * @static 
+         */ 
+        public static function asset($asset)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->asset($asset);
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function isEnabled($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->isEnabled($name);
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function isDisabled($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->isDisabled($name);
+        }
+                    /**
+         * Enabling a specific module.
+         *
+         * @param string $name
+         * @return void 
+         * @throws \Nwidart\Modules\Exceptions\ModuleNotFoundException
+         * @static 
+         */ 
+        public static function enable($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        $instance->enable($name);
+        }
+                    /**
+         * Disabling a specific module.
+         *
+         * @param string $name
+         * @return void 
+         * @throws \Nwidart\Modules\Exceptions\ModuleNotFoundException
+         * @static 
+         */ 
+        public static function disable($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        $instance->disable($name);
+        }
+                    /**
+         * 
+         *
+         * @inheritDoc 
+         * @static 
+         */ 
+        public static function delete($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->delete($name);
+        }
+                    /**
+         * Update dependencies for the specified module.
+         *
+         * @param string $module
+         * @static 
+         */ 
+        public static function update($module)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->update($module);
+        }
+                    /**
+         * Install the specified module.
+         *
+         * @param string $name
+         * @param string $version
+         * @param string $type
+         * @param bool $subtree
+         * @return \Symfony\Component\Process\Process 
+         * @static 
+         */ 
+        public static function install($name, $version = 'dev-master', $type = 'composer', $subtree = false)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->install($name, $version, $type, $subtree);
+        }
+                    /**
+         * Get stub path.
+         *
+         * @return string|null 
+         * @static 
+         */ 
+        public static function getStubPath()
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->getStubPath();
+        }
+                    /**
+         * Set stub path.
+         *
+         * @param string $stubPath
+         * @return \Nwidart\Modules\Laravel\LaravelFileRepository 
+         * @static 
+         */ 
+        public static function setStubPath($stubPath)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        /** @var \Nwidart\Modules\Laravel\LaravelFileRepository $instance */
+                        return $instance->setStubPath($stubPath);
+        }
+                    /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        \Nwidart\Modules\Laravel\LaravelFileRepository::macro($name, $macro);
+        }
+                    /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        \Nwidart\Modules\Laravel\LaravelFileRepository::mixin($mixin, $replace);
+        }
+                    /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {            //Method inherited from \Nwidart\Modules\FileRepository         
+                        return \Nwidart\Modules\Laravel\LaravelFileRepository::hasMacro($name);
+        }
+         
+    }
+     
+}
+
+    namespace TorMorten\Eventy\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Events {
+                    /**
+         * Get the action instance.
+         *
+         * @return \TorMorten\Eventy\TorMorten\Events\Action 
+         * @static 
+         */ 
+        public static function getAction()
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        return $instance->getAction();
+        }
+                    /**
+         * Get the action instance.
+         *
+         * @return \TorMorten\Eventy\TorMorten\Events\Filter 
+         * @static 
+         */ 
+        public static function getFilter()
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        return $instance->getFilter();
+        }
+                    /**
+         * Add an action.
+         *
+         * @param string $hook Hook name
+         * @param mixed $callback Function to execute
+         * @param int $priority Priority of the action
+         * @param int $arguments Number of arguments to accept
+         * @static 
+         */ 
+        public static function addAction($hook, $callback, $priority = 20, $arguments = 1)
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        return $instance->addAction($hook, $callback, $priority, $arguments);
+        }
+                    /**
+         * Remove an action.
+         *
+         * @param string $hook Hook name
+         * @param mixed $callback Function to execute
+         * @param int $priority Priority of the action
+         * @static 
+         */ 
+        public static function removeAction($hook, $callback, $priority = 20)
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        return $instance->removeAction($hook, $callback, $priority);
+        }
+                    /**
+         * Remove all actions.
+         *
+         * @param string $hook Hook name
+         * @static 
+         */ 
+        public static function removeAllActions($hook = null)
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        return $instance->removeAllActions($hook);
+        }
+                    /**
+         * Adds a filter.
+         *
+         * @param string $hook Hook name
+         * @param mixed $callback Function to execute
+         * @param int $priority Priority of the action
+         * @param int $arguments Number of arguments to accept
+         * @static 
+         */ 
+        public static function addFilter($hook, $callback, $priority = 20, $arguments = 1)
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        return $instance->addFilter($hook, $callback, $priority, $arguments);
+        }
+                    /**
+         * Remove a filter.
+         *
+         * @param string $hook Hook name
+         * @param mixed $callback Function to execute
+         * @param int $priority Priority of the action
+         * @static 
+         */ 
+        public static function removeFilter($hook, $callback, $priority = 20)
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        return $instance->removeFilter($hook, $callback, $priority);
+        }
+                    /**
+         * Remove all filters.
+         *
+         * @param string $hook Hook name
+         * @static 
+         */ 
+        public static function removeAllFilters($hook = null)
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        return $instance->removeAllFilters($hook);
+        }
+                    /**
+         * Set a new action.
+         * 
+         * Actions never return anything. It is merely a way of executing code at a specific time in your code.
+         * 
+         * You can add as many parameters as you'd like.
+         *
+         * @param string $action Name of hook
+         * @param mixed $parameter1 A parameter
+         * @param mixed $parameter2 Another parameter
+         * @return void 
+         * @static 
+         */ 
+        public static function action()
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        $instance->action();
+        }
+                    /**
+         * Set a new filter.
+         * 
+         * Filters should always return something. The first parameter will always be the default value.
+         * 
+         * You can add as many parameters as you'd like.
+         *
+         * @param string $action Name of hook
+         * @param mixed $value The original filter value
+         * @param mixed $parameter1 A parameter
+         * @param mixed $parameter2 Another parameter
+         * @return void 
+         * @static 
+         */ 
+        public static function filter()
+        {
+                        /** @var \TorMorten\Eventy\Events $instance */
+                        $instance->filter();
+        }
+         
+    }
+     
+}
+
+    namespace Webwizo\Shortcodes\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Shortcode {
+                    /**
+         * Register a new shortcode
+         *
+         * @param string $name
+         * @param callable|string $callback
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function register($name, $callback)
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->register($name, $callback);
+        }
+                    /**
+         * Enable the laravel-shortcodes
+         *
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function enable()
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->enable();
+        }
+                    /**
+         * Disable the laravel-shortcodes
+         *
+         * @return \Webwizo\Shortcodes\Shortcode 
+         * @static 
+         */ 
+        public static function disable()
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->disable();
+        }
+                    /**
+         * Compile the given string
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function compile($value)
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->compile($value);
+        }
+                    /**
+         * Remove all shortcode tags from the given content.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function strip($value)
+        {
+                        /** @var \Webwizo\Shortcodes\Shortcode $instance */
+                        return $instance->strip($value);
+        }
+         
+    }
+     
+}
+
     namespace Illuminate\Http { 
             /**
      * 
@@ -16052,40 +17178,6 @@
      
 }
 
-    namespace Illuminate\Testing { 
-            /**
-     * 
-     *
-     * @mixin \Illuminate\Http\Response
-     */ 
-        class TestResponse {
-                    /**
-         * 
-         *
-         * @see \Livewire\LivewireServiceProvider::registerTestMacros()
-         * @param mixed $component
-         * @static 
-         */ 
-        public static function assertSeeLivewire($component)
-        {
-                        return \Illuminate\Testing\TestResponse::assertSeeLivewire($component);
-        }
-                    /**
-         * 
-         *
-         * @see \Livewire\LivewireServiceProvider::registerTestMacros()
-         * @param mixed $component
-         * @static 
-         */ 
-        public static function assertDontSeeLivewire($component)
-        {
-                        return \Illuminate\Testing\TestResponse::assertDontSeeLivewire($component);
-        }
-         
-    }
-     
-}
-
     namespace Illuminate\Routing { 
             /**
      * 
@@ -16093,6 +17185,16 @@
      * @mixin \Illuminate\Routing\RouteRegistrar
      */ 
         class Router {
+                    /**
+         * 
+         *
+         * @see \Lab404\Impersonate\ImpersonateServiceProvider::registerRoutesMacro()
+         * @static 
+         */ 
+        public static function impersonate()
+        {
+                        return \Illuminate\Routing\Router::impersonate();
+        }
                     /**
          * 
          *
@@ -16133,6 +17235,120 @@
         public static function emailVerification()
         {
                         return \Illuminate\Routing\Router::emailVerification();
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class Route {
+                    /**
+         * 
+         *
+         * @see \Spatie\Permission\PermissionServiceProvider::registerMacroHelpers()
+         * @param mixed $roles
+         * @static 
+         */ 
+        public static function role($roles = [])
+        {
+                        return \Illuminate\Routing\Route::role($roles);
+        }
+                    /**
+         * 
+         *
+         * @see \Spatie\Permission\PermissionServiceProvider::registerMacroHelpers()
+         * @param mixed $permissions
+         * @static 
+         */ 
+        public static function permission($permissions = [])
+        {
+                        return \Illuminate\Routing\Route::permission($permissions);
+        }
+         
+    }
+     
+}
+
+    namespace Illuminate\Testing { 
+            /**
+     * 
+     *
+     * @mixin \Illuminate\Http\Response
+     */ 
+        class TestResponse {
+                    /**
+         * 
+         *
+         * @see \Livewire\LivewireServiceProvider::registerTestMacros()
+         * @param mixed $component
+         * @static 
+         */ 
+        public static function assertSeeLivewire($component)
+        {
+                        return \Illuminate\Testing\TestResponse::assertSeeLivewire($component);
+        }
+                    /**
+         * 
+         *
+         * @see \Livewire\LivewireServiceProvider::registerTestMacros()
+         * @param mixed $component
+         * @static 
+         */ 
+        public static function assertDontSeeLivewire($component)
+        {
+                        return \Illuminate\Testing\TestResponse::assertDontSeeLivewire($component);
+        }
+         
+    }
+     
+}
+
+    namespace Illuminate\Database\Schema { 
+            /**
+     * 
+     *
+     */ 
+        class Blueprint {
+                    /**
+         * 
+         *
+         * @see \Yajra\Auditable\AuditableServiceProvider::register()
+         * @static 
+         */ 
+        public static function auditable()
+        {
+                        return \Illuminate\Database\Schema\Blueprint::auditable();
+        }
+                    /**
+         * 
+         *
+         * @see \Yajra\Auditable\AuditableServiceProvider::register()
+         * @static 
+         */ 
+        public static function dropAuditable()
+        {
+                        return \Illuminate\Database\Schema\Blueprint::dropAuditable();
+        }
+                    /**
+         * 
+         *
+         * @see \Yajra\Auditable\AuditableServiceProvider::register()
+         * @static 
+         */ 
+        public static function auditableWithDeletes()
+        {
+                        return \Illuminate\Database\Schema\Blueprint::auditableWithDeletes();
+        }
+                    /**
+         * 
+         *
+         * @see \Yajra\Auditable\AuditableServiceProvider::register()
+         * @static 
+         */ 
+        public static function dropAuditableWithDeletes()
+        {
+                        return \Illuminate\Database\Schema\Blueprint::dropAuditableWithDeletes();
         }
          
     }
@@ -19371,10 +20587,16 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
+            class Image extends \Intervention\Image\Facades\Image {}
             class Agent extends \Jenssegers\Agent\Facades\Agent {}
+            class Ward extends \KABBOUCHI\Ward\Ward {}
             class Nova extends \Laravel\Nova\Nova {}
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Livewire extends \Livewire\Livewire {}
+            class Excel extends \Maatwebsite\Excel\Facades\Excel {}
+            class Module extends \Nwidart\Modules\Facades\Module {}
+            class Eventy extends \TorMorten\Eventy\Facades\Events {}
+            class Shortcode extends \Webwizo\Shortcodes\Facades\Shortcode {}
      
 }
 

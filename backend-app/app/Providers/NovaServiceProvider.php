@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Gate;
-use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -77,9 +77,15 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [
-            new \Mastani\NovaPasswordReset\NovaPasswordReset,
+        $tools = [
+            (new \Mastani\NovaPasswordReset\NovaPasswordReset)->canSeeWhen('users.change-password', User::class),
+            (new \Vyuldashev\NovaPermission\NovaPermissionTool)
+                ->roleResource(\Larabase\Nova\Resources\Role::class)
+                ->permissionResource(\Larabase\Nova\Resources\Permission::class),
+            (new \Infinety\Filemanager\FilemanagerTool)->canSeeWhen('filemanager', User::class),
         ];
+
+        return $tools;
     }
 
     /**

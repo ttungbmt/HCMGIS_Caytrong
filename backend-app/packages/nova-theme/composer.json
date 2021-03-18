@@ -1,0 +1,30 @@
+{
+    "name": "larabase/nova-theme",
+    "description": "A Laravel Nova theme.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "gregoriohc/laravel-nova-theme-responsive": "^0.8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Larabase\\Nova\\Theme\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Larabase\\Nova\\Theme\\ThemeServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

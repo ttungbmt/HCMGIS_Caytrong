@@ -1,0 +1,51 @@
+{
+  "name": "larabase/base",
+  "description": "A wonderful administration interface for Laravel.",
+  "keywords": [
+    "laravel",
+    "admin"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Truong Thanh Tung",
+      "email": "ttungbmt@gmail.com"
+    }
+  ],
+  "require": {
+      "laravel/jetstream": "^2.2",
+      "joelbutcher/socialstream": "^2.4",
+      "laravel/sanctum": "^2.6",
+      "livewire/livewire": "^2.0",
+      "nwidart/laravel-modules": "^8.2",
+      "webwizo/laravel-shortcodes": "^1.0",
+      "mstaack/laravel-postgis": "^5.2",
+      "yajra/laravel-auditable": "^4.3",
+      "owen-it/laravel-auditing": "^12.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Larabase\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Larabase\\Providers\\AppServiceProvider",
+        "Larabase\\Providers\\ShortcodeServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ttungbmt/larabase"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "version": "0.0.1"
+}
