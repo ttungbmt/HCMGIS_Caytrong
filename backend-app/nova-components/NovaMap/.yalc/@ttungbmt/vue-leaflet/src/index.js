@@ -1,4 +1,4 @@
-import { LMap, LMarker, LCircle, LGeoJson, LWMSTileLayer, LFeatureGroup } from 'vue2-leaflet'
+import { LMap, LMarker, LCircle, LGeoJson, LWMSTileLayer, LFeatureGroup, LControlZoom } from 'vue2-leaflet'
 import LDrawToolbar from 'vue2-leaflet-draw-toolbar'
 
 import 'leaflet-boundary-canvas'
@@ -29,6 +29,7 @@ export default {
         Vue.component('l-control-legend', LControlLegend);
         Vue.component('l-control-print', LControlPrint);
         Vue.component('l-control-fullscreen', LControlFullscreen);
+        Vue.component('l-control-zoom', LControlZoom);
 
         Vue.component('l-manager', LManager);
         Vue.component('l-popup-content', LPopupContent);

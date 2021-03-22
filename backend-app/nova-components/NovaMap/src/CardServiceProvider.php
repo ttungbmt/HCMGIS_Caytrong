@@ -28,6 +28,8 @@ class CardServiceProvider extends ServiceProvider
             Nova::script('nova-map', __DIR__.'/../dist/js/card.js');
             Nova::style('nova-map', __DIR__.'/../dist/css/card.css');
         });
+
+        $this->publishes([__DIR__ . '/../dist/images' => public_path('images')], 'nova-map-public');
     }
 
     /**

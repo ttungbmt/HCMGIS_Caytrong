@@ -221,10 +221,10 @@ var script$5 = {
     var options = vue2Leaflet.optionsMerger(Object.assign({}, this.controlOptions, {
       content: this.content
     }), this);
-    console.log(options);
     this.mapObject = leaflet.control.fullscreen(options);
     vue2Leaflet.propsBinder(this, this.mapObject, this.$options.props);
-    this.mapObject.addTo(this.$parent.mapObject);
+    this.parentContainer = vue2Leaflet.findRealParent(this.$parent);
+    this.mapObject.addTo(this.parentContainer.mapObject);
     this.$nextTick(function () {
       /**
        * Triggers when the component is ready
@@ -708,6 +708,7 @@ var index = {
     Vue.component('l-control-legend', __vue_component__$7);
     Vue.component('l-control-print', __vue_component__$6);
     Vue.component('l-control-fullscreen', __vue_component__$5);
+    Vue.component('l-control-zoom', vue2Leaflet.LControlZoom);
     Vue.component('l-manager', __vue_component__$2);
     Vue.component('l-popup-content', __vue_component__);
   }

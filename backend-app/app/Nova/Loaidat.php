@@ -11,6 +11,10 @@ use Timothyasp\Color\Color;
 
 class Loaidat extends Resource
 {
+    public static $displayInNavigation = false;
+
+    public static $globallySearchable = false;
+
     /**
      * The model the resource corresponds to.
      *

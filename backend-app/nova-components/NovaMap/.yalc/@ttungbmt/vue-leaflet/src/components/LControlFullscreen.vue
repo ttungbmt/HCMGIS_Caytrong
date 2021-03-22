@@ -1,5 +1,5 @@
 <script>
-	import { optionsMerger, propsBinder, ControlMixin, OptionsMixin } from 'vue2-leaflet';
+	import { optionsMerger, propsBinder, ControlMixin, OptionsMixin, findRealParent } from 'vue2-leaflet';
 	import { control } from 'leaflet';
 	import 'leaflet.fullscreen'
 	import 'leaflet.fullscreen/Control.FullScreen.css'
@@ -23,10 +23,10 @@
 		},
 		mounted() {
 			const options = optionsMerger({ ...this.controlOptions, content: this.content}, this);
-			console.log(options)
 			this.mapObject = control.fullscreen(options);
 			propsBinder(this, this.mapObject, this.$options.props);
-			this.mapObject.addTo(this.$parent.mapObject);
+            this.parentContainer = findRealParent(this.$parent);
+			this.mapObject.addTo(this.parentContainer.mapObject);
 			this.$nextTick(() => {
 				/**
 				 * Triggers when the component is ready

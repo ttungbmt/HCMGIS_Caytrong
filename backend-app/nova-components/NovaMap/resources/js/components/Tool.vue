@@ -37,6 +37,12 @@
                     layers: {
                         position: 'topright',
                         autoZIndex: false
+                    },
+                    // zoom: {
+                    //     position: 'bottomright',
+                    // },
+                    fullscreen: {
+                        position: 'bottomright',
                     }
                 },
                 layers: []
@@ -83,7 +89,7 @@
             handleResizeCard() {
                 let hContent = document.querySelector('.content').clientHeight,
                     hHeader = document.querySelector('.h-header').clientHeight,
-                    subSize = 140 * (701 / hContent)
+                    subSize = 90 * (701 / hContent)
 
                 this.style.height = (hContent - hHeader - subSize) + 'px'
             },
