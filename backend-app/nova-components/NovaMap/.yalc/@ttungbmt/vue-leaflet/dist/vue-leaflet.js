@@ -285,8 +285,9 @@ var script$4 = {
     var _this = this;
 
     var options = vue2Leaflet.optionsMerger(this.tileLayerOptions, this);
-    this.mapObject = this.$attrs.boundary ? leaflet.TileLayer.BoundaryCanvas.createFromLayer(this.tileLayerClass(this.url, options), {
-      boundary: this.$attrs.boundary,
+    var boundary = this.$attrs.boundary || options.boundary;
+    this.mapObject = boundary ? leaflet.TileLayer.BoundaryCanvas.createFromLayer(this.tileLayerClass(this.url, options), {
+      boundary: boundary,
       trackAttribution: true
     }) : this.tileLayerClass(this.url, options);
     leaflet.DomEvent.on(this.mapObject, this.$listeners);

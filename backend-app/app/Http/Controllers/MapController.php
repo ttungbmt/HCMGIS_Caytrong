@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\Helper;
 use Illuminate\Http\Request;
 
 class MapController extends Controller
@@ -37,7 +38,8 @@ class MapController extends Controller
                 'control' => 'overlay',
                 'type' => 'wms',
                 'title' => 'Ranh phường xã',
-                'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:hc_phuong']
+                'active' => true,
+                'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:hc_phuong', 'zIndex' => 100]
             ],
             [
                 'control' => 'overlay',
@@ -50,7 +52,7 @@ class MapController extends Controller
                     'options' => ['minWidth' => 200],
                     'actions' => [
                         ['type' => 'modal', 'title' => 'Chi tiết', 'url' => '/api/map/popup/nongho/modal'],
-                        ['type' => 'link', 'title' => 'Liên kết'],
+                        ['type' => 'link', 'title' => 'Liên kết', 'url' => '/nova/resources/nonghos/{id}'],
                     ]
                 ]
             ],
@@ -62,13 +64,18 @@ class MapController extends Controller
                 'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:v_ranhthua', 'zIndex' => 40],
                 'popup' => [
                     'url' => '/api/map/popup/thuadat',
-                    'options' => ['minWidth' => 320]
+                    'options' => ['minWidth' => 320],
+                    'actions' => [
+                        ['type' => 'link', 'title' => 'Liên kết', 'url' => '/nova/resources/ranhthuas/{id}'],
+                    ]
                 ]
             ],
         ];
 
         return [
-            'layers' => $layers
+            'layers' => $layers,
+            'extent' => Helper::getTpExtent(),
+            'boundary' => Helper::getTpBoundary()
         ];
     }
 

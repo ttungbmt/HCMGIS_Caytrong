@@ -3,6 +3,7 @@
 return [
     'prompt_qh' => 'Chọn quận huyện',
     'prompt_px' => 'Chọn phường xã',
+    'thuadats' => 'Thửa đất',
     'ghichu' => 'Ghi chú',
     'ten' => 'Tên',
     'quan' => 'Quận huyện',

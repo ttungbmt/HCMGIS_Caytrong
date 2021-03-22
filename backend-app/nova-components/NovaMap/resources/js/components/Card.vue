@@ -11,6 +11,7 @@
 <script>
     import FeatureInfo from './FeatureInfo'
     import { nanoid } from 'nanoid'
+    import {getBounds} from '@ttungbmt/vue-leaflet-helper'
 
     export default {
         props: [
@@ -26,6 +27,7 @@
                 mapOptions: {
                     zoom: 11,
                     center: [10.240095, 106.373147],
+                    bounds: [],
                     options: {
                         zoomControl: false
                     }
@@ -48,7 +50,12 @@
             fetchConfig() {
                 this.loading = true
                 Nova.request().get(this.card.configUrl).then(({data}) => {
-                    this.layers = data.layers.map(layer => ({id: nanoid(), ...layer}))
+                    this.layers = data.layers.map(layer => {
+                        if(layer.type === 'tile') layer.options.boundary = data.boundary
+                        return {id: nanoid(), ...layer}
+                    })
+
+                    this.mapOptions.bounds = getBounds(data.extent)
                     this.loading = false
                 })
             },

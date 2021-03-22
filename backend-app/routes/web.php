@@ -20,7 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/hello', function (){
-    Excel::import(new NonghoImport, 'tanphu.xlsx');
+    dd(\App\Support\Helper::getTpExtent());
+//    Excel::import(new NonghoImport, 'tanphu.xlsx');
    return ;
 });
 

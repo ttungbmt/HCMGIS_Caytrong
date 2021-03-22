@@ -3,6 +3,8 @@ namespace App\Support;
 
 use App\Models\HcPhuong;
 use App\Models\HcQuan;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Orlyapps\NovaBelongsToDepend\NovaBelongsToDepend;
 
 class Helper
@@ -31,5 +33,21 @@ class Helper
                     $model->{$attribute} = data_get(HcPhuong::find($request->input($requestAttribute)), 'maphuong');
                 }),
         ];
+    }
+
+    public static function getTpExtent(){
+        return Cache::remember('tp_extent', 31*24*3600, function () {
+            $data = DB::table('hc_quan')->selectRaw('ST_AsGeoJSON(Box2D(ST_Extent(geom))::geometry) as geometry')->first();
+            $geometry = data_get($data, 'geometry');
+            return json_decode($geometry, true) ;
+        });
+    }
+
+    public static function getTpBoundary(){
+        return Cache::remember('tp_boundary', 31*24*3600, function () {
+            $data = DB::table('hc_quan')->selectRaw('ST_AsGeoJSON(ST_Simplify(ST_Buffer(ST_Union(geom)::geography, 100)::geometry, 0.0001)) as geometry')->first();
+            $geometry = data_get($data, 'geometry');
+            return json_decode($geometry, true) ;
+        });
     }
 }

@@ -1,1 +1,10 @@
 @import "popup";
+
+.leaflet-container {
+  cursor: inherit;
+  background: white;
+
+  a {
+    text-decoration: none;
+  }
+}

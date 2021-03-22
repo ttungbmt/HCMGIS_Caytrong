@@ -10,4 +10,5 @@ mix.webpackConfig({
 mix
   .setPublicPath('dist')
   .js('resources/js/card.js', 'js')
+  .js('resources/js/tool.js', 'js')
   .sass('resources/sass/card.scss', 'css')

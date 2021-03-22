@@ -13,12 +13,12 @@
                 <div v-if="popup.config.actions" class="pop-actions flex">
                     <div v-for="(a, k) in popup.config.actions">
                         <div v-if="a.type === 'modal'" class="action-item p-1">
-                            <button @click="openModal(`modal-${k}`)" class="outline-none">{{a.title}}</button>
+                            <button @click="openModal(`modal-${k}`)" style="outline: none;">{{a.title}}</button>
                             <nv-modal :ref="`modal-${k}`" :request="{method: 'post', url: a.url, data: popup.data}">
                             </nv-modal>
                         </div>
                         <div v-if="a.type === 'link'" class="action-item p-1">
-                            <a :href="a.url" target="_blank">{{a.title}}</a>
+                            <a :href="urlTemplate(a.url, popup.data)" target="_blank" class="cursor-pointer">{{a.title}}</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    import {getUrlLayer} from '@ttungbmt/vue-leaflet-helper'
+    import {getUrlLayer, urlTemplate} from '@ttungbmt/vue-leaflet-helper'
     import Modal from './Modal'
     import _ from 'lodash-es'
 
@@ -51,6 +51,15 @@
                 loading: true,
             }
         },
+        watch: {
+            contentLoading(newVal){
+                if(newVal){
+                    document.querySelector('.leaflet-container').style.cursor = 'progress'
+                } else {
+                    document.querySelector('.leaflet-container').style.cursor = 'inherit'
+                }
+            }
+        },
         computed: {
             popup(){
                 return _.get(this.features, `${this.popupIndex}`, {})
@@ -60,6 +69,7 @@
             }
         },
         methods: {
+            urlTemplate,
             openModal(name) {
                 this.$refs[name][0].show()
             },
@@ -74,7 +84,7 @@
                 }
             },
             fetchFeatures(features, startIndex = 0){
-                this.contentloading = true
+                this.contentLoading = true
                 fetchFeatures(features,
                     (feature, index, resp) => {
                         this.$nextTick(() => {

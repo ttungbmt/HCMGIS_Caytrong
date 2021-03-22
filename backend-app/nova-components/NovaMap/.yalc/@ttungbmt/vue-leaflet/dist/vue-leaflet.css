@@ -48,4 +48,12 @@
 .pop-content .pop-actions .action-item a {
   padding: 3px 5px;
 }
+
+.leaflet-container {
+  cursor: inherit;
+  background: white;
+}
+.leaflet-container a {
+  text-decoration: none;
+}
 .leaflet-legend{background:#fff}.leaflet-legend .leaflet-legend-title{font-weight:600;padding-bottom:4px}.leaflet-legend .legend-items .legend-row{display:flex;padding:2px 0}.leaflet-legend .legend-items .legend-row .lengend-rectangle{width:18px;height:18px;background:#fff}.leaflet-legend .legend-items .legend-row .lengend-label{padding-left:4px}.leaflet-legend-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff;max-height:270px;overflow-y:auto}

@@ -23,9 +23,10 @@
 		},
 		mounted() {
 			const options = optionsMerger(this.tileLayerOptions, this);
+			const boundary = this.$attrs.boundary || options.boundary
 
-			this.mapObject = this.$attrs.boundary ? TileLayer.BoundaryCanvas.createFromLayer(this.tileLayerClass(this.url, options), {
-				boundary: this.$attrs.boundary,
+			this.mapObject = boundary ? TileLayer.BoundaryCanvas.createFromLayer(this.tileLayerClass(this.url, options), {
+				boundary,
 				trackAttribution: true
 			}) :  this.tileLayerClass(this.url, options);
 
