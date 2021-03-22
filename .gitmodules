@@ -1,3 +1,0 @@
-[submodule "backend-app\\packages\\laravel-collection-macros"]
-	path = backend-app\\packages\\laravel-collection-macros
-	url = https://github.com/ttungbmt/laravel-collection-macros.git
