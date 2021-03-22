@@ -25,9 +25,6 @@
 
             </div>
         </l-popup>
-
-
-
     </div>
 
 </template>
@@ -36,6 +33,7 @@
     import {getUrlLayer, urlTemplate} from '@ttungbmt/vue-leaflet-helper'
     import Modal from './Modal'
     import _ from 'lodash-es'
+    import axios from 'axios'
 
     export default {
         name: 'FeatureInfo',
@@ -102,6 +100,7 @@
                         this.$nextTick(() => {
                             this.features = _.reject(this.features, (v, k) => _.includes(idxs, k))
                             this.updateIndex()
+                            this.contentLoading = false
                         })
                     },
                     startIndex
@@ -153,7 +152,7 @@
             let k = 0
             for (let i of featureItems) {
                 if(k >= startIndex) {
-                    const {data} = await Nova.request().get(i.url)
+                    const {data} = await axios.get(i.url)
 
                     let geojson = _.get(data, 'features.0'),
                         featureId = _.get(geojson, 'properties.id'),
@@ -161,7 +160,7 @@
                         url = _.get(i, 'config.url')
 
                     if (featureId && url) {
-                        const {data} = await Nova.request().post(url, {
+                        const {data} = await axios.post(url, {
                             ...i,
                             properties
                         })

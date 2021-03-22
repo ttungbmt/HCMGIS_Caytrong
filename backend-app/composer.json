@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "idf/nova-html-card": "^1.2",
         "larabase/base": "*@dev",
         "larabase/nova": "*@dev",
         "larabase/nova-map": "*",

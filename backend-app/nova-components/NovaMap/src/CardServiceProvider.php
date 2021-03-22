@@ -20,6 +20,8 @@ class CardServiceProvider extends ServiceProvider
             $this->routes();
         });
 
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-map');
+
         Nova::serving(function (ServingNova $event) {
             Nova::style('leaflet', 'https://cdn.jsdelivr.net/npm/leaflet@1.0.3/dist/leaflet.css');
 

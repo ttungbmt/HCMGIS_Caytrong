@@ -4,6 +4,7 @@ mix.webpackConfig({
     externals: {
         'lodash-es': '_',
         'lodash': '_',
+        'axios': 'axios'
     }
 });
 

@@ -60,7 +60,12 @@
                         <global-search dusk="global-search-component"></global-search>
                     @endif
 
-                    <dropdown class="ml-auto h-9 flex items-center dropdown-right">
+                    <router-link to="/nova-map" class="ml-auto no-underline mr-3 dim flex items-center cursor-pointer select-none h-9 flex items-center">
+                        <img src="{{asset('storage/Icon/map.png')}}" alt="map" class="w-8 h-8 mr-3">
+                        <span>{{__('Map')}}</span>
+                    </router-link>
+
+                    <dropdown class="h-9 flex items-center dropdown-right">
                         @include('nova::partials.user')
                     </dropdown>
                 </div>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect(config('nova.path'));
+    return redirect(config('nova.path'). '/nova-map');
 //    return view('welcome');
 });
 
