@@ -31,7 +31,7 @@ class Caytrong extends Resource
      * @var array
      */
     public static $search = [
-        'loai_ctr',
+        'ten',
     ];
 
     public static function group()
@@ -52,11 +52,15 @@ class Caytrong extends Resource
      */
     public function fields(Request $request)
     {
+        $nameFn = function (Request $request) {
+            $file = $request->image_src;
+            return pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME).'-'.time().'.'.$file->extension();
+        };
+
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Image::make(__('Image'), 'image_src')->squared()->exceptOnForms(),
-            Text::make(__('app.loai_ctr'), 'loai_ctr')->sortable()->rules('required')->creationRules('unique:'.self::$model),
-            FilemanagerField::make(__('Image'), 'image_src')->displayAsImage()->folder('Image')->onlyOnForms(),
+            Image::make(__('Image'), 'image_src')->squared()->path('Image')->prunable()->storeAs($nameFn),
+            Text::make(__('app.ten'), 'ten')->sortable()->rules('required')->creationRules('unique:'.self::$model),
             DateTime::make(__('Created at'), 'created_at')->exceptOnForms(),
         ];
     }

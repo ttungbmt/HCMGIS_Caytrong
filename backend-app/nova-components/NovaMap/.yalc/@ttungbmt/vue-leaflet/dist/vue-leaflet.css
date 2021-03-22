@@ -1,0 +1,51 @@
+.leaflet-popup-content-wrapper {
+  border-radius: 6px;
+}
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+  margin: 6px 12px;
+}
+.leaflet-popup-content-wrapper .leaflet-popup-content .btn-previous, .leaflet-popup-content-wrapper .leaflet-popup-content .btn-next {
+  padding: 6px;
+  outline: none;
+  color: #c3c3c3;
+  font-size: 12px;
+  cursor: pointer;
+}
+.leaflet-popup-content-wrapper .leaflet-popup-content .btn-previous:hover, .leaflet-popup-content-wrapper .leaflet-popup-content .btn-next:hover {
+  color: #999;
+}
+
+.pop-content {
+  font-family: Roboto, Arial, serif;
+  font-size: 13px;
+}
+.pop-content .pop-title {
+  font-weight: bold;
+  color: #2196F3;
+  border-bottom: 1px solid rgba(134, 133, 133, 0.13);
+  font-size: 15px;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+}
+.pop-content .pop-body {
+  padding: 5px 0;
+  max-height: 250px;
+  overflow-y: auto;
+}
+.pop-content .pop-body ul {
+  padding: 0 0;
+  margin: 0;
+  list-style: none;
+}
+.pop-content .pop-body ul.list-actions li {
+  display: inline-block;
+  padding: 0 5px;
+}
+.pop-content .pop-body .table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.pop-content .pop-actions .action-item a {
+  padding: 3px 5px;
+}
+.leaflet-legend{background:#fff}.leaflet-legend .leaflet-legend-title{font-weight:600;padding-bottom:4px}.leaflet-legend .legend-items .legend-row{display:flex;padding:2px 0}.leaflet-legend .legend-items .legend-row .lengend-rectangle{width:18px;height:18px;background:#fff}.leaflet-legend .legend-items .legend-row .lengend-label{padding-left:4px}.leaflet-legend-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff;max-height:270px;overflow-y:auto}

@@ -11,7 +11,7 @@ class Loaidat extends Model
 
     protected $table = 'dm_loaidat';
 
-    protected $fillable = ['st', 'loaidat', 'madat', 'somau', 'fillColor',];
+    protected $fillable = ['st', 'ten', 'ma', 'somau', 'fillColor',];
 
     public $timestamps = false;
 }

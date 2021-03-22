@@ -1,0 +1,34 @@
+{
+  "name": "@ttungbmt/vue-leaflet-helper",
+  "version": "0.0.1+2410e0c8",
+  "description": "Vue Leaflet Helper",
+  "main": "dist/vue-leaflet-helper.js",
+  "umd:main": "dist/vue-leaflet-helper.umd.js",
+  "module": "dist/vue-leaflet-helper.m.js",
+  "esmodule": "dist/vue-leaflet-helper.modern.js",
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "build": "yarn clean && microbundle --no-sourcemap --no-compress --format cjs",
+    "build:push": "run-s clean build push",
+    "watch": "microbundle watch --no-sourcemap --no-compress --format cjs",
+    "format": "prettier --write \"src/**/*.js\"",
+    "format:check": "prettier --list-different \"src/**/*.js\" \"docs/*/**.md\"",
+    "packages:upgrade": "yarn upgrade-interactive --latest",
+    "push": "yalc push",
+    "push:watch": "nodemon --watch dist --delay 1000ms -x yarn push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttungbmt/vue-leaflet-helper.git"
+  },
+  "author": "Truong Thanh Tung",
+  "license": "MIT",
+  "homepage": "https://github.com/ttungbmt/vue-leaflet-helper#readme",
+  "dependencies": {
+    "@turf/invariant": "^6.1.2",
+    "@turf/point-on-feature": "^5.1.5",
+    "lodash-es": "^4.17.15",
+    "uniqid": "^5.2.0"
+  },
+  "yalcSig": "2410e0c8ff9bc5dd65156adcedf64c50"
+}

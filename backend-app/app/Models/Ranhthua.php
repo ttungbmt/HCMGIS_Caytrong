@@ -2,16 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Larabase\Database\Eloquent\GeoModel;
-
-class Ranhthua extends GeoModel
+class Ranhthua extends Model
 {
-    use HasFactory;
-
     protected $table = 'pg_ranhthua';
 
-    protected $fillable = [];
+    protected $fillable = ['maphuong', 'sh_bando', 'sh_thua',];
 
     public $timestamps = false;
 

@@ -56,7 +56,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-
+            (new \Larabase\Nova\Map\NovaMapCard)
+                ->width('full')
+                ->height('full')
+                ->configUrl('/api/map/config')
         ];
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55b841c9350be07634fbec39f784ec61",
+    "content-hash": "9065aa714f8f8d24ddd0f9d533270ef7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2487,7 +2487,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/base",
-                "reference": "e484f07d494f16eb682707a8c36766e4fd764b4a"
+                "reference": "141fd02e8dc5821baff6e52e23fe0562c81812fe"
             },
             "require": {
                 "joelbutcher/socialstream": "^2.4",
@@ -2497,6 +2497,7 @@
                 "mstaack/laravel-postgis": "^5.2",
                 "nwidart/laravel-modules": "^8.2",
                 "owen-it/laravel-auditing": "^12.0",
+                "spatie/laravel-collection-macros": "*@dev",
                 "webwizo/laravel-shortcodes": "^1.0",
                 "yajra/laravel-auditable": "^4.3"
             },
@@ -2581,6 +2582,42 @@
             "keywords": [
                 "admin",
                 "laravel"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "larabase/nova-map",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/NovaMap",
+                "reference": "b232d5723065e02a337ee63d2c0557851bba5c88"
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larabase\\Nova\\Map\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larabase\\Nova\\Map\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova card.",
+            "keywords": [
+                "laravel",
+                "nova"
             ],
             "transport-options": {
                 "relative": true
@@ -5025,6 +5062,51 @@
             "time": "2020-11-20T10:46:16+00:00"
         },
         {
+            "name": "orlyapps/nova-belongsto-depend",
+            "version": "2.0.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orlyapps/nova-belongsto-depend.git",
+                "reference": "40979597800b07671889cd6c719cca05cd43ba29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orlyapps/nova-belongsto-depend/zipball/40979597800b07671889cd6c719cca05cd43ba29",
+                "reference": "40979597800b07671889cd6c719cca05cd43ba29",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Orlyapps\\NovaBelongsToDepend\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orlyapps\\NovaBelongsToDepend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/orlyapps/nova-belongsto-depend/issues",
+                "source": "https://github.com/orlyapps/nova-belongsto-depend/tree/2.0.13"
+            },
+            "time": "2021-01-26T11:28:51+00:00"
+        },
+        {
             "name": "owen-it/laravel-auditing",
             "version": "v12.0.0",
             "source": {
@@ -6438,6 +6520,82 @@
                 "source": "https://github.com/spatie/image-optimizer/tree/1.3.2"
             },
             "time": "2020-11-28T12:37:58+00:00"
+        },
+        {
+            "name": "spatie/laravel-collection-macros",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./packages/laravel-collection-macros",
+                "reference": "f777c944f678243fa9e9ca3a9a25505f7658a5b2"
+            },
+            "require": {
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "amphp/parallel": "^0.2.5",
+                "amphp/parallel-functions": "^0.1.3",
+                "mockery/mockery": "^1.4.2",
+                "orchestra/testbench": "^5.5|^6.5",
+                "phpunit/phpunit": "^9.4.4",
+                "symfony/stopwatch": "^5.2"
+            },
+            "suggest": {
+                "amphp/parallel-functions": "Required when using the parallel*-macros."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\CollectionMacros\\CollectionMacroServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CollectionMacros\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Spatie\\CollectionMacros\\Test\\": "tests"
+                }
+            },
+            "scripts": {
+                "format": [
+                    "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+                ],
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://github.com/freekmurze",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://github.com/sebastiandedeyne",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A set of useful Laravel collection macros",
+            "homepage": "https://github.com/spatie/laravel-collection-macros",
+            "keywords": [
+                "laravel-collection-macros",
+                "spatie"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "spatie/laravel-medialibrary",
@@ -9526,7 +9684,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/nova-permission",
-                "reference": "472cb1d5c01fc6ae140476829d82be03803ea1ae"
+                "reference": "2028ce458ecae9fab90c3f9c1d4fb117b51b0702"
             },
             "require": {
                 "php": "^7.2|^8.0",
@@ -9688,6 +9846,69 @@
                 "source": "https://github.com/webwizo/laravel-shortcodes/tree/v1.0.22"
             },
             "time": "2021-02-18T12:25:36+00:00"
+        },
+        {
+            "name": "whitecube/nova-flexible-content",
+            "version": "v0.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/whitecube/nova-flexible-content.git",
+                "reference": "86dc57aad7d830caef4a7d8b35a9fff7b7e7e5ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/whitecube/nova-flexible-content/zipball/86dc57aad7d830caef4a7d8b35a9fff7b7e7e5ac",
+                "reference": "86dc57aad7d830caef4a7d8b35a9fff7b7e7e5ac",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^3.2",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Whitecube\\NovaFlexibleContent\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Whitecube\\NovaFlexibleContent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Toon Van den Bos",
+                    "email": "toon@whitecube.be"
+                }
+            ],
+            "description": "Flexible Content & Repeater Fields for Laravel Nova.",
+            "keywords": [
+                "Flexible",
+                "field",
+                "group",
+                "laravel",
+                "layout",
+                "nova",
+                "repeat"
+            ],
+            "support": {
+                "issues": "https://github.com/whitecube/nova-flexible-content/issues",
+                "source": "https://github.com/whitecube/nova-flexible-content/tree/v0.2.8"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/whitecube",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-12T14:43:02+00:00"
         },
         {
             "name": "wikimedia/composer-merge-plugin",
@@ -10673,16 +10894,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.10.0",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "6ecda5217bf048088b891f7403b262906be5a957"
+                "reference": "f6e14679f948d8a5cfb866fa7065a30c66bd64d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/6ecda5217bf048088b891f7403b262906be5a957",
-                "reference": "6ecda5217bf048088b891f7403b262906be5a957",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/f6e14679f948d8a5cfb866fa7065a30c66bd64d3",
+                "reference": "f6e14679f948d8a5cfb866fa7065a30c66bd64d3",
                 "shasum": ""
             },
             "require": {
@@ -10732,7 +10953,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.10.0"
+                "source": "https://github.com/filp/whoops/tree/2.11.0"
             },
             "funding": [
                 {
@@ -10740,7 +10961,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-16T12:00:00+00:00"
+            "time": "2021-03-19T12:00:00+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",

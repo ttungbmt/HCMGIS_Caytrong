@@ -21,7 +21,8 @@
       "webwizo/laravel-shortcodes": "^1.0",
       "mstaack/laravel-postgis": "^5.2",
       "yajra/laravel-auditable": "^4.3",
-      "owen-it/laravel-auditing": "^12.0"
+      "owen-it/laravel-auditing": "^12.0",
+      "spatie/laravel-collection-macros": "*@dev"
   },
   "autoload": {
     "psr-4": {

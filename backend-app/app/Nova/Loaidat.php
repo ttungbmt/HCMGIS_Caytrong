@@ -55,8 +55,8 @@ class Loaidat extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make(__('app.st'), 'st')->sortable(),
-            Text::make(__('app.loaidat'), 'loaidat')->sortable()->rules('required'),
-            Text::make(__('app.madat'), 'madat')->sortable()->rules('required'),
+            Text::make(__('app.ten'), 'ten')->sortable()->rules('required'),
+            Text::make(__('app.ma'), 'ma')->sortable()->rules('required'),
             Color::make(__('app.fillColor'), 'fillColor')->rules('required'),
         ];
     }

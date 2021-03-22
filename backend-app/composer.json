@@ -14,11 +14,14 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "larabase/base": "*@dev",
         "larabase/nova": "*@dev",
+        "larabase/nova-map": "*",
         "laravel/framework": "^8.12",
         "laravel/nova": "*",
         "laravel/tinker": "^2.5",
+        "orlyapps/nova-belongsto-depend": "^2.0",
         "timothyasp/nova-color-field": "^1.0",
         "tormjens/eventy": "^0.7.0",
+        "whitecube/nova-flexible-content": "^0.2.8",
         "wikimedia/composer-merge-plugin": "^2.0",
         "yajra/laravel-auditable": "^4.3"
     },
@@ -81,6 +84,10 @@
         {
             "type": "path",
             "url": "./packages/*"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/NovaMap"
         }
     ]
 }

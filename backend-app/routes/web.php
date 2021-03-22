@@ -1,5 +1,6 @@
 <?php
 
+use App\Imports\NonghoImport;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +19,12 @@ Route::get('/', function () {
 //    return view('welcome');
 });
 
-Route::get('/quan', function (){
-    dd(\App\Models\HcQuan::first()->phuongs);
+Route::get('/hello', function (){
+    Excel::import(new NonghoImport, 'tanphu.xlsx');
    return ;
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+

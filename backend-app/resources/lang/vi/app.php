@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'prompt_qh' => 'Chọn quận huyện',
+    'prompt_px' => 'Chọn phường xã',
+    'ghichu' => 'Ghi chú',
+    'ten' => 'Tên',
+    'quan' => 'Quận huyện',
+    'phuong' => 'Phường xã',
     "dm_loaidat" => "Loại đất",
     "st" => "St",
     "loaidat" => "Loại đất",
@@ -16,6 +22,7 @@ return [
 
     "caytrong" => "Cây trồng",
     "loai_ctr" => "Loại cây trồng",
+    "loai_gh" => "Loài gây hại",
 
     "thuadat" => "Thửa đất",
     'mathua' => 'Mã thửa',
@@ -30,4 +37,22 @@ return [
     'diachi' => 'Địa chỉ',
     'mdsd_2003' => 'MDSD 2003',
     'kh_2003' => 'Kí hiệu 2003',
+
+    'nongho' => 'Nông hộ',
+    'hoten' => 'Họ tên',
+    'dienthoai' => 'Điện thoại',
+    'qh' => 'Quận huyện',
+    'px' => 'Phường xã',
+
+    'dt_gt' => 'Diện tích gieo trồng (ha)',
+    'dt_vg' => 'Diện tích VietGAP (ha)',
+    'ma_cn' => 'Mã chứng nhận',
+    'sovu_ct' => 'Số vụ canh tác/năm',
+    'nangsuat_bq' => 'Năng suất bình quân (ha)',
+
+    'thuoc_bvtv' => 'Thuốc BVTV',
+    'loai_ctr_id' => 'Nhóm cây trồng',
+    'solan_vu' => 'Số lần/vụ',
+    'hieuqua_sdt' => 'Hiệu quả sử dụng thuốc (%)',
+    'dichtes' => 'Dịch tễ'
 ];
