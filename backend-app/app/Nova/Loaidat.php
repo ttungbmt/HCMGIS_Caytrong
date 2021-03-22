@@ -33,7 +33,7 @@ class Loaidat extends Resource
      *
      * @var string
      */
-    public static $title = 'madat';
+    public static $title = 'ma';
 
     /**
      * The columns that should be searched.
@@ -41,7 +41,7 @@ class Loaidat extends Resource
      * @var array
      */
     public static $search = [
-        'madat', 'loaidat'
+        'ma', 'ten'
     ];
 
     /**
