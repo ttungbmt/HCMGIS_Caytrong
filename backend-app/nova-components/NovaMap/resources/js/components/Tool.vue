@@ -96,11 +96,11 @@
                 })
             },
             handleResizeCard() {
-                let hContent = document.querySelector('.content').clientHeight,
+                let hContent = window.innerHeight,
                     hHeader = document.querySelector('.h-header').clientHeight,
-                    subSize = 140 * (701 / hContent)
+                    subSize = 20
 
-                this.style.height = (hContent - hHeader - subSize) + 'px'
+                this.style.height = (hContent - (hHeader + subSize)) + 'px'
             },
         }
     }
