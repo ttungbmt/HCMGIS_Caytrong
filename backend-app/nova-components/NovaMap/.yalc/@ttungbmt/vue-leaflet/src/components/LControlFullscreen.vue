@@ -16,7 +16,6 @@
 		props: {
 			title: { type: String, default: 'Full Screen' },
 			titleCancel: { type: String, default: 'Exit Full Screen' },
-			content: String,
 			forceSeparateButton: { type: Boolean, default: true },
 			forcePseudoFullscreen: { type: Boolean, default: false },
 			fullscreenElement: { type: Boolean, default: false }

@@ -23,6 +23,10 @@ class CardServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-map');
 
         Nova::serving(function (ServingNova $event) {
+            Nova::provideToScript([
+                'map4dApiKey' => config('services.map4d.key'),
+            ]);
+
             Nova::style('leaflet', 'https://cdn.jsdelivr.net/npm/leaflet@1.0.3/dist/leaflet.css');
 
             Nova::script('nova-map', __DIR__.'/../dist/js/card.js');

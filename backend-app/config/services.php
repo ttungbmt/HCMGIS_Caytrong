@@ -29,5 +29,8 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'map4d' => [
+        'key' => env('MAP4D_ACCESS_KEY', 'ff0d39163ac0d060402d437f0f7f4fdc'),
+    ]
 
 ];

@@ -9,7 +9,9 @@
         "prod": "npm run production",
         "production": "mix --production",
         "build-nova-map": "cd nova-components/NovaMap && npm run dev",
-        "build-nova-map-prod": "cd nova-components/NovaMap && npm run prod"
+        "build-nova-map-prod": "cd nova-components/NovaMap && npm run prod",
+        "build-color-picker": "cd nova-components/ColorPicker && npm run dev",
+        "build-color-picker-prod": "cd nova-components/ColorPicker && npm run prod"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.2.1",

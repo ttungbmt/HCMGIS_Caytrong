@@ -82,6 +82,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     'title' => 'Ranh thửa đất',
                     'active' => true,
                     'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:v_ranhthua', 'zIndex' => 40],
+                ],
+                [
+                    'control' => 'overlay',
+                    'type' => 'wms',
+                    'title' => 'Thửa đất',
+                    'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:v_ranhthua', 'zIndex' => 30, 'styles' => 'v_thuadat'],
                     'popup' => [
                         'url' => '/api/map/popup/thuadat',
                         'options' => ['minWidth' => 320],
@@ -91,6 +97,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     ]
                 ],
             ];
+
+
 
             return [
                 'config' => [

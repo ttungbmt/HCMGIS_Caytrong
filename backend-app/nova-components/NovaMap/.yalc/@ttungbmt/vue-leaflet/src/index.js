@@ -12,6 +12,8 @@ import LPopup from './components/LPopup.vue'
 import LManager from './components/LManager.vue'
 import LControlLayers from './components/LControlLayers.vue'
 import LPopupContent from './components/LPopupContent.vue'
+import LControlMeasure from './components/LControlMeasure.vue'
+import LControlLocate from './components/LControlLocate.vue'
 
 export default {
     install(Vue){
@@ -30,9 +32,11 @@ export default {
         Vue.component('l-control-print', LControlPrint);
         Vue.component('l-control-fullscreen', LControlFullscreen);
         Vue.component('l-control-zoom', LControlZoom);
+        Vue.component('l-control-zoom', LControlZoom);
+        Vue.component('l-control-measure', LControlMeasure);
+        Vue.component('l-control-locate', LControlLocate);
 
         Vue.component('l-manager', LManager);
-        Vue.component('l-popup-content', LPopupContent);
     }
 }
 

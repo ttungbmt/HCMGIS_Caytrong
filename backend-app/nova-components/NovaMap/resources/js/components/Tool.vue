@@ -38,11 +38,21 @@
                         position: 'topright',
                         autoZIndex: false
                     },
-                    // zoom: {
-                    //     position: 'bottomright',
-                    // },
                     fullscreen: {
                         position: 'bottomright',
+                    },
+                    measure: {
+                        position: 'bottomright',
+                        measureControlClasses: ['fal', 'fa-ruler-combined', 'text-base'],
+                        measureControlLabel: '',
+                        options: {
+                            measureControlTitleOn: 'Bật thước đo',
+                            measureControlTitleOff: 'Tắt thước đo'
+                        }
+                    },
+                    locate: {
+                        position: 'bottomright',
+                        icon: 'fal fa-location',
                     }
                 },
                 layers: []

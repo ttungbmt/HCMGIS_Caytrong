@@ -13,6 +13,10 @@ require('leaflet.fullscreen/Control.FullScreen.css');
 var screenfull = require('screenfull');
 var lodashEs = require('lodash-es');
 var vueLeafletHelper = require('@ttungbmt/vue-leaflet-helper');
+require('leaflet.polylinemeasure');
+require('leaflet.polylinemeasure/Leaflet.PolylineMeasure.css');
+require('leaflet.locatecontrol');
+require('leaflet.locatecontrol/dist/L.Control.Locate.css');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -27,7 +31,7 @@ var screenfull__default = /*#__PURE__*/_interopDefaultLegacy(screenfull);
 * https://github.com/consbio/Leaflet.HtmlLegend
 * */
 
-var script$7 = {
+var script$8 = {
   name: 'LControlLegend',
   mixins: [vue2Leaflet.ControlMixin, vue2Leaflet.OptionsMixin],
   props: {
@@ -71,10 +75,10 @@ var script$7 = {
 };
 
 /* script */
-var __vue_script__$7 = script$7;
+var __vue_script__$8 = script$8;
 /* template */
 
-var __vue_render__$3 = function __vue_render__() {
+var __vue_render__$2 = function __vue_render__() {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -106,35 +110,35 @@ var __vue_render__$3 = function __vue_render__() {
   }), 0)])], 2);
 };
 
-var __vue_staticRenderFns__$3 = [];
+var __vue_staticRenderFns__$2 = [];
 /* style */
 
-var __vue_inject_styles__$7 = undefined;
+var __vue_inject_styles__$8 = undefined;
 /* scoped */
 
-var __vue_scope_id__$7 = undefined;
+var __vue_scope_id__$8 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$7 = undefined;
+var __vue_module_identifier__$8 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$7 = false;
+var __vue_is_functional_template__$8 = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$7 = /*#__PURE__*/__vue_normalize____default['default']({
-  render: __vue_render__$3,
-  staticRenderFns: __vue_staticRenderFns__$3
-}, __vue_inject_styles__$7, __vue_script__$7, __vue_scope_id__$7, __vue_is_functional_template__$7, __vue_module_identifier__$7, false, undefined, undefined, undefined);
+var __vue_component__$8 = /*#__PURE__*/__vue_normalize____default['default']({
+  render: __vue_render__$2,
+  staticRenderFns: __vue_staticRenderFns__$2
+}, __vue_inject_styles__$8, __vue_script__$8, __vue_scope_id__$8, __vue_is_functional_template__$8, __vue_module_identifier__$8, false, undefined, undefined, undefined);
 
 /**
  * Add any custom component as a leaflet control-scale
  */
 
-var script$6 = {
+var script$7 = {
   name: 'LControlPrint',
   mixins: [vue2Leaflet.ControlMixin, vue2Leaflet.OptionsMixin],
   props: {},
@@ -161,35 +165,35 @@ var script$6 = {
 };
 
 /* script */
-var __vue_script__$6 = script$6;
+var __vue_script__$7 = script$7;
 /* template */
 
 /* style */
 
-var __vue_inject_styles__$6 = undefined;
+var __vue_inject_styles__$7 = undefined;
 /* scoped */
 
-var __vue_scope_id__$6 = undefined;
+var __vue_scope_id__$7 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$6 = undefined;
+var __vue_module_identifier__$7 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$6 = undefined;
+var __vue_is_functional_template__$7 = undefined;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$6 = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);
+var __vue_component__$7 = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__$7, __vue_script__$7, __vue_scope_id__$7, __vue_is_functional_template__$7, __vue_module_identifier__$7, false, undefined, undefined, undefined);
 
 if (!window['screenfull']) window['screenfull'] = screenfull__default['default'];
 /**
  * Add any custom component as a leaflet control-fullscrren
  */
 
-var script$5 = {
+var script$6 = {
   name: 'LControlFullscreen',
   mixins: [vue2Leaflet.ControlMixin, vue2Leaflet.OptionsMixin],
   props: {
@@ -201,7 +205,6 @@ var script$5 = {
       type: String,
       "default": 'Exit Full Screen'
     },
-    content: String,
     forceSeparateButton: {
       type: Boolean,
       "default": true
@@ -240,35 +243,35 @@ var script$5 = {
 };
 
 /* script */
-var __vue_script__$5 = script$5;
+var __vue_script__$6 = script$6;
 /* template */
 
 /* style */
 
-var __vue_inject_styles__$5 = undefined;
+var __vue_inject_styles__$6 = undefined;
 /* scoped */
 
-var __vue_scope_id__$5 = undefined;
+var __vue_scope_id__$6 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$5 = undefined;
+var __vue_module_identifier__$6 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$5 = undefined;
+var __vue_is_functional_template__$6 = undefined;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$5 = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__$5, __vue_script__$5, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);
+var __vue_component__$6 = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__$6, __vue_script__$6, __vue_scope_id__$6, __vue_is_functional_template__$6, __vue_module_identifier__$6, false, undefined, undefined, undefined);
 
 //
 /**
  * Load tiles from a map server and display them accordingly to map zoom, center and size
  */
 
-var script$4 = {
+var script$5 = {
   name: 'LTileLayer',
   mixins: [vue2Leaflet.TileLayerMixin, vue2Leaflet.OptionsMixin],
   props: {
@@ -306,10 +309,10 @@ var script$4 = {
 };
 
 /* script */
-var __vue_script__$4 = script$4;
+var __vue_script__$5 = script$5;
 /* template */
 
-var __vue_render__$2 = function __vue_render__() {
+var __vue_render__$1 = function __vue_render__() {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -319,29 +322,29 @@ var __vue_render__$2 = function __vue_render__() {
   return _c('div');
 };
 
-var __vue_staticRenderFns__$2 = [];
+var __vue_staticRenderFns__$1 = [];
 /* style */
 
-var __vue_inject_styles__$4 = undefined;
+var __vue_inject_styles__$5 = undefined;
 /* scoped */
 
-var __vue_scope_id__$4 = undefined;
+var __vue_scope_id__$5 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$4 = undefined;
+var __vue_module_identifier__$5 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$4 = false;
+var __vue_is_functional_template__$5 = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$4 = /*#__PURE__*/__vue_normalize____default['default']({
-  render: __vue_render__$2,
-  staticRenderFns: __vue_staticRenderFns__$2
-}, __vue_inject_styles__$4, __vue_script__$4, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);
+var __vue_component__$5 = /*#__PURE__*/__vue_normalize____default['default']({
+  render: __vue_render__$1,
+  staticRenderFns: __vue_staticRenderFns__$1
+}, __vue_inject_styles__$5, __vue_script__$5, __vue_scope_id__$5, __vue_is_functional_template__$5, __vue_module_identifier__$5, false, undefined, undefined, undefined);
 
 var findLeafletParent = function findLeafletParent(firstVueParent) {
   var found = false;
@@ -361,7 +364,7 @@ var findLeafletParent = function findLeafletParent(firstVueParent) {
  * Display a popup on the map
  */
 
-var script$3 = {
+var script$4 = {
   name: 'LPopup',
   mixins: [vue2Leaflet.PopperMixin, vue2Leaflet.OptionsMixin],
   props: {
@@ -438,31 +441,31 @@ var script$3 = {
 };
 
 /* script */
-var __vue_script__$3 = script$3;
+var __vue_script__$4 = script$4;
 /* template */
 
 /* style */
 
-var __vue_inject_styles__$3 = undefined;
+var __vue_inject_styles__$4 = undefined;
 /* scoped */
 
-var __vue_scope_id__$3 = undefined;
+var __vue_scope_id__$4 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$3 = undefined;
+var __vue_module_identifier__$4 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$3 = undefined;
+var __vue_is_functional_template__$4 = undefined;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$3 = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__$3, __vue_script__$3, __vue_scope_id__$3, __vue_is_functional_template__$3, __vue_module_identifier__$3, false, undefined, undefined, undefined);
+var __vue_component__$4 = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__$4, __vue_script__$4, __vue_scope_id__$4, __vue_is_functional_template__$4, __vue_module_identifier__$4, false, undefined, undefined, undefined);
 
 //
-var script$2 = {
+var script$3 = {
   name: 'LManager',
   props: ['layers', 'controls'],
   computed: {
@@ -481,10 +484,10 @@ var script$2 = {
 };
 
 /* script */
-var __vue_script__$2 = script$2;
+var __vue_script__$3 = script$3;
 /* template */
 
-var __vue_render__$1 = function __vue_render__() {
+var __vue_render__ = function __vue_render__() {
   var _vm = this;
 
   var _h = _vm.$createElement;
@@ -509,35 +512,35 @@ var __vue_render__$1 = function __vue_render__() {
   }), _vm._v(" "), _vm._t("default")], 2);
 };
 
-var __vue_staticRenderFns__$1 = [];
+var __vue_staticRenderFns__ = [];
 /* style */
 
-var __vue_inject_styles__$2 = undefined;
+var __vue_inject_styles__$3 = undefined;
 /* scoped */
 
-var __vue_scope_id__$2 = undefined;
+var __vue_scope_id__$3 = undefined;
 /* module identifier */
 
-var __vue_module_identifier__$2 = undefined;
+var __vue_module_identifier__$3 = undefined;
 /* functional template */
 
-var __vue_is_functional_template__$2 = false;
+var __vue_is_functional_template__$3 = false;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__$2 = /*#__PURE__*/__vue_normalize____default['default']({
-  render: __vue_render__$1,
-  staticRenderFns: __vue_staticRenderFns__$1
-}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);
+var __vue_component__$3 = /*#__PURE__*/__vue_normalize____default['default']({
+  render: __vue_render__,
+  staticRenderFns: __vue_staticRenderFns__
+}, __vue_inject_styles__$3, __vue_script__$3, __vue_scope_id__$3, __vue_is_functional_template__$3, __vue_module_identifier__$3, false, undefined, undefined, undefined);
 
 /**
  * Add any custom component as a leaflet control-layers
  */
 
-var script$1 = {
+var script$2 = {
   name: 'LControlLayers',
   mixins: [vue2Leaflet.ControlMixin, vue2Leaflet.OptionsMixin],
   props: {
@@ -603,6 +606,77 @@ var script$1 = {
 };
 
 /* script */
+var __vue_script__$2 = script$2;
+/* template */
+
+/* style */
+
+var __vue_inject_styles__$2 = undefined;
+/* scoped */
+
+var __vue_scope_id__$2 = undefined;
+/* module identifier */
+
+var __vue_module_identifier__$2 = undefined;
+/* functional template */
+
+var __vue_is_functional_template__$2 = undefined;
+/* style inject */
+
+/* style inject SSR */
+
+/* style inject shadow dom */
+
+var __vue_component__$2 = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__$2, __vue_script__$2, __vue_scope_id__$2, __vue_is_functional_template__$2, __vue_module_identifier__$2, false, undefined, undefined, undefined);
+
+/**
+ * Add any custom component as a leaflet control-fullscrren
+ */
+
+var script$1 = {
+  name: 'LControlMeasure',
+  mixins: [vue2Leaflet.ControlMixin, vue2Leaflet.OptionsMixin],
+  props: {
+    clearMeasurementsOnStop: {
+      type: Boolean,
+      "default": true
+    },
+    showBearings: Boolean,
+    measureControlLabel: String,
+    measureControlClasses: Array,
+    showClearControl: Boolean,
+    showUnitControl: Boolean
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    var options = vue2Leaflet.optionsMerger(Object.assign({}, this.controlOptions, {
+      clearMeasurementsOnStop: this.clearMeasurementsOnStop,
+      showBearings: this.showBearings,
+      measureControlLabel: this.measureControlLabel,
+      measureControlClasses: this.measureControlClasses,
+      showClearControl: this.showClearControl,
+      showUnitControl: this.showUnitControl
+    }), this);
+    this.mapObject = leaflet.control.polylineMeasure(options);
+    vue2Leaflet.propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = vue2Leaflet.findRealParent(this.$parent);
+    this.mapObject.addTo(this.parentContainer.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      _this.$emit('ready', _this.mapObject);
+    });
+  },
+  render: function render() {
+    return null;
+  }
+};
+
+/* script */
 var __vue_script__$1 = script$1;
 /* template */
 
@@ -626,28 +700,37 @@ var __vue_is_functional_template__$1 = undefined;
 
 var __vue_component__$1 = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, false, undefined, undefined, undefined);
 
-//
+/**
+ * Add any custom component as a leaflet control-fullscrren
+ */
+
 var script = {
-  name: 'LPopupContent',
+  name: 'LControlLocate',
+  mixins: [vue2Leaflet.ControlMixin, vue2Leaflet.OptionsMixin],
   props: {
-    loading: {
-      type: Boolean,
-      "default": false
-    },
-    content: {
-      type: [String, Object],
-      "default": ''
-    },
-    data: {
-      type: Object
-    },
-    actions: {
-      type: Array,
-      "default": []
-    }
+    icon: String
   },
-  methods: {
-    isString: lodashEs.isString
+  mounted: function mounted() {
+    var _this = this;
+
+    var options = vue2Leaflet.optionsMerger(Object.assign({}, this.controlOptions, {
+      icon: this.icon
+    }), this);
+    this.mapObject = leaflet.control.locate(options);
+    vue2Leaflet.propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = vue2Leaflet.findRealParent(this.$parent);
+    this.mapObject.addTo(this.parentContainer.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      _this.$emit('ready', _this.mapObject);
+    });
+  },
+  render: function render() {
+    return null;
   }
 };
 
@@ -655,21 +738,6 @@ var script = {
 var __vue_script__ = script;
 /* template */
 
-var __vue_render__ = function __vue_render__() {
-  var _vm = this;
-
-  var _h = _vm.$createElement;
-
-  var _c = _vm._self._c || _h;
-
-  return _c('div', [!_vm.loading ? _c('div', [_vm._v("Loading...")]) : _c('div', [_vm.isString(_vm.content) ? _c('div', {
-    domProps: {
-      "innerHTML": _vm._s(_vm.content)
-    }
-  }) : _c('div'), _vm._v(" "), _vm._t("default")], 2)]);
-};
-
-var __vue_staticRenderFns__ = [];
 /* style */
 
 var __vue_inject_styles__ = undefined;
@@ -681,36 +749,35 @@ var __vue_scope_id__ = undefined;
 var __vue_module_identifier__ = undefined;
 /* functional template */
 
-var __vue_is_functional_template__ = false;
+var __vue_is_functional_template__ = undefined;
 /* style inject */
 
 /* style inject SSR */
 
 /* style inject shadow dom */
 
-var __vue_component__ = /*#__PURE__*/__vue_normalize____default['default']({
-  render: __vue_render__,
-  staticRenderFns: __vue_staticRenderFns__
-}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);
+var __vue_component__ = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);
 
 var index = {
   install: function install(Vue) {
     Vue.component('l-map', vue2Leaflet.LMap);
-    Vue.component('l-tile-layer', __vue_component__$4);
+    Vue.component('l-tile-layer', __vue_component__$5);
     Vue.component('l-marker', vue2Leaflet.LMarker);
     Vue.component('l-cirlce', vue2Leaflet.LCircle);
     Vue.component('l-geojson', vue2Leaflet.LGeoJson);
     Vue.component('l-feature-group', vue2Leaflet.LFeatureGroup);
-    Vue.component('l-popup', __vue_component__$3);
+    Vue.component('l-popup', __vue_component__$4);
     Vue.component('l-wms-tile-layer', vue2Leaflet.LWMSTileLayer);
     Vue.component('l-draw-toolbar', LDrawToolbar__default['default']);
-    Vue.component('l-control-layers', __vue_component__$1);
-    Vue.component('l-control-legend', __vue_component__$7);
-    Vue.component('l-control-print', __vue_component__$6);
-    Vue.component('l-control-fullscreen', __vue_component__$5);
+    Vue.component('l-control-layers', __vue_component__$2);
+    Vue.component('l-control-legend', __vue_component__$8);
+    Vue.component('l-control-print', __vue_component__$7);
+    Vue.component('l-control-fullscreen', __vue_component__$6);
     Vue.component('l-control-zoom', vue2Leaflet.LControlZoom);
-    Vue.component('l-manager', __vue_component__$2);
-    Vue.component('l-popup-content', __vue_component__);
+    Vue.component('l-control-zoom', vue2Leaflet.LControlZoom);
+    Vue.component('l-control-measure', __vue_component__$1);
+    Vue.component('l-control-locate', __vue_component__);
+    Vue.component('l-manager', __vue_component__$3);
   }
 };
 
@@ -744,6 +811,6 @@ Object.defineProperty(exports, 'LWMSTileLayer', {
         return vue2Leaflet.LWMSTileLayer;
     }
 });
-exports.LControlLayers = __vue_component__$1;
-exports.LPopup = __vue_component__$3;
+exports.LControlLayers = __vue_component__$2;
+exports.LPopup = __vue_component__$4;
 exports.default = index;

@@ -1,6 +1,6 @@
 {
   "name": "@ttungbmt/vue-leaflet",
-  "version": "0.0.1+328edeed",
+  "version": "0.0.1+ea85b65e",
   "description": "Leaflet for Vue.js",
   "main": "dist/vue-leaflet.js",
   "scripts": {
@@ -23,11 +23,14 @@
   "license": "MIT",
   "homepage": "https://github.com/ttungbmt/vuex#readme",
   "dependencies": {
+    "@geoman-io/leaflet-geoman-free": "^2.9.0",
     "file-saver": "^2.0.5",
     "leaflet": "^1.7.1",
     "leaflet-boundary-canvas": "^1.0.0",
     "leaflet.browser.print": "^1.0.6",
     "leaflet.fullscreen": "^2.0.0",
+    "leaflet.locatecontrol": "^0.73.0",
+    "leaflet.polylinemeasure": "^2.0.0",
     "lodash-es": "^4.17.21",
     "screenfull": "^5.1.0",
     "vue": "^2.6.12",
@@ -35,5 +38,5 @@
     "vue2-leaflet": "^2.6.0",
     "vue2-leaflet-draw-toolbar": "^0.1.1"
   },
-  "yalcSig": "328edeeda497cfffbafc8b7f24fc5a34"
+  "yalcSig": "ea85b65e7f31c4def58b1553bd42c384"
 }

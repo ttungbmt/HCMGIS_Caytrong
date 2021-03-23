@@ -1,21 +1,17 @@
 <?php
-
 namespace App\Nova;
 
 use App\Models\LoaiGh;
 use App\Models\NhomGh;
+use App\Nova\Fields\Place;
 use App\Support\Helper;
 use Illuminate\Http\Request;
-use Larabase\Nova\Fields\Place;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
 use Whitecube\NovaFlexibleContent\Flexible;
 
