@@ -23,7 +23,7 @@ class Caytrong extends Resource
      *
      * @var string
      */
-    public static $title = 'loai_ctr';
+    public static $title = 'ten';
 
     /**
      * The columns that should be searched.
@@ -33,6 +33,8 @@ class Caytrong extends Resource
     public static $search = [
         'ten',
     ];
+
+    public static $globallySearchable = false;
 
     public static function group()
     {

@@ -3,27 +3,27 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class NhomGh extends Resource
+class Dichte extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\NhomGh::class;
+    public static $model = \App\Models\Dichte::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'ten';
+    public static $title = 'thuoc_bvtv';
 
     /**
      * The columns that should be searched.
@@ -31,19 +31,18 @@ class NhomGh extends Resource
      * @var array
      */
     public static $search = [
-        'ten',
+        'thuoc_bvtv',
     ];
-
-    public static $globallySearchable = false;
 
     public static function group()
     {
-        return __('Directory');
+        return __('app.caytrong');
     }
+
 
     public static function label()
     {
-        return __('app.nhom_gh');
+        return __('app.dichte');
     }
 
     /**
@@ -54,10 +53,15 @@ class NhomGh extends Resource
      */
     public function fields(Request $request)
     {
+        $caytrongs = \App\Models\Caytrong::pluck('ten', 'id');
+
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('app.ten'), 'ten')->sortable(),
-            DateTime::make(__('Created at'), 'created_at')->exceptOnForms(),
+            BelongsTo::make(__('app.nongho'), 'nongho', 'App\Nova\Nongho')->searchable(),
+            Text::make(__('app.thuoc_bvtv'), 'thuoc_bvtv'),
+            BelongsTo::make(__('app.caytrong'), 'caytrong', 'App\Nova\Caytrong')->showCreateRelationButton(),
+            Text::make(__('app.solan_vu'), 'solan_vu'),
+            Text::make(__('app.hieuqua_sdt'), 'hieuqua_sdt'),
         ];
     }
 

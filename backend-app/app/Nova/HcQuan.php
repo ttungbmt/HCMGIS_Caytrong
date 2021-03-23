@@ -32,6 +32,8 @@ class HcQuan extends Resource
         'maquan', 'tenquan',
     ];
 
+    public static $globallySearchable = false;
+
     public static function group()
     {
         return __('Directory');

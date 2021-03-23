@@ -41,7 +41,6 @@ class LoaiGh extends Resource
         return __('Directory');
     }
 
-
     public static function label()
     {
         return __('app.loai_gh');
@@ -57,7 +56,7 @@ class LoaiGh extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            BelongsTo::make(__('app.nhom_gh'), 'nhom_gh', 'App\Nova\NhomGh')->sortable(),
+            BelongsTo::make(__('app.nhom_gh'), 'nhom_gh', 'App\Nova\NhomGh')->showCreateRelationButton(),
             Text::make(__('app.ten'), 'ten')->sortable(),
             DateTime::make(__('Created at'), 'created_at')->exceptOnForms(),
         ];

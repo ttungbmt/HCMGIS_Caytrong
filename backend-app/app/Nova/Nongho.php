@@ -40,11 +40,15 @@ class Nongho extends Resource
         'hoten',
     ];
 
+    public static function group()
+    {
+        return __('app.caytrong');
+    }
+
     public static function label()
     {
         return __('app.nongho');
     }
-
 
     /**
      * Get the fields displayed by the resource.

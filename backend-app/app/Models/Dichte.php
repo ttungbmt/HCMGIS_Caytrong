@@ -10,6 +10,14 @@ class Dichte extends Model
 
     public $timestamps = false;
 
+    public function nongho(){
+        return $this->belongsTo(Nongho::class, 'nongho_id');
+    }
+
+    public function caytrong(){
+        return $this->belongsTo(Caytrong::class, 'loai_ctr_id');
+    }
+
     public function loai_gh(){
         return $this->belongsTo(LoaiGh::class, 'loai_gh_id');
     }

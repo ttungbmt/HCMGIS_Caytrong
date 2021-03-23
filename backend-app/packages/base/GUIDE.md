@@ -1,3 +1,5 @@
+https://github.com/uteq/laravel-model-actions
+
 # MIGRATION
 php artisan vendor:publish --provider="Spatie\Activitylog\ActivitylogServiceProvider" --tag="migrations"
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"

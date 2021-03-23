@@ -35,6 +35,11 @@ class Ranhthua extends Resource
         'kh_2003',
     ];
 
+    public static function group()
+    {
+        return __('app.caytrong');
+    }
+
     public static function label()
     {
         return __('app.pg_ranhthua');

@@ -34,6 +34,8 @@ class HcPhuong extends Resource
         'maphuong', 'tenphuong',
     ];
 
+    public static $globallySearchable = false;
+
     public static function group()
     {
         return __('Directory');

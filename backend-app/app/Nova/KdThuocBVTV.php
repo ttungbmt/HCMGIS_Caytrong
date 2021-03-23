@@ -2,21 +2,21 @@
 
 namespace App\Nova;
 
+use App\Nova\Fields\Place;
+use App\Support\Helper;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class NhomGh extends Resource
+class KdThuocBVTV extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\NhomGh::class;
+    public static $model = \App\Models\KdThuocBVTV::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -34,16 +34,14 @@ class NhomGh extends Resource
         'ten',
     ];
 
-    public static $globallySearchable = false;
-
     public static function group()
     {
-        return __('Directory');
+        return __('app.caytrong');
     }
 
     public static function label()
     {
-        return __('app.nhom_gh');
+        return __('app.kd_thuoc_bvtv');
     }
 
     /**
@@ -56,8 +54,9 @@ class NhomGh extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make(__('app.ten'), 'ten')->sortable(),
-            DateTime::make(__('Created at'), 'created_at')->exceptOnForms(),
+            ...Helper::hcFields(),
+            Text::make(__('app.ten'), 'ten'),
+            Place::make(__('app.diachi'), 'diachi'),
         ];
     }
 

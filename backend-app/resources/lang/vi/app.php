@@ -26,6 +26,9 @@ return [
     'loai_gh' => 'Loài gây hại',
 
     'nhom_gh' => 'Nhóm gây hại',
+    'dichte' => 'Dịch tễ',
+    'kd_nongsan' => 'KD nông sản',
+    'kd_thuoc_bvtv' => 'KD thuốc BVTV',
 
     'thuadat' => 'Thửa đất',
     'mathua' => 'Mã thửa',
