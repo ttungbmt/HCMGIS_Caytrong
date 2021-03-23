@@ -61,7 +61,6 @@
         computed: {},
         mounted() {
             this.handleResizeCard()
-            // this.card.configUrl && this.fetchConfig()
         },
         async created() {
             await this.getData();
@@ -99,7 +98,7 @@
             handleResizeCard() {
                 let hContent = document.querySelector('.content').clientHeight,
                     hHeader = document.querySelector('.h-header').clientHeight,
-                    subSize = 90 * (701 / hContent)
+                    subSize = 140 * (701 / hContent)
 
                 this.style.height = (hContent - hHeader - subSize) + 'px'
             },
