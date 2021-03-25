@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Larabase\Nova\Map\Fields\Map;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 
@@ -52,8 +53,10 @@ class HcQuan extends Resource
      */
     public function fields(Request $request)
     {
+
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Map::make(__('Map'), 'geom'),
             Text::make(__('app.maquan'), 'maquan')->sortable()->rules(['required', 'unique:'.self::$model]),
             Text::make(__('app.tenquan'), 'tenquan')->sortable()->rules(['required', 'unique:'.self::$model]),
         ];

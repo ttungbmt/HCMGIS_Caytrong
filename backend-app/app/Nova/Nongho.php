@@ -6,6 +6,8 @@ use App\Models\NhomGh;
 use App\Nova\Fields\Place;
 use App\Support\Helper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Larabase\Nova\Map\Fields\Map;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -50,6 +52,14 @@ class Nongho extends Resource
         return __('app.nongho');
     }
 
+    public function __construct($resource)
+    {
+        parent::__construct($resource);
+
+
+    }
+
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -61,22 +71,22 @@ class Nongho extends Resource
         $dichtesField = Flexible::make(null)->fullWidth()->button(__('Add new'));
         $dientichsField = Flexible::make(null)->fullWidth()->button(__('Add new'));
 
-
         $loaiGhs = LoaiGh::all();
+        $caytrongs = \App\Models\Caytrong::pluck('ten', 'id');
 
-        $caytrongs = \App\Models\Caytrong::pluck('ten', 'id')->map(fn($v, $k) => $dientichsField->addLayout($v, $k, [
+        $ctrs = $caytrongs->map(fn($v, $k) => $dientichsField->addLayout($v, $k, [
             Number::make(__('app.dt_gt'), 'dt_gt'),
             Number::make(__('app.dt_vg'), 'dt_vg'),
             Text::make(__('app.ma_cn'), 'ma_cn'),
             Number::make(__('app.sovu_ct'), 'sovu_ct'),
             Number::make(__('app.nangsuat_bq'), 'nangsuat_bq'),
         ]));
-        $caytrongs = \App\Models\Caytrong::pluck('ten', 'id');
+
 
         $nhomGhs= NhomGh::pluck('ten', 'id')->map(fn($v, $k) => $dichtesField->addLayout($v, $k, [
             Select::make(__('app.loai_gh'), 'loai_gh_id')->options($loaiGhs->where('nhom_gh_id', $k)->pluck('ten', 'id')->all())->displayUsingLabels(),
             Text::make(__('app.thuoc_bvtv'), 'thuoc_bvtv'),
-            Select::make(__('app.loai_ctr'), 'loai_ctr_id')->options($caytrongs)->displayUsingLabels()->nullable(),
+            Select::make(__('app.loai_ctr'), 'loai_ctr_id')->options($ctrs)->displayUsingLabels()->nullable(),
             Text::make(__('app.solan_vu'), 'solan_vu'),
             Text::make(__('app.hieuqua_sdt'), 'hieuqua_sdt'),
         ]));
@@ -84,9 +94,11 @@ class Nongho extends Resource
 
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Map::make(__('Map'), 'geom'),
+
             new Panel('Nông hộ', [
                 ...Helper::hcFields(),
-                Text::make(__('app.hoten'), 'hoten')->sortable()->rules('required'),
+                Text::make(__('app.hoten'), 'hoten')->sortable()->rules('required')->showOnIndex(),
                 Place::make(__('app.diachi'), 'diachi'),
                 Text::make(__('app.dienthoai'), 'dienthoai'),
                 Trix::make(__('app.ghichu'), 'ghichu')

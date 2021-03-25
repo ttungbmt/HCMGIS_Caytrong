@@ -1,7 +1,8 @@
 <?php
 namespace App\Models;
 
-class KdNongsan extends Model
+
+class KdNongsan extends GeoModel
 {
     protected $table = 'kd_nongsan';
 

@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Larabase\Nova\Map\Fields\Map;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -58,6 +59,7 @@ class HcPhuong extends Resource
 
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Map::make(__('Map'), 'geom'),
             Text::make(__('app.maquan'), 'maquan')->sortable()->onlyOnIndex(),
             BelongsTo::make(__('app.tenquan'), 'quan', 'App\Nova\HcQuan')->fillUsing(function ($request, $model, $attribute, $requestAttribute) use($quan){
                 $model->{$attribute} = $quan->maquan;

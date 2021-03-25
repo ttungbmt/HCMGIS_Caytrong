@@ -1,5 +1,5 @@
 import _ from 'lodash-es'
-import {GeoJSON, geoJSON} from 'leaflet'
+import {GeoJSON, geoJSON, ExtraMarkers} from 'leaflet'
 import {getCoord} from '@turf/invariant'
 import pointOnSurface from '@turf/point-on-feature'
 
@@ -7,6 +7,8 @@ export function toMapControls(data) {
     return _.transform(data, (result, value, key) => {
         if(value || value.enabled){
             let ctrl = _.omit(value, ['enabled'])
+
+            ctrl.name = key
             switch (key) {
                 default:
                     ctrl.component = `l-control-${key}`
@@ -22,7 +24,7 @@ export function toMapControls(data) {
 
 export function toMapLayers(data) {
     return _.map(data, layer => {
-        let {id, type, options = {}, title = 'None', active = false, data} = layer,
+        let {id, type, options = {}, title = 'None', active = false, data, events} = layer,
             props = {
                 id,
                 type,
@@ -55,6 +57,18 @@ export function toMapLayers(data) {
             case 'marker':
                 props.component = _.get(layer, 'component', 'l-marker')
                 props.latLng = data
+                // if(!props.icon) {
+                //     props.icon = ExtraMarkers.icon({
+                //         icon: 'far fa-circle extra-marker-icon',
+                //         markerColor: 'cyan',
+                //         prefix: 'fa'
+                //     })
+                // }
+
+                break
+            case 'geojson':
+                props.component = _.get(layer, 'component', 'l-geojson')
+                props.geojson = data
                 break
             default:
                 break

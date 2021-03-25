@@ -22,7 +22,8 @@
       "mstaack/laravel-postgis": "^5.2",
       "yajra/laravel-auditable": "^4.3",
       "owen-it/laravel-auditing": "^12.0",
-      "spatie/laravel-collection-macros": "*@dev"
+      "spatie/laravel-collection-macros": "*@dev",
+      "rennokki/laravel-eloquent-query-cache": "^2.6"
   },
   "autoload": {
     "psr-4": {

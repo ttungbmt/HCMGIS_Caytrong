@@ -21,7 +21,8 @@
 			fullscreenElement: { type: Boolean, default: false }
 		},
 		mounted() {
-			const options = optionsMerger({ ...this.controlOptions, content: this.content}, this);
+			const options = optionsMerger({ ...this.controlOptions}, this);
+
 			this.mapObject = control.fullscreen(options);
 			propsBinder(this, this.mapObject, this.$options.props);
             this.parentContainer = findRealParent(this.$parent);

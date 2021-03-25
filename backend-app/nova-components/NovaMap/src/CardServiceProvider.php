@@ -33,7 +33,10 @@ class CardServiceProvider extends ServiceProvider
             Nova::style('nova-map', __DIR__.'/../dist/css/card.css');
         });
 
-        $this->publishes([__DIR__ . '/../dist/images' => public_path('images')], 'nova-map-public');
+        $this->publishes([
+            __DIR__ . '/../dist/images' => public_path('images'),
+            __DIR__.'/../config/nova-map.php' => config_path('nova-map.php'),
+        ], 'nova-map');
     }
 
     /**
@@ -59,6 +62,6 @@ class CardServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__.'/../config/nova-map.php', 'nova-map');
     }
 }

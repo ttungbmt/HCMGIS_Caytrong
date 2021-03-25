@@ -9,9 +9,8 @@
 
 <script>
     import FeatureInfo from './FeatureInfo'
-    import {nanoid} from 'nanoid'
     import {getBounds} from '@ttungbmt/vue-leaflet-helper'
-    import {set} from 'lodash-es'
+    import {formatLayers} from '../utils/utils';
 
     export default {
         name: 'NovaMap',
@@ -72,18 +71,13 @@
                     .get('/nova-vendor/nova-map/data')
                     .then(response => response.data)
                     .then(({config, layers, boundary, extent}) => {
-                        this.layers = layers.map(layer => {
-                            if (layer.boundary && boundary) {
-                                delete layer['boundary']
-                                layer.options.boundary = boundary
-                            }
-                            return {id: nanoid(), ...layer}
-                        })
+                        this.layers = formatLayers(layers, boundary)
 
                         this.mapOptions = Object.assign(this.mapOptions, config)
                         extent && this.$set(this.mapOptions, 'bounds', getBounds(extent))
                     })
                     .catch(e => {
+                        console.log(e)
                         this.$toasted.show(
                             this.__('Error reading data. Please check your logs'),
                             {type: 'error'}

@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-class Ranhthua extends Model
+class Ranhthua extends GeoModel
 {
     protected $table = 'pg_ranhthua';
 
-    protected $fillable = ['maphuong', 'sh_bando', 'sh_thua',];
+    protected $fillable = ['maphuong', 'sh_bando', 'sh_thua'];
 
     public $timestamps = false;
 

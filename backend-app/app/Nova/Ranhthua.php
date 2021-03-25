@@ -2,7 +2,9 @@
 
 namespace App\Nova;
 
+use App\Support\Helper;
 use Illuminate\Http\Request;
+use Larabase\Nova\Map\Fields\Map;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -55,6 +57,7 @@ class Ranhthua extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Map::make(__('Map'), 'geom'),
             BelongsTo::make(__('app.maphuong'), 'phuong', 'App\Nova\HcPhuong'),
             Number::make(__('app.mathua'), 'mathua')->hideFromIndex(),
             Number::make(__('app.maphuong'), 'maphuong')->hideFromIndex(),

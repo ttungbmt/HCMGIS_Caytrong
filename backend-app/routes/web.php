@@ -19,8 +19,10 @@ Route::get('/', function () {
 //    return view('welcome');
 });
 
-Route::get('/hello', function (){
-    dd(\App\Support\Helper::getTpExtent());
+Route::get('/test', function (){
+    $model = \App\Models\KdNongsan::first();
+    dd($model);
+//    dd(\App\Support\Helper::getTpExtent());
 //    Excel::import(new NonghoImport, 'tanphu.xlsx');
    return ;
 });
@@ -28,4 +30,5 @@ Route::get('/hello', function (){
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
 

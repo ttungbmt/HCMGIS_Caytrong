@@ -63,13 +63,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ],
                 [
                     'control' => 'overlay',
-                    'type' => 'wms',
+                    'type' => 'wms', // tile, wms, geojson, marker, ....
                     'title' => 'Nông hộ',
                     'active' => true,
                     'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:v_nongho', 'zIndex' => 50],
                     'popup' => [
                         'url' => '/api/map/popup/nongho',
-                        'options' => ['minWidth' => 200],
+                        'options' => ['minWidth' => 350],
                         'actions' => [
                             ['type' => 'modal', 'title' => 'Chi tiết', 'url' => '/api/map/popup/nongho/modal'],
                             ['type' => 'link', 'title' => 'Liên kết', 'url' => '/nova/resources/nonghos/{id}'],
@@ -106,6 +106,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     'zoom' => 11
                 ],
                 'layers' => $layers,
+                'controls' => [
+
+                ],
                 'extent' => Helper::getTpExtent(),
                 'boundary' => Helper::getTpBoundary()
             ];
@@ -178,7 +181,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         $tools = [
-            (new NovaMap()),
+//            (new NovaMap()),
             (new \Mastani\NovaPasswordReset\NovaPasswordReset)->canSeeWhen('users.change-password', User::class),
             (new \Vyuldashev\NovaPermission\NovaPermissionTool)
                 ->roleResource(\Larabase\Nova\Resources\Role::class)

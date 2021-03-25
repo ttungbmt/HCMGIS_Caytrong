@@ -1,6 +1,6 @@
 {
   "name": "@ttungbmt/vue-leaflet-helper",
-  "version": "0.0.1+2410e0c8",
+  "version": "0.0.1+8922f71d",
   "description": "Vue Leaflet Helper",
   "main": "dist/vue-leaflet-helper.js",
   "umd:main": "dist/vue-leaflet-helper.umd.js",
@@ -30,5 +30,5 @@
     "lodash-es": "^4.17.15",
     "uniqid": "^5.2.0"
   },
-  "yalcSig": "2410e0c8ff9bc5dd65156adcedf64c50"
+  "yalcSig": "8922f71da9c2518c5b10b0e5fcd1caf8"
 }

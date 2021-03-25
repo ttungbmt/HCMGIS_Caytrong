@@ -2,6 +2,9 @@ import { LMap, LMarker, LCircle, LGeoJson, LWMSTileLayer, LFeatureGroup, LContro
 import LDrawToolbar from 'vue2-leaflet-draw-toolbar'
 
 import 'leaflet-boundary-canvas'
+import 'leaflet-extra-markers'
+import 'leaflet-extra-markers/dist/css/leaflet.extra-markers.min.css'
+
 import './styles/index.scss'
 
 import LControlLegend from './components/LControlLegend.vue'
@@ -14,6 +17,7 @@ import LControlLayers from './components/LControlLayers.vue'
 import LPopupContent from './components/LPopupContent.vue'
 import LControlMeasure from './components/LControlMeasure.vue'
 import LControlLocate from './components/LControlLocate.vue'
+import LControlGeoman from './components/LControlGeoman.vue'
 
 export default {
     install(Vue){
@@ -35,6 +39,7 @@ export default {
         Vue.component('l-control-zoom', LControlZoom);
         Vue.component('l-control-measure', LControlMeasure);
         Vue.component('l-control-locate', LControlLocate);
+        Vue.component('l-control-geoman', LControlGeoman);
 
         Vue.component('l-manager', LManager);
     }

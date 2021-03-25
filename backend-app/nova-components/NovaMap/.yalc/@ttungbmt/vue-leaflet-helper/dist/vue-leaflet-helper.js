@@ -31,6 +31,8 @@ function toMapControls(data) {
     if (value || value.enabled) {
       var ctrl = ___default['default'].omit(value, ['enabled']);
 
+      ctrl.name = key;
+
       switch (key) {
         default:
           ctrl.component = "l-control-" + key;
@@ -82,7 +84,19 @@ function toMapLayers(data) {
 
       case 'marker':
         props.component = ___default['default'].get(layer, 'component', 'l-marker');
-        props.latLng = data;
+        props.latLng = data; // if(!props.icon) {
+        //     props.icon = ExtraMarkers.icon({
+        //         icon: 'far fa-circle extra-marker-icon',
+        //         markerColor: 'cyan',
+        //         prefix: 'fa'
+        //     })
+        // }
+
+        break;
+
+      case 'geojson':
+        props.component = ___default['default'].get(layer, 'component', 'l-geojson');
+        props.geojson = data;
         break;
     }
 

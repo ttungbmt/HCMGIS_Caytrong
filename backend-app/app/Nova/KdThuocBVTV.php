@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Nova\Fields\Place;
 use App\Support\Helper;
 use Illuminate\Http\Request;
+use Larabase\Nova\Map\Fields\Map;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -54,6 +55,7 @@ class KdThuocBVTV extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Map::make(__('Map'), 'geom'),
             ...Helper::hcFields(),
             Text::make(__('app.ten'), 'ten'),
             Place::make(__('app.diachi'), 'diachi'),
