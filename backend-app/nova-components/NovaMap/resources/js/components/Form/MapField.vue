@@ -32,6 +32,8 @@
                                    :placeholder="__('Latitude')"
                                    :value="i.data[0]"
                                    @input="e => handleChangeLatLng(e, 0, k)"
+                                   :min="0"
+                                   :step="1e-18"
                             />
                         </div>
                         <div>
@@ -41,6 +43,8 @@
                                    :placeholder="__('Longitude')"
                                    :value="i.data[1]"
                                    @input="e => handleChangeMarker(e, 1, k)"
+                                   :min="0"
+                                   :step="1e-18"
                             />
                         </div>
                     </div>
