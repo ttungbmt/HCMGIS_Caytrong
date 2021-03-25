@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-class Nongho extends Model
+class Nongho extends GeoModel
 {
     protected $table = 'nongho';
 

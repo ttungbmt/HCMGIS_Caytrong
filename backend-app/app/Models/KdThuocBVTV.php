@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class KdThuocBVTV extends Model
+class KdThuocBVTV extends GeoModel
 {
     protected $table = 'kd_thuoc_bvtv';
 
