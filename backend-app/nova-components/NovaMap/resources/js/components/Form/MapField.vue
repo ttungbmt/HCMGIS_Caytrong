@@ -31,7 +31,7 @@
                                    :class="errorClasses"
                                    :placeholder="__('Latitude')"
                                    :value="i.data[0]"
-                                   @input="e => handleChangeLatLng(e, 0, k)"
+                                   @input="e => handleChangeMarker(e, 0, k)"
                                    :min="0"
                                    :step="1e-18"
                             />

@@ -82925,7 +82925,7 @@ var render = function() {
                               domProps: { value: i.data[0] },
                               on: {
                                 input: function(e) {
-                                  return _vm.handleChangeLatLng(e, 0, k)
+                                  return _vm.handleChangeMarker(e, 0, k)
                                 }
                               }
                             })
