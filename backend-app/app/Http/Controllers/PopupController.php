@@ -40,7 +40,7 @@ class PopupController extends Controller
 
         $model = Ranhthua::find($id);
 
-        $data = [
+        $fields = [
             ['label' => __('app.sh_bando'), 'value' => 'sh_bando'],
             ['label' => __('app.sh_thua'), 'value' => 'sh_thua'],
             ['label' => __('app.mdsd_2003'), 'value' => 'mdsd_2003'],
