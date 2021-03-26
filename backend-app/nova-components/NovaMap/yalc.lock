@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@ttungbmt/vue-leaflet": {
-      "signature": "6e0ff6dc6d1f6b88004d005c10ed0f7d",
+      "signature": "640c8e8eee82e1d0e05386766ed3ab98",
       "link": true
     },
     "@ttungbmt/vue-leaflet-helper": {

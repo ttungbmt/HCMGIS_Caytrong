@@ -1,9 +1,9 @@
 <div class="flex pb-2">
-    <div class="px-1 font-semibold">
-        {{$model->diachi}}
-    </div>
-    <div class="px-1 font-semibold">
+    <div class="px-1 font-bold">
         {{$model->quan->tenquan}}
+    </div>
+    <div class="px-1 font-bold">
+         - {{$model->phuong->tenphuong}}
     </div>
 </div>
 

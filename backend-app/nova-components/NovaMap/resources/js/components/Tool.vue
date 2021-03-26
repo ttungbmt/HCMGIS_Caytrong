@@ -52,6 +52,14 @@
                     locate: {
                         position: 'bottomright',
                         icon: 'fal fa-location',
+                    },
+                    legend: {
+                        position: 'bottomleft',
+                        title: 'Chú giải',
+                        items: [
+                            {type: 'rectangle', fillColor: '#88C047', label: 'Vùng trồng'},
+                            {type: 'rectangle', fillColor: '#F0245E', stroke: '#6bb70e', label: 'Vùng trồng VietGAP'},
+                        ]
                     }
                 },
                 layers: []

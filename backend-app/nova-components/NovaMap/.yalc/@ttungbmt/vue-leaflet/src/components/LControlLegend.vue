@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-    import {optionsMerger, propsBinder, ControlMixin, OptionsMixin} from 'vue2-leaflet';
+    import {optionsMerger, propsBinder, ControlMixin, OptionsMixin, findRealParent} from 'vue2-leaflet';
     import {control, DomUtil} from 'leaflet';
 
     /*
@@ -55,7 +55,8 @@
                 return div
             }
 
-            this.mapObject.addTo(this.$parent.mapObject);
+            this.parentContainer = findRealParent(this.$parent);
+            this.mapObject.addTo(this.parentContainer.mapObject);
 
             this.$nextTick(() => {
                 /**
@@ -69,7 +70,7 @@
         methods: {
         	getStyle(i){
                 let style = `background-color: ${i.fillColor};`
-                if(i.color) style += `border: 1px solid ${i.color};`
+                if(i.stroke) style += `border: 1px solid ${i.stroke};`
 
                 return style
             }

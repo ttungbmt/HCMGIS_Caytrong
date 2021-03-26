@@ -20,11 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function (){
-    $model = \App\Models\KdNongsan::first();
-    dd($model);
+//    $model = \App\Models\KdNongsan::first();
+//    dd($model);
 //    dd(\App\Support\Helper::getTpExtent());
+//    Excel::import(new NonghoImport, 'giaolong.xlsx');
 //    Excel::import(new NonghoImport, 'tanphu.xlsx');
-   return ;
+   return [];
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

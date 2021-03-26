@@ -6,7 +6,7 @@ class DientichSx extends Model
 {
     protected $table = 'dientich_sx';
 
-    protected $fillable = ['loai_ctr_id', 'dt_gt', 'dt_vg', 'ma_cn', 'sovu_ct', 'nangsuat_bq',];
+    protected $fillable = ['nongho_id', 'loai_ctr_id', 'dt_gt', 'dt_vg', 'ma_cn', 'sovu_ct', 'nangsuat_bq',];
 
     public $timestamps = false;
 

@@ -19,6 +19,7 @@ import LPopupContent from './components/LPopupContent.vue'
 import LControlMeasure from './components/LControlMeasure.vue'
 import LControlLocate from './components/LControlLocate.vue'
 import LControlGeoman from './components/LControlGeoman.vue'
+import LControlScale from './components/LControlScale.vue'
 
 L.Icon.Default = L.ExtraMarkers.Icon
 L.Icon.Default.mergeOptions({
@@ -48,6 +49,7 @@ export default {
         Vue.component('l-control-measure', LControlMeasure);
         Vue.component('l-control-locate', LControlLocate);
         Vue.component('l-control-geoman', LControlGeoman);
+        Vue.component('l-control-scale', LControlScale);
 
         Vue.component('l-manager', LManager);
     }

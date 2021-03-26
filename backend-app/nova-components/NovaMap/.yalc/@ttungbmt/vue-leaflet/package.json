@@ -1,6 +1,6 @@
 {
   "name": "@ttungbmt/vue-leaflet",
-  "version": "0.0.1+6e0ff6dc",
+  "version": "0.0.1+640c8e8e",
   "description": "Leaflet for Vue.js",
   "main": "dist/vue-leaflet.js",
   "scripts": {
@@ -39,5 +39,5 @@
     "vue2-leaflet": "^2.6.0",
     "vue2-leaflet-draw-toolbar": "^0.1.1"
   },
-  "yalcSig": "6e0ff6dc6d1f6b88004d005c10ed0f7d"
+  "yalcSig": "640c8e8eee82e1d0e05386766ed3ab98"
 }

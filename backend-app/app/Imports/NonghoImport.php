@@ -69,8 +69,11 @@ class DichteSheetImport extends SheetImport
 
         DB::beginTransaction();
 
+        $nonghoSheet = $this->collection->get(NonghoSheetImport::$name);
+//        $nonghoSheet = [$nonghoSheet[0]];
+
         try {
-            foreach ($this->collection->get(NonghoSheetImport::$name) as $r_nh) {
+            foreach ($nonghoSheet as $r_nh) {
                 $rm_empty_col = fn($i) => $i->except('');
                 $thuadats = $this->collection->get(ThuadatSheetImport::$name)->where('nongho_id', $r_nh->get('nongho_id'))->map($rm_empty_col);
                 $dientichs = $this->collection->get(DientichSheetImport::$name)->where('nongho_id', $r_nh->get('nongho_id'))->map($rm_empty_col);
@@ -81,7 +84,7 @@ class DichteSheetImport extends SheetImport
                 // THUA DAT -------------------------------------------
                 foreach ($thuadats as $i){
                     $rt = Ranhthua::where($rt_data = [
-                        'maphuong' => $i['soto'],
+                        'maphuong' => $nongho->maphuong,
                         'sh_bando' => $i['soto'],
                         'sh_thua' => $i['sothua'],
                     ])->first();
@@ -108,6 +111,7 @@ class DichteSheetImport extends SheetImport
                             'dt_gt' => (float)str_replace( ',', '.', $i['dt_gt']),
                             'dt_vg' => (float)str_replace( ',', '.', $i['dt_vg']),
                         ])->all());
+
                     }
                 }
 
@@ -115,11 +119,14 @@ class DichteSheetImport extends SheetImport
                 foreach ($dichtes as $i){
                     if($i['loai_gh']){
                         $gh = LoaiGh::where($gh_data = ['ten' => $i['loai_gh']])->first();
+                        $ctr = Caytrong::where($ctr_data = ['ten' => $i['loai_ctr']])->first();
                         if(!$gh) $gh= LoaiGh::create($gh_data);
+                        if(!$ctr) $ctr= Caytrong::create($ctr_data);
 
                         $dt = Dichte::create($i->merge([
                             'nongho_id' => $nongho->id,
-                            'loai_ctr_id' => $gh->id,
+                            'loai_ctr_id' => $ctr->id,
+                            'loai_gh_id' => $gh->id,
                         ])->all());
                     }
                 }
@@ -133,22 +140,6 @@ class DichteSheetImport extends SheetImport
         }
 
         DB::commit();
-
-
-//        $rows = $this->getFormatedRows($rows);
-//        foreach ($rows as $r) {
-//            $loai_gh = LoaiGh::where(['ten' => $r['loai_gh']])->first();
-//            $loai_ctr = optional(Caytrong::where('ten', $r['loai_ctr'])->first());
-//
-//            if ($loai_gh) {
-//                $data = $r->merge([
-//                    'loai_gh_id' => $loai_gh->id,
-//                    'loai_ctr_id' => $loai_ctr->id,
-//                ])->all();
-//
-//                Dichte::create($data)->all();
-//            }
-//        }
 
     }
 }
