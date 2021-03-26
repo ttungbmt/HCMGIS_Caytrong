@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\KdNongsan;
+use App\Models\KdThuocBVTV;
 use App\Models\Ranhthua;
 use Illuminate\Http\Request;
 
@@ -29,10 +31,8 @@ class PopupController extends Controller
             'thuadats', 'dientichs'
         ])->where('id', $nongho_id)->first();
 
-        return [
-            'data' => $model,
-            'html' => view('map.nongho.modal', ['model' => $model])->render(),
-        ];
+
+        return $this->render('map.nongho.popup', compact('model'));
     }
 
     public function thuadat(Request $request){
@@ -41,26 +41,60 @@ class PopupController extends Controller
         $model = Ranhthua::find($id);
 
         $data = [
-            ['label' => 'Tên chủ', 'value' => 'tenchu'],
-            ['label' => 'Địa chỉ', 'value' => 'diachi'],
-            ['label' => 'Địa danh', 'value' => 'diadanh'],
-            ['label' => 'Diện tích', 'value' => 'dt'],
-            ['label' => 'Diện tích pháp lý', 'value' => 'dt_phaply'],
-            ['label' => 'Diện tích thổ cư', 'value' => 'dt_thocu'],
-            ['label' => 'Diện tích sử dụng', 'value' => 'dtsd'],
-            ['label' => 'Kí hiệu 2003', 'value' => 'kh_2003'],
-            ['label' => 'Kí hiệu loại đất', 'value' => 'kihieu_ld'],
-            ['label' => 'Mã loại đất', 'value' => 'ma_ld'],
-            ['label' => 'Mã phường', 'value' => 'maphuong'],
-            ['label' => 'Mã thửa', 'value' => 'mathua'],
-            ['label' => 'MDSD 2003', 'value' => 'mdsd_2003'],
-            ['label' => 'Số hiệu bản đồ', 'value' => 'sh_bando'],
-            ['label' => 'Số hiệu thửa', 'value' => 'sh_thua'],
+            ['label' => __('app.sh_bando'), 'value' => 'sh_bando'],
+            ['label' => __('app.sh_thua'), 'value' => 'sh_thua'],
+            ['label' => __('app.mdsd_2003'), 'value' => 'mdsd_2003'],
+            ['label' => __('app.ma_ld'), 'value' => 'ma_ld'],
+            ['label' => __('app.tenchu'), 'value' => 'tenchu'],
+            ['label' => __('app.diachi'), 'value' => 'diachi'],
+            ['label' => __('app.diadanh'), 'value' => 'diadanh'],
+            ['label' => __('app.dt'), 'value' => 'dt'],
+            ['label' => __('app.dt_phaply'), 'value' => 'dt_phaply'],
+            ['label' => __('app.dt_thocu'), 'value' => 'dt_thocu'],
+            ['label' => __('app.dtsd'), 'value' => 'dtsd'],
+            ['label' => __('app.kh_2003'), 'value' => 'kh_2003'],
+            ['label' => __('app.kihieu_ld'), 'value' => 'kihieu_ld'],
+            ['label' => __('app.maphuong'), 'value' => 'maphuong'],
+            ['label' => __('app.mathua'), 'value' => 'mathua'],
+
         ];
 
+        return $this->render('map.thuadat.popup', compact('model', 'fields'));
+    }
+
+    public function kd_nongsan(Request $request){
+        $id = $request->input('properties.id');
+        $model = KdNongsan::find($id);
+
+        $fields = [
+            ['label' => __('app.ten'), 'value' => 'ten'],
+            ['label' => __('app.quan'), 'value' => 'quan.tenquan'],
+            ['label' => __('app.phuong'), 'value' => 'phuong.tenphuong'],
+            ['label' => __('app.diachi'), 'value' => 'diachi'],
+        ];
+
+        return $this->render('map.kd_nongsan.popup', ['model' => $model, 'fields' => $fields]);
+    }
+
+    public function kd_thuoc_bvtv(Request $request){
+        $id = $request->input('properties.id');
+        $model = KdThuocBVTV::find($id);
+
+        $fields = [
+            ['label' => __('app.ten'), 'value' => 'ten'],
+            ['label' => __('app.quan'), 'value' => 'quan.tenquan'],
+            ['label' => __('app.phuong'), 'value' => 'phuong.tenphuong'],
+            ['label' => __('app.diachi'), 'value' => 'diachi'],
+        ];
+
+        return $this->render('map.kd_nongsan.popup', ['model' => $model, 'fields' => $fields]);
+    }
+
+    protected function render($view, $data){
         return [
-            'data' => $model,
-            'html' => view('map.thuadat.popup', ['model' => $model, 'fields' => $data])->render(),
+            'data' => $data['model'],
+            'html' => view($view, $data)->render(),
         ];
     }
+
 }

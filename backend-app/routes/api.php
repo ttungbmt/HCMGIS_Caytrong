@@ -24,5 +24,7 @@ Route::get('/map/config', [MapController::class, 'config']);
 Route::post('/map/popup/nongho/modal', [PopupController::class, 'nonghoModal']);
 Route::post('/map/popup/nongho', [PopupController::class, 'nongho']);
 Route::post('/map/popup/thuadat', [PopupController::class, 'thuadat']);
+Route::post('/map/popup/kd-nongsan', [PopupController::class, 'kd_nongsan']);
+Route::post('/map/popup/kd-thuoc-bvtv', [PopupController::class, 'kd_thuoc_bvtv']);
 
 

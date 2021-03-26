@@ -81,12 +81,26 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     'type' => 'wms',
                     'title' => __('app.kd_thuoc_bvtv'),
                     'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:kd_thuoc_bvtv', 'zIndex' => 60],
+                    'popup' => [
+                        'url' => '/api/map/popup/kd-thuoc-bvtv',
+                        'options' => ['minWidth' => 320],
+                        'actions' => [
+                            ['type' => 'link', 'title' => 'Liên kết', 'url' => '/nova/resources/kd-thuoc-b-v-t-vs/{id}'],
+                        ]
+                    ]
                 ],
                 [
                     'control' => 'overlay',
                     'type' => 'wms',
                     'title' => __('app.kd_nongsan'),
                     'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:kd_nongsan', 'zIndex' => 70],
+                    'popup' => [
+                        'url' => '/api/map/popup/kd-nongsan',
+                        'options' => ['minWidth' => 320],
+                        'actions' => [
+                            ['type' => 'link', 'title' => 'Liên kết', 'url' => '/nova/resources/kd-nongsans/{id}'],
+                        ]
+                    ]
                 ],
                 [
                     'control' => 'overlay',
@@ -94,6 +108,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     'title' => 'Ranh thửa đất',
                     'active' => true,
                     'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:v_ranhthua', 'zIndex' => 40],
+
                 ],
                 [
                     'control' => 'overlay',
