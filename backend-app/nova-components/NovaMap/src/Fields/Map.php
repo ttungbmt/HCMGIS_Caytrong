@@ -79,9 +79,8 @@ class Map extends Field
         }
     }
 
-    public function init(NovaRequest $request){
-
-
+    public function tippyOptions(array $tippyOptions){
+        return $this->withMeta([__FUNCTION__ => $tippyOptions]);
     }
 
     protected function fillAttributeFromRequest(NovaRequest $request, $requestAttribute, $model, $attribute)

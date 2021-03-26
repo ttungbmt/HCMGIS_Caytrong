@@ -39,17 +39,19 @@
         props: ['resourceName', 'field'],
 
         data(){
+
             return {
-                tippyOptions: {
+                tippyOptions: _.defaults(this.field.tippyOptions || {}, {
                     interactive: true,
                     theme: 'light',
                     placement: 'right',
                     arrow: true,
-                    trigger: 'click', // mouseenter, click
+                    trigger: 'mouseenter', // mouseenter, click
                     animation: 'scale',
                     onShow: this.onShow,
                     onHidden: this.onHidden
-                },
+                })
+                ,
                 mapOptions: this.getMapOptions(),
 
                 controls: this.field.controls || {},
