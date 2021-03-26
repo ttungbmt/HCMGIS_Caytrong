@@ -10,7 +10,7 @@
 <script>
     import FeatureInfo from './FeatureInfo'
     import {getBounds} from '@ttungbmt/vue-leaflet-helper'
-    import {formatLayers} from '../utils/utils';
+    import {formatLayers} from '../utils/utils'
 
     export default {
         name: 'NovaMap',
@@ -57,7 +57,7 @@
                         position: 'bottomleft',
                         title: 'Chú giải',
                         items: [
-                            {type: 'rectangle', fillColor: '#88C047', label: 'Vùng trồng'},
+                            {type: 'rectangle', fillColor: '#88C047', stroke: 'white', label: 'Vùng trồng'},
                             {type: 'rectangle', fillColor: '#F0245E', stroke: '#6bb70e', label: 'Vùng trồng VietGAP'},
                         ]
                     }
