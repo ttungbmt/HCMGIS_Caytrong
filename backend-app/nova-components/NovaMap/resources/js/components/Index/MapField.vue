@@ -18,7 +18,7 @@
                     <l-map class="index-map-content" v-bind="mapOptions" style="width: 320px;height: 250px; margin: -5px -9px;" v-if="!loading">
                         <component :is="i.component" v-bind="i" v-for="(i, k) in computedLayers" :key="`layer-${k}`">
                             <l-popup v-if="i.component === 'l-marker' && i.latLng" :options="{minWidth: 180}">
-                                {{i.latLng.join(',')}}
+                                <span class="font-semibold">{{__('Coordinates')}}</span>: {{i.latLng.join(',')}}
                             </l-popup>
                         </component>
                     </l-map>
@@ -33,6 +33,7 @@
 <script>
     import {toMapLayers, getBounds} from '@ttungbmt/vue-leaflet-helper'
     import {cloneDeep} from "lodash-es";
+    // import area from '@turf/area'
 
     export default {
         props: ['resourceName', 'field'],
@@ -44,7 +45,7 @@
                     theme: 'light',
                     placement: 'right',
                     arrow: true,
-                    trigger: 'mouseenter', // mouseenter, click
+                    trigger: 'click', // mouseenter, click
                     animation: 'scale',
                     onShow: this.onShow,
                     onHidden: this.onHidden
@@ -76,6 +77,10 @@
                 if (mapOptions.bounds) mapOptions.bounds = getBounds(mapOptions.bounds)
 
                 return mapOptions
+            },
+            getArea(i){
+                console.log(i)
+                return ''
             },
             onShow(){
                 this.loading = false

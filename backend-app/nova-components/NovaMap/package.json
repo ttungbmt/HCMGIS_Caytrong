@@ -17,6 +17,7 @@
         "@ttungbmt/leaflet-search": "link:.yalc/@ttungbmt/leaflet-search",
         "@ttungbmt/vue-leaflet": "link:.yalc/@ttungbmt/vue-leaflet",
         "@ttungbmt/vue-leaflet-helper": "link:.yalc/@ttungbmt/vue-leaflet-helper",
+        "@turf/area": "^6.3.0",
         "@turf/invariant": "^6.3.0",
         "axios": "^0.21.1",
         "jquery": "^3.6.0",

@@ -79,6 +79,18 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 [
                     'control' => 'overlay',
                     'type' => 'wms',
+                    'title' => __('app.kd_thuoc_bvtv'),
+                    'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:kd_thuoc_bvtv', 'zIndex' => 60],
+                ],
+                [
+                    'control' => 'overlay',
+                    'type' => 'wms',
+                    'title' => __('app.kd_nongsan'),
+                    'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:kd_nongsan', 'zIndex' => 70],
+                ],
+                [
+                    'control' => 'overlay',
+                    'type' => 'wms',
                     'title' => 'Ranh thửa đất',
                     'active' => true,
                     'options' => ['url' => '/geogis/caytrong/wms', 'layers' => 'caytrong:v_ranhthua', 'zIndex' => 40],
