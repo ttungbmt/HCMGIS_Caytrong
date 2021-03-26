@@ -43,6 +43,7 @@ return [
     'diachi' => 'Địa chỉ',
     'mdsd_2003' => 'MDSD 2003',
     'kh_2003' => 'Kí hiệu 2003',
+    'dtsd' => 'Diện tích sử dụng',
 
     'nongho' => 'Nông hộ',
     'hoten' => 'Họ tên',

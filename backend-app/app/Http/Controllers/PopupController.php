@@ -43,6 +43,8 @@ class PopupController extends Controller
         $fields = [
             ['label' => __('app.sh_bando'), 'value' => 'sh_bando'],
             ['label' => __('app.sh_thua'), 'value' => 'sh_thua'],
+            ['label' => __('app.kh_2003'), 'value' => 'kh_2003'],
+            ['label' => __('app.kihieu_ld'), 'value' => 'kihieu_ld'],
             ['label' => __('app.mdsd_2003'), 'value' => 'mdsd_2003'],
             ['label' => __('app.ma_ld'), 'value' => 'ma_ld'],
             ['label' => __('app.tenchu'), 'value' => 'tenchu'],
@@ -52,8 +54,6 @@ class PopupController extends Controller
             ['label' => __('app.dt_phaply'), 'value' => 'dt_phaply'],
             ['label' => __('app.dt_thocu'), 'value' => 'dt_thocu'],
             ['label' => __('app.dtsd'), 'value' => 'dtsd'],
-            ['label' => __('app.kh_2003'), 'value' => 'kh_2003'],
-            ['label' => __('app.kihieu_ld'), 'value' => 'kihieu_ld'],
             ['label' => __('app.maphuong'), 'value' => 'maphuong'],
             ['label' => __('app.mathua'), 'value' => 'mathua'],
 
