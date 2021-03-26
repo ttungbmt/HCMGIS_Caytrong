@@ -14,6 +14,7 @@ class PopupController extends Controller
         $model = \App\Models\Nongho::with([
             'quan' => fn($query) => $query->select(['tenquan', 'maquan']),
             'phuong' => fn($query) => $query->select(['tenphuong', 'maphuong']),
+            'dientichs',
         ])->where('id', $nongho_id)->first();
 
         return [
@@ -32,7 +33,7 @@ class PopupController extends Controller
         ])->where('id', $nongho_id)->first();
 
 
-        return $this->render('map.nongho.popup', compact('model'));
+        return $this->render('map.nongho.modal', compact('model'));
     }
 
     public function thuadat(Request $request){
