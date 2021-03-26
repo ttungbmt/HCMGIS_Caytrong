@@ -1,7 +1,7 @@
-<?php
-$dts = $model->dientichs;
-$ctrs = $dts->map(fn($i) => $i->caytrong->ten)->implode(', ');
-?>
+@php
+    $dts = $model->dientichs;
+    $ctrs = $dts->map(fn($i) => $i->caytrong->ten)->implode(', ');
+@endphp
 
 <div class="pop-content">
     <div class="pop-title">
