@@ -1,3 +1,6 @@
+https://www.gso.gov.vn/phuong-phap-thong-ke/danh-muc/don-vi-hanh-chinh/
+-------------------
+
 composer require laravel/jetstream
 php artisan jetstream:install livewire
 composer require joelbutcher/socialstream
@@ -36,3 +39,33 @@ settings
 command
 filemanager
 logs
+
+
+---
+/* @title teal polygon */
+* {
+    stroke: #6bb70e;
+    stroke-width: 0.5;  	
+  	font-family: Arial;  	
+  	label-anchor: 0.5 0.6;
+	font-weight: bold;
+  	fill: #88C047;
+  	label-auto-wrap: 70;
+    fill-size: 30;
+}
+
+[ctr_ids = '1'][vietgap = 0] {
+   fill: #ebfcd6, url("http://bentre.hcmgis.vn/storage/Icon/pomelo.png");
+}
+
+[ctr_ids = '1'][vietgap = 1] {
+   fill: #fccf9c, url("http://bentre.hcmgis.vn/storage/Icon/pomelo.png");
+}
+
+[ctr_ids = '2'][vietgap = 0] {
+   fill: #ebfcd6, url("http://bentre.hcmgis.vn/storage/Icon/durian.png");
+}
+
+[ctr_ids = '2'][vietgap = 1] {
+   fill: #fccf9c, url("http://bentre.hcmgis.vn/storage/Icon/durian.png");   
+}
