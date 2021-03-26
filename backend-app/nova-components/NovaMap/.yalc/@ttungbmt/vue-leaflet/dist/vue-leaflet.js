@@ -4,10 +4,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var vue2Leaflet = require('vue2-leaflet');
 var LDrawToolbar = require('vue2-leaflet-draw-toolbar');
+var L = require('leaflet');
 require('leaflet-boundary-canvas');
 require('leaflet-extra-markers');
 require('leaflet-extra-markers/dist/css/leaflet.extra-markers.min.css');
-var L = require('leaflet');
 var __vue_normalize__ = require('vue-runtime-helpers/dist/normalize-component.mjs');
 require('leaflet.browser.print/dist/leaflet.browser.print');
 require('leaflet.fullscreen');
@@ -959,6 +959,11 @@ var __vue_is_functional_template__ = undefined;
 
 var __vue_component__ = /*#__PURE__*/__vue_normalize____default['default']({}, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);
 
+L__default['default'].Icon.Default = L__default['default'].ExtraMarkers.Icon;
+L__default['default'].Icon.Default.mergeOptions({
+  icon: 'far fa-circle extra-marker-icon',
+  markerColor: 'orange'
+});
 var index = {
   install: function install(Vue) {
     Vue.component('l-map', vue2Leaflet.LMap);
@@ -968,6 +973,7 @@ var index = {
     Vue.component('l-geojson', vue2Leaflet.LGeoJson);
     Vue.component('l-feature-group', vue2Leaflet.LFeatureGroup);
     Vue.component('l-popup', __vue_component__$5);
+    Vue.component('l-tooltip', vue2Leaflet.LTooltip);
     Vue.component('l-wms-tile-layer', vue2Leaflet.LWMSTileLayer);
     Vue.component('l-draw-toolbar', LDrawToolbar__default['default']);
     Vue.component('l-control-layers', __vue_component__$3);

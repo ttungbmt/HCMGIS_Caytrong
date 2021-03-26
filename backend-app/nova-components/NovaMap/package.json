@@ -25,6 +25,7 @@
         "nanoid": "^3.1.22",
         "vue": "^2.5.0",
         "vue-lodash": "^2.1.2",
-        "vue-suggestion": "^1.1.0"
+        "vue-suggestion": "^1.1.0",
+        "vue-tippy": "^4.8.0"
     }
 }

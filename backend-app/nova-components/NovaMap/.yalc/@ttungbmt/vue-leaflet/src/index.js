@@ -1,5 +1,6 @@
-import { LMap, LMarker, LCircle, LGeoJson, LWMSTileLayer, LFeatureGroup, LControlZoom } from 'vue2-leaflet'
+import { LMap, LMarker, LCircle, LGeoJson, LWMSTileLayer, LFeatureGroup, LControlZoom, LTooltip } from 'vue2-leaflet'
 import LDrawToolbar from 'vue2-leaflet-draw-toolbar'
+import L from 'leaflet'
 
 import 'leaflet-boundary-canvas'
 import 'leaflet-extra-markers'
@@ -19,6 +20,12 @@ import LControlMeasure from './components/LControlMeasure.vue'
 import LControlLocate from './components/LControlLocate.vue'
 import LControlGeoman from './components/LControlGeoman.vue'
 
+L.Icon.Default = L.ExtraMarkers.Icon
+L.Icon.Default.mergeOptions({
+    icon: 'far fa-circle extra-marker-icon',
+    markerColor: 'orange',
+})
+
 export default {
     install(Vue){
         Vue.component('l-map', LMap);
@@ -28,6 +35,7 @@ export default {
         Vue.component('l-geojson', LGeoJson);
         Vue.component('l-feature-group', LFeatureGroup);
         Vue.component('l-popup', LPopup);
+        Vue.component('l-tooltip', LTooltip);
         Vue.component('l-wms-tile-layer', LWMSTileLayer);
         Vue.component('l-draw-toolbar', LDrawToolbar);
 

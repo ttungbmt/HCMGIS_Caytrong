@@ -1,6 +1,6 @@
 {
   "name": "@ttungbmt/vue-leaflet",
-  "version": "0.0.1+e09632aa",
+  "version": "0.0.1+6e0ff6dc",
   "description": "Leaflet for Vue.js",
   "main": "dist/vue-leaflet.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "watch": "bili -w",
     "watch:push": "run-p watch push:watch",
     "build": "bili",
-    "build:push": "run-s clean build push",
+    "build:push": "run-s build push",
     "format": "prettier --write \"src/**/*.js\"",
     "format:check": "prettier --list-different \"src/**/*.js\" \"docs/*/**.md\"",
     "packages:upgrade": "yarn upgrade-interactive --latest",
@@ -39,5 +39,5 @@
     "vue2-leaflet": "^2.6.0",
     "vue2-leaflet-draw-toolbar": "^0.1.1"
   },
-  "yalcSig": "e09632aa6c5739d6e82104e9e6c25c0c"
+  "yalcSig": "6e0ff6dc6d1f6b88004d005c10ed0f7d"
 }

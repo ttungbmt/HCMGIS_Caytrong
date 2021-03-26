@@ -140,11 +140,7 @@
         },
 
         created() {
-            L.Icon.Default = L.ExtraMarkers.Icon
-            L.Icon.Default.mergeOptions({
-                icon: 'far fa-circle extra-marker-icon',
-                markerColor: 'orange',
-            })
+
         },
 
         methods: {

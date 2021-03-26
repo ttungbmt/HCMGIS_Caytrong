@@ -94,7 +94,7 @@ class Nongho extends Resource
 
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Map::make(__('Map'), 'geom'),
+            Map::make(__('Map'), 'geom')->hideFromIndex(),
 
             new Panel('Nông hộ', [
                 ...Helper::hcFields(),
