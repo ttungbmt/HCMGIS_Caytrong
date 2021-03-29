@@ -33,6 +33,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         ]);
 
         NovaPage::addLayout(NonghoStats::class);
+        NovaPage::addLayout(KdThuocBVTVStats::class);
 
 //        NovaPage::addPageFields('stats/kt-thuoc-bvtv', function (){
 //            return [
