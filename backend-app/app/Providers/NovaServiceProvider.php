@@ -7,6 +7,8 @@ use App\Nova\Metrics\Caytrongs;
 use App\Nova\Metrics\NewThuadat;
 use App\Nova\Metrics\NewUsers;
 use App\Nova\Layouts\NonghoStats;
+use App\Nova\Layouts\KdThuocBVTVStats;
+use App\Nova\Layouts\KdNongsanStats;
 use App\Support\Helper;
 use IDF\HtmlCard\HtmlCard;
 use Illuminate\Support\Facades\Gate;
@@ -34,6 +36,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
         NovaPage::addLayout(NonghoStats::class);
         NovaPage::addLayout(KdThuocBVTVStats::class);
+        NovaPage::addLayout(KdNongsanStats::class);
 
 //        NovaPage::addPageFields('stats/kt-thuoc-bvtv', function (){
 //            return [
