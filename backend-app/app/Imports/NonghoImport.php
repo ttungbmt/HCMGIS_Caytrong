@@ -95,7 +95,10 @@ class DichteSheetImport extends SheetImport
                 $nh_rt = NonghoRt::create([
                     'nongho_id' => $nongho->id,
                     'ranhthua_id' => $rt->id,
-                    'dt' => (float)str_replace( ',', '.', $i['dientich'])
+                    'dt' => (float)str_replace( ',', '.', $i['dientich']),
+                    'diachi' => $i['diachi'],
+                    'to_dp' => $i['to_dp'],
+                    'khupho_ap' => $i['khupho_ap'],
                 ]);
 
 

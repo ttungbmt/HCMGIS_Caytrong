@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function (){
+
+
 //    $model = \App\Models\KdNongsan::first();
 //    dd($model);
 //    dd(\App\Support\Helper::getTpExtent());

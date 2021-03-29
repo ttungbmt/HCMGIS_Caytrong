@@ -7,7 +7,10 @@ class Model extends \Illuminate\Database\Eloquent\Model
 {
     public function scopeAndFilterWhere($query, $condition){
         $condition = collect($condition)->filter(fn($v) => !$this->isEmpty($v))->all();
-        return $query->where($condition);
+        $condition = collect($condition)->each(function ($v, $k) use($query){
+            $query->where('maquan', '836');
+        });
+        return $query;
     }
 
     /**
