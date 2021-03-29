@@ -22,4 +22,6 @@ class Ranhthua extends GeoModel
     {
         return $this->belongsTo(HcPhuong::class, 'maphuong', 'maphuong');
     }
+
+
 }

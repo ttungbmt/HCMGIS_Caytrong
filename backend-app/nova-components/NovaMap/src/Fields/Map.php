@@ -51,6 +51,9 @@ class Map extends Field
 
                     'drawControls' => true,
                     'editControls' => true,
+                ],
+                'fullscreen' => [
+                    'position' => 'bottomright',
                 ]
             ])
             ->layers([
@@ -90,11 +93,16 @@ class Map extends Field
 
             if (!empty($results)) {
                 foreach ($results as $r) {
-                    $spatialType = $model->getPostgisType('geom')['type'];
                     $data = null;
 
-                    if ($spatialType === 'Point') {
-                        $data = new Point($r->data[0], $r->data[1]);
+                    if(method_exists($model, 'getPostgisType')){
+                        $spatialType = $model->getPostgisType('geom')['type'];
+
+                        if ($spatialType === 'Point') {
+                            $data = new Point($r->data[0], $r->data[1]);
+                        }
+                    } else {
+                        $data = $r;
                     }
 
                     $model->{$r->geom_field} = $this->isNullValue($data) ? null : $data;
@@ -133,42 +141,45 @@ class Map extends Field
 
     protected function resolveAttribute($resource, $attribute)
     {
-        $spatialType = $resource->getPostgisType('geom')['type'];
+        if(method_exists($resource, 'getPostgisType')){
+            $spatialType = $resource->getPostgisType('geom')['type'];
 
-        $this->withMeta(['geomTypes' => [['type' => $spatialType, 'attribute' => $attribute]]]);
+            $this->withMeta(['geomTypes' => [['type' => $spatialType, 'attribute' => $attribute]]]);
 
-        if ($spatialType === 'Point') {
-            !$this->dirtyDrawEditor && $this->setMarkerEditor();
+            if ($spatialType === 'Point') {
+                !$this->dirtyDrawEditor && $this->setMarkerEditor();
 
-            $latlng = $resource->geom ? [$resource->geom->getLat(), $resource->geom->getLng()] : [];
-            if ($this->meta['mapOptions']['zoom'] == config('nova-map.config.zoom') && !empty($latlng)) {
-                $this->center($latlng);
-                $this->zoom(14);
+                $latlng = $resource->geom ? [$resource->geom->getLat(), $resource->geom->getLng()] : [];
+                if ($this->meta['mapOptions']['zoom'] == config('nova-map.config.zoom') && !empty($latlng)) {
+                    $this->center($latlng);
+                    $this->zoom(14);
+                }
+
+                return [
+                    [
+                        'type' => 'marker',
+                        'data' => $resource->geom ? [$resource->geom->getLat(), $resource->geom->getLng()] : [],
+                        'geom_field' => $attribute,
+                        'active' => true
+                    ]
+                ];
+            } elseif (in_array($spatialType, ['MultiPolygon', 'Polygon'])) {
+                !$this->dirtyDrawEditor && $this->setPolygonEditor();
+                if (!isset($this->meta['mapOptions']['bounds'])) $this->bounds($resource->geom);
+
+                return [
+                    [
+                        'type' => 'geojson',
+                        'data' => $resource->geom,
+                        'geom_field' => $attribute,
+                        'active' => true
+                    ]
+                ];
+            } elseif (in_array($spatialType, ['MultiPolyline', 'Polyline'])) {
+                !$this->dirtyDrawEditor && $this->setPolylineEditor();
             }
-
-            return [
-                [
-                    'type' => 'marker',
-                    'data' => $resource->geom ? [$resource->geom->getLat(), $resource->geom->getLng()] : [],
-                    'geom_field' => $attribute,
-                    'active' => true
-                ]
-            ];
-        } elseif (in_array($spatialType, ['MultiPolygon', 'Polygon'])) {
-            !$this->dirtyDrawEditor && $this->setPolygonEditor();
-            if (!isset($this->meta['mapOptions']['bounds'])) $this->bounds($resource->geom);
-
-            return [
-                [
-                    'type' => 'geojson',
-                    'data' => $resource->geom,
-                    'geom_field' => $attribute,
-                    'active' => true
-                ]
-            ];
-        } elseif (in_array($spatialType, ['MultiPolyline', 'Polyline'])) {
-            !$this->dirtyDrawEditor && $this->setPolylineEditor();
         }
+
 
         return data_get($resource, str_replace('->', '.', $attribute), []);
     }
@@ -315,6 +326,29 @@ class Map extends Field
         ]);
 
         $this->showLatLngField(false);
+        $this->dirtyDrawEditor = true;
+
+        return $this;
+    }
+
+    public function setStatsEditor()
+    {
+        $this->meta['controls']['geoman'] = array_merge($this->meta['controls']['geoman'], [
+            'drawMarker' => false,
+            'drawCircleMarker' => false,
+            'drawPolyline' => false,
+            'drawRectangle' => true,
+            'drawPolygon' => true,
+            'drawCircle' => true,
+            'oneBlock' => false
+        ]);
+
+        $this->meta['controls']['fullscreen'] = array_merge($this->meta['controls']['fullscreen'], []);
+        $this->withMeta(['geomTypes' => [
+            ['type' => 'Polygon', 'attribute' => 'polygon_geom'],
+            ['type' => 'Point', 'attribute' => 'point_geom'],
+        ]]);
+
         $this->dirtyDrawEditor = true;
 
         return $this;

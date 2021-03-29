@@ -513,7 +513,7 @@ var script$5 = {
         if (layerObject instanceof L__default['default'].Marker) {
           layerObject.on('pm:edit', function (e) {
             var latlng = e.layer.getLatLng();
-            return _this2.$emit('markerUpdated', {
+            return _this2.$emit('shapeUpdated', {
               layer: e.layer,
               id: e.layer._id,
               type: 'marker',
@@ -524,7 +524,7 @@ var script$5 = {
 
         if (layerObject instanceof L__default['default'].Path || layerObject instanceof L__default['default'].GeoJSON) {
           layerObject.on('pm:edit', function (e) {
-            return _this2.$emit('markerUpdated', {
+            return _this2.$emit('shapeUpdated', {
               layer: layerObject,
               id: layerObject._id,
               type: 'geojson',
@@ -551,42 +551,26 @@ var script$5 = {
           var layer = _ref.layer,
               shape = _ref.shape;
               _ref.target;
+          if (!control.drawMultiple) _this3.map.pm.disableGlobalEditMode();
 
-          if (!control.drawMultiple) {
-            _this3.map.pm.disableGlobalEditMode(); // target.eachLayer(layer1 => {
-            //     if (hasIn(layer1, 'pm.getShape') && !isEqual(layer1._leaflet_id, layer._leaflet_id)) {
-            //         let shape1 = layer1.pm.getShape(),
-            //             shape = layer.pm.getShape(),
-            //             types = ['Polygon', 'Rectangle']
-            //
-            //         if (
-            //             (shape1 === 'Marker' && shape === 'Marker') ||
-            //             (includes(types, shape1) && includes(types, shape))
-            //         ) {
-            //             this.map.removeLayer(layer1)
-            //         }
-            //     }
-            // })
+          _this3.map.removeLayer(layer);
 
-
-            _this3.map.removeLayer(layer);
-
-            _this3.$emit('markerCreated', {
-              layer: layer,
-              shape: shape
-            });
-          }
+          _this3.$emit('shapeCreated', {
+            shape: shape,
+            layer: layer
+          });
         }), _defineProperty(_ref3, 'pm:remove', function pmRemove(_ref2) {
-          var layer = _ref2.layer;
-              _ref2.shape;
-              var target = _ref2.target;
+          var layer = _ref2.layer,
+              shape = _ref2.shape,
+              target = _ref2.target;
+          if (!control.drawMultiple) _this3.map.pm.disableGlobalRemovalMode();
 
-          if (!control.drawMultiple) {
-            _this3.map.pm.disableGlobalRemovalMode();
-
-            _this3.$emit('markerRemoved', {
-              layer: layer,
-              target: target
+          if (!layer._id) {
+            target.eachLayer(function (l) {
+              l._id && l.hasLayer && l.hasLayer(layer) && _this3.$emit('shapeRemoved', {
+                shape: shape,
+                layer: l
+              });
             });
           }
         }), _ref3;

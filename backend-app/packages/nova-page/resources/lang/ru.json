@@ -1,0 +1,7 @@
+{
+  "novaPage.navigationItemTitle": "Настройки",
+  "novaPage.saveButtonText": "Сохранить",
+  "novaPage.noSettingsFieldsText": "Поля настроек не определены.",
+  "novaPage.settingsSuccessToast": "Настройки успешно обновлены",
+  "novaPage.general": "Основные"
+}

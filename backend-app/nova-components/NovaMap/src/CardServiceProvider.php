@@ -29,8 +29,8 @@ class CardServiceProvider extends ServiceProvider
 
             Nova::style('leaflet', 'https://cdn.jsdelivr.net/npm/leaflet@1.0.3/dist/leaflet.css');
 
-            Nova::script('nova-map', __DIR__.'/../dist/js/card.js');
-            Nova::style('nova-map', __DIR__.'/../dist/css/card.css');
+            Nova::script('nova-map', __DIR__.'/../dist/js/tool.js');
+            Nova::style('nova-map', __DIR__.'/../dist/css/tool.css');
         });
 
         $this->publishes([

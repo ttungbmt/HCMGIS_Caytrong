@@ -63,7 +63,7 @@ class Caytrong extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             Image::make(__('Image'), 'image_src')->squared()->path('Image')->prunable()->storeAs($nameFn),
             Text::make(__('app.ten'), 'ten')->sortable()->rules('required')->creationRules('unique:'.self::$model),
-            DateTime::make(__('Created at'), 'created_at')->exceptOnForms(),
+            DateTime::make(__('Created at'), 'created_at')->exceptOnForms()->fillInto(),
         ];
     }
 

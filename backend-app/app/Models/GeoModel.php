@@ -6,7 +6,7 @@ use MStaack\LaravelPostgis\Eloquent\PostgisTrait;
 
 class GeoModel extends Model
 {
-    use PostgisTrait;
+    use PostgisTrait, Postgis;
 
     protected $postgisFields = [
         'geom',

@@ -1,0 +1,6 @@
+{
+  "novaPage.navigationItemTitle": "Einstellungen",
+  "novaPage.saveButtonText": "Einstellungen speichern",
+  "novaPage.noSettingsFieldsText": "Es wurden keine Einstellungs-Felder definiert.",
+  "novaPage.settingsSuccessToast": "Einstellungen erfolgreich geändert."
+}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PopupController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,4 +28,6 @@ Route::post('/map/popup/thuadat', [PopupController::class, 'thuadat']);
 Route::post('/map/popup/kd-nongsan', [PopupController::class, 'kd_nongsan']);
 Route::post('/map/popup/kd-thuoc-bvtv', [PopupController::class, 'kd_thuoc_bvtv']);
 
+
+Route::get('/stats/nongho', [PageController::class, 'nonghoStats']);
 

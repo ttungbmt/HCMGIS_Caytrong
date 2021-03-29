@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56c4b6e524bad6cc8a22972cc36e2e6c",
+    "content-hash": "a9d4cea1275ebed2a23950d77dc1d684",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1026,16 +1026,16 @@
         },
         {
             "name": "ebess/advanced-nova-media-library",
-            "version": "3.5.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ebess/advanced-nova-media-library.git",
-                "reference": "6901f5495a732383b155e8a0dda5db1983e1522e"
+                "reference": "7f484964395f2343c602b22fed3137c13890b0b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ebess/advanced-nova-media-library/zipball/6901f5495a732383b155e8a0dda5db1983e1522e",
-                "reference": "6901f5495a732383b155e8a0dda5db1983e1522e",
+                "url": "https://api.github.com/repos/ebess/advanced-nova-media-library/zipball/7f484964395f2343c602b22fed3137c13890b0b0",
+                "reference": "7f484964395f2343c602b22fed3137c13890b0b0",
                 "shasum": ""
             },
             "require": {
@@ -1068,9 +1068,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ebess/advanced-nova-media-library/issues",
-                "source": "https://github.com/ebess/advanced-nova-media-library/tree/3.5.0"
+                "source": "https://github.com/ebess/advanced-nova-media-library/tree/3.6.0"
             },
-            "time": "2021-03-24T07:15:00+00:00"
+            "time": "2021-03-24T09:27:40+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -2675,6 +2675,43 @@
             }
         },
         {
+            "name": "larabase/nova-page",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./packages/nova-page",
+                "reference": "7122d1fd39a811d80f9cd73905175303793620f8"
+            },
+            "require": {
+                "laravel/nova": "^3.0",
+                "php": ">=7.2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larabase\\NovaPage\\NovaPageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larabase\\NovaPage\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool for editing custom settings using native Nova fields.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "larabase/nova-theme",
             "version": "dev-master",
             "dist": {
@@ -2944,16 +2981,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.2.4",
+            "version": "v2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "d20cd9bf3267aaffa0359ad97be03b2f43532adf"
+                "reference": "e05018b39d7f5ef7ef19af6ba8244e89c2402aab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/d20cd9bf3267aaffa0359ad97be03b2f43532adf",
-                "reference": "d20cd9bf3267aaffa0359ad97be03b2f43532adf",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/e05018b39d7f5ef7ef19af6ba8244e89c2402aab",
+                "reference": "e05018b39d7f5ef7ef19af6ba8244e89c2402aab",
                 "shasum": ""
             },
             "require": {
@@ -3007,7 +3044,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2021-03-23T17:23:07+00:00"
+            "time": "2021-03-25T10:42:54+00:00"
         },
         {
             "name": "laravel/nova",
@@ -10630,16 +10667,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.4.5",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "f28d44c286812c714741478d968104c5e604a1d4"
+                "reference": "f27e06cd9675801df441b3656569b328e04aa37c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/f28d44c286812c714741478d968104c5e604a1d4",
-                "reference": "f28d44c286812c714741478d968104c5e604a1d4",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/f27e06cd9675801df441b3656569b328e04aa37c",
+                "reference": "f27e06cd9675801df441b3656569b328e04aa37c",
                 "shasum": ""
             },
             "require": {
@@ -10647,7 +10684,8 @@
                 "psr/log": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 8"
+                "phpstan/phpstan": "^0.12.55",
+                "symfony/phpunit-bridge": "^4.2 || ^5"
             },
             "type": "library",
             "autoload": {
@@ -10673,7 +10711,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/xdebug-handler/issues",
-                "source": "https://github.com/composer/xdebug-handler/tree/1.4.5"
+                "source": "https://github.com/composer/xdebug-handler/tree/1.4.6"
             },
             "funding": [
                 {
@@ -10689,7 +10727,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-13T08:04:11+00:00"
+            "time": "2021-03-25T17:01:18+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -13476,7 +13514,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "larabase/base": 20,
-        "larabase/nova": 20
+        "larabase/nova": 20,
+        "larabase/nova-page": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

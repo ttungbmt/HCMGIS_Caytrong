@@ -10,7 +10,7 @@
 <script>
     import {toMapLayers, toMapControls} from '@ttungbmt/vue-leaflet-helper'
     import {findRealParent} from 'vue2-leaflet'
-    import L from 'leaflet'
+    import L, {LayerGroup} from 'leaflet'
     import {getGeom} from "@turf/invariant";
 
     export default {
@@ -39,7 +39,7 @@
                     if (layerObject instanceof L.Marker) {
                         layerObject.on('pm:edit', e => {
                             let latlng = e.layer.getLatLng()
-                            return this.$emit('markerUpdated', {
+                            return this.$emit('shapeUpdated', {
                                 layer: e.layer,
                                 id: e.layer._id,
                                 type: 'marker',
@@ -50,7 +50,7 @@
 
 
                     if (layerObject instanceof L.Path || layerObject instanceof L.GeoJSON) {
-                        layerObject.on('pm:edit', e => this.$emit('markerUpdated', {
+                        layerObject.on('pm:edit', e => this.$emit('shapeUpdated', {
                             layer: layerObject,
                             id: layerObject._id,
                             type: 'geojson',
@@ -74,36 +74,19 @@
 
                     return {
                         ['pm:create']: ({layer, shape, target}) => {
-
-                            if (!control.drawMultiple) {
-                                this.map.pm.disableGlobalEditMode()
-
-                                // target.eachLayer(layer1 => {
-                                //     if (hasIn(layer1, 'pm.getShape') && !isEqual(layer1._leaflet_id, layer._leaflet_id)) {
-                                //         let shape1 = layer1.pm.getShape(),
-                                //             shape = layer.pm.getShape(),
-                                //             types = ['Polygon', 'Rectangle']
-                                //
-                                //         if (
-                                //             (shape1 === 'Marker' && shape === 'Marker') ||
-                                //             (includes(types, shape1) && includes(types, shape))
-                                //         ) {
-                                //             this.map.removeLayer(layer1)
-                                //         }
-                                //     }
-                                // })
-
-                                this.map.removeLayer(layer)
-                                this.$emit('markerCreated', {layer, shape})
-                            }
+                            if (!control.drawMultiple) this.map.pm.disableGlobalEditMode()
+                            this.map.removeLayer(layer)
+                            this.$emit('shapeCreated', {shape, layer})
 
                         },
                         ['pm:remove']: ({layer, shape, target}) => {
-                            if (!control.drawMultiple) {
-                                this.map.pm.disableGlobalRemovalMode()
-                                this.$emit('markerRemoved', {layer, target})
-                            }
+                            if (!control.drawMultiple) this.map.pm.disableGlobalRemovalMode()
 
+                            if(!layer._id){
+                                target.eachLayer(l => {
+                                    (l._id && l.hasLayer && l.hasLayer(layer)) && this.$emit('shapeRemoved', {shape, layer: l})
+                                })
+                            }
                         }
                     }
                 }

@@ -4,11 +4,9 @@
             <l-map class="form-input-bordered z-10 mb-3" ref="map" v-bind="mapOptions" :style="mapStyle" v-if="showMap"
                    @ready="onReady">
                 <l-manager :layers="layers" :controls="controls"
-                           @markerCreated="onMarkerCreated"
-                           @markerUpdated="onMarkerUpdated"
-                           @markerRemoved="onMarkerRemoved"
-                           @geojsonUpdated="onGeoJSONUpdated"
-                           @geojsonRemoved="onGeoJSONRemoved"
+                           @shapeCreated="onShapeCreated"
+                           @shapeUpdated="onShapeUpdated"
+                           @shapeRemoved="onShapeRemoved"
                 ></l-manager>
 
                 <l-marker v-if="marker.latLng" v-bind="marker"></l-marker>
@@ -198,7 +196,7 @@
             fill: function (formData) {
                 formData.append(this.field.attribute, JSON.stringify(this.value) || []);
             },
-            onMarkerCreated(e) {
+            onShapeCreated(e) {
                 if (!this.controls.geoman.drawMultiple) this.value = []
 
                 this.$nextTick(() => {
@@ -231,7 +229,7 @@
                     this.value.push(value)
                 })
             },
-            onMarkerUpdated(e) {
+            onShapeUpdated(e) {
                 let index = findIndex(this.value, {id: e.id})
 
                 if (e.id && index >= 0) {
@@ -240,17 +238,11 @@
                 } else {
                     console.warn(`Not found id`, e)
                 }
-
             },
-            onMarkerRemoved(e) {
+            onShapeRemoved(e) {
                 this.value = this.value.filter(v => e.layer._id !== v.id)
             },
-            onGeoJSONUpdated(geojson) {
-                this.geojson = JSON.stringify(geojson)
-            },
-            onGeoJSONRemoved() {
-                this.geojson = ''
-            },
+
 
         }
     }

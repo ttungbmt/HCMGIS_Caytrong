@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'stats-nongho' => 'Nông hộ',
+    'stats-kt-thuoc-bvtv' => 'KD thuốc BVTV',
+    'navigationItemTitle' => 'Thống kê',
+    'saveButtonText' => 'Thống kê',
+
     'prompt_qh' => 'Chọn quận huyện',
     'prompt_px' => 'Chọn phường xã',
     'thuadats' => 'Thửa đất',
@@ -20,6 +25,7 @@ return [
     'maphuong' => 'Mã xã',
     'tenphuong' => 'Tên xã',
     'pg_ranhthua' => 'Ranh thửa',
+    'quytrinh_sx' => 'Quy trình sản xuất',
 
     'caytrong' => 'Cây trồng',
     'loai_ctr' => 'Loại cây trồng',
