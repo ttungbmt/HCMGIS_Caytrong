@@ -9,6 +9,7 @@ use App\Nova\Metrics\NewUsers;
 use App\Nova\Layouts\NonghoStats;
 use App\Nova\Layouts\KdThuocBVTVStats;
 use App\Nova\Layouts\KdNongsanStats;
+use App\Nova\Layouts\DichteStats;
 use App\Support\Helper;
 use IDF\HtmlCard\HtmlCard;
 use Illuminate\Support\Facades\Gate;
@@ -37,6 +38,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         NovaPage::addLayout(NonghoStats::class);
         NovaPage::addLayout(KdThuocBVTVStats::class);
         NovaPage::addLayout(KdNongsanStats::class);
+        NovaPage::addLayout(DichteStats::class);
 
         NovaMap::setConfig(function (){
             $layers = [

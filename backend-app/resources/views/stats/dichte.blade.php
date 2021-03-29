@@ -1,0 +1,27 @@
+<table class="table w-full mt-5">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th class="text-left">Hành chính</th>
+        <th>Số lượng loài gây hại</th>
+        <th>Số lượng thuốc BVTV</th>
+        <th>Số lượng nhóm cây trồng</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($data as $k => $v)
+        <tr>
+            <td class="text-center">{{$k+1}}</td>
+            <td>{{$v->label}}</td>
+            <td class="text-center">{{$v->clgh}}</td>
+            <td class="text-center">{{$v->ctbvtv}}</td>
+            <td class="text-center">{{$v->cnct}}</td>
+        </tr>
+    @endforeach
+    <tr>
+        <td></td>
+        <td class="text-center font-semibold">{{$data->sum('count')}}</td>
+        
+    </tr>
+    </tbody>
+</table>
