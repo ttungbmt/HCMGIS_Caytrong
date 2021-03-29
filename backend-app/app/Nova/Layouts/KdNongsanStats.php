@@ -18,9 +18,9 @@ class KdNongsanStats
 
     public static function title()
     {
-        return __('app.kd_nongsan');
+        return ('app.kd_nongsan');
     }
-    
+
     public function fields(Request $request)
     {
         $quan = HcQuan::pluck('tenquan', 'maquan');
@@ -31,12 +31,12 @@ class KdNongsanStats
             Map::make(__('Map'), 'geom')->setStatsEditor()
         ];
     }
-    
+
     public function asController(NovaRequest $request, $fields, $resource)
     {
         $maquan = $resource->maquan;
         $geom = ($geojson = data_get($resource, 'polygon_geom.data')) ? json_encode($geojson) : null;
-        
+
         $q2 = Ranhthua::select('id')->whereIntersection($geom);
 
         $has_maquan = $maquan ? "maquan = '{$maquan}'" : '1=1';
@@ -49,14 +49,14 @@ class KdNongsanStats
             ->whereRaw($has_maquan)
             ->whereRaw($hc_geom('id'))
         ;
-        
+
 
         $data = DB::table(DB::raw($hc_case['table'].' hc'))
             ->selectRaw("hc.{$hc_case['code']} code, hc.{$hc_case['label']} as label, nh.count")
             ->leftJoin(DB::raw("({$q0->toSql()}) nh"), 'nh.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
             ->whereRaw($maquan ? "maquan = '{$maquan}'" : '1=1')
-            ->get()   
-        ; 
+            ->get()
+        ;
         return [
             'html' => view('stats.kdnongsan', compact('data'))->render()
         ];

@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\User;
-use App\Nova\Layouts\KdThuocBVTVStats;
 use App\Nova\Metrics\Caytrongs;
 use App\Nova\Metrics\NewThuadat;
 use App\Nova\Metrics\NewUsers;
