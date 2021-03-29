@@ -20,7 +20,7 @@ class NonghoStats extends Layout
 
     public static function title()
     {
-		return 'app.nongho';
+	return 'app.nongho';
     }
 
     public function fields(Request $request)
