@@ -103,10 +103,12 @@ class DichteSheetImport extends SheetImport
 
 
                 // DIEN TICH -------------------------------------------
-                foreach ($dientichs as $i){
+                foreach ($dientichs as $k => $i){
                     if($i['loai_ctr']){
                         $ctr = Caytrong::where($ctr_data = ['ten' => $i['loai_ctr']])->first();
+                        abort_unless($ctr, '404', 'Not found model Caytrong: '.$i['loai_ctr']. '(row: '.($k+1).'})');
                         if(!$ctr) $ctr= Caytrong::create($ctr_data);
+
 
                         $dt = DientichSx::create($i->merge([
                             'nongho_id' => $nongho->id,
@@ -119,10 +121,14 @@ class DichteSheetImport extends SheetImport
                 }
 
                 // DICH TE  -------------------------------------------
-                foreach ($dichtes as $i){
+                foreach ($dichtes as $k => $i){
                     if($i['loai_gh']){
                         $gh = LoaiGh::where($gh_data = ['ten' => $i['loai_gh']])->first();
                         $ctr = Caytrong::where($ctr_data = ['ten' => $i['loai_ctr']])->first();
+
+                        abort_unless($ctr, '404', 'Not found model LoaiGh: '.$i['loai_gh']. '(row: '.($k+1).'})');
+                        abort_unless($ctr, '404', 'Not found model Caytrong: '.$i['loai_ctr']. '(row: '.($k+1).'})');
+
                         if(!$gh) $gh= LoaiGh::create($gh_data);
                         if(!$ctr) $ctr= Caytrong::create($ctr_data);
 
