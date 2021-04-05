@@ -55,11 +55,15 @@ class DichteStats extends Layout
         $q0 = DB::table(DB::raw('dichte dt'))
             ->leftJoin(DB::raw('nongho nh'), 'nh.id',  '=', 'dt.nongho_id')
             ->leftJoin(DB::raw('dm_loai_gh gh'), 'gh.id',  '=', 'dt.loai_gh_id')
+            ->leftJoin(DB::raw('dm_caytrong ctr'), 'ctr.id',  '=', 'dt.loai_ctr_id')
             ->selectRaw(collect([
                 $hc_case['code'],
                 'COUNT ( DISTINCT loai_gh_id ) loai_gh',
                 'COUNT ( DISTINCT thuoc_bvtv ) thuoc_bvtv',
                 'COUNT ( DISTINCT loai_ctr_id ) loai_ctr',
+                'ARRAY_TO_STRING(ARRAY_AGG (DISTINCT gh.ten),\', \') AS loai_ghs',
+                'ARRAY_TO_STRING(ARRAY_AGG (DISTINCT thuoc_bvtv),\', \') AS thuoc_bvtvs',
+                'ARRAY_TO_STRING(ARRAY_AGG (DISTINCT ctr.ten),\', \') AS loai_ctrs',
                 'SUM(solan_vu) solan_vu',
                 'AVG(hieuqua_sdt) hieuqua_sdt',
             ])->implode(', '))

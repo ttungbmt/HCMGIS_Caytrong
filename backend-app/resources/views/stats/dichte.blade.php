@@ -15,9 +15,9 @@
         <tr>
             <td class="text-center">{{$k+1}}</td>
             <td>{{$v->label}}</td>
-            <td class="text-center">{{$v->loai_gh}}</td>
-            <td class="text-center">{{$v->thuoc_bvtv}}</td>
-            <td class="text-center">{{$v->loai_ctr}}</td>
+            <td class="text-center cursor-pointer" title="{{$v->loai_ghs}}">{{$v->loai_gh}}</td>
+            <td class="text-center cursor-pointer" title="{{$v->thuoc_bvtvs}}">{{$v->thuoc_bvtv}}</td>
+            <td class="text-center cursor-pointer" title="{{$v->loai_ctrs}}">{{$v->loai_ctr}}</td>
             <td class="text-center">{{$v->solan_vu}}</td>
             <td class="text-center">{{$v->hieuqua_sdt ? number_format($v->hieuqua_sdt, 2) : $v->hieuqua_sdt}}</td>
         </tr>
