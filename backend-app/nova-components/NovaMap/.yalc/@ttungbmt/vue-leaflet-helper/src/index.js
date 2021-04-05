@@ -70,6 +70,9 @@ export function toMapLayers(data) {
                 props.component = _.get(layer, 'component', 'l-geojson')
                 props.geojson = data
                 break
+            case 'geotiff':
+                props.component = _.get(layer, 'component', 'l-geotiff')
+                break
             default:
                 break
         }

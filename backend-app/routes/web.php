@@ -20,13 +20,10 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function (){
-
-
-//    $model = \App\Models\KdNongsan::first();
-//    dd($model);
-//    dd(\App\Support\Helper::getTpExtent());
-//    Excel::import(new NonghoImport, 'giaolong.xlsx');
-//    Excel::import(new NonghoImport, 'tanphu.xlsx');
+//    Excel::import(new NonghoImport, 'imports/giaolong.xlsx');
+//    Excel::import(new NonghoImport, 'imports/tanphu.xlsx');
+//    Excel::import(new NonghoImport, 'imports/vinhbinh.xlsx');
+//    Excel::import(new NonghoImport, 'imports/thanhphong.xlsx');
    return [];
 });
 

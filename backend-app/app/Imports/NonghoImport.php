@@ -69,7 +69,7 @@ class DichteSheetImport extends SheetImport
 
         DB::beginTransaction();
 
-        $nonghoSheet = $this->collection->get(NonghoSheetImport::$name);
+        $nonghoSheet = $this->collection->get(NonghoSheetImport::$name)->filter(fn($i) => $i['stt']);
 //        $nonghoSheet = [$nonghoSheet[0]];
 
         try {
@@ -78,6 +78,7 @@ class DichteSheetImport extends SheetImport
                 $thuadats = $this->collection->get(ThuadatSheetImport::$name)->where('nongho_id', $r_nh->get('nongho_id'))->map($rm_empty_col);
                 $dientichs = $this->collection->get(DientichSheetImport::$name)->where('nongho_id', $r_nh->get('nongho_id'))->map($rm_empty_col);
                 $dichtes = $this->collection->get(DichteSheetImport::$name)->where('nongho_id', $r_nh->get('nongho_id'))->map($rm_empty_col);
+
 
                 $nongho = Nongho::create($r_nh->except(['nongho_id', 'stt'])->all());
 
@@ -115,6 +116,7 @@ class DichteSheetImport extends SheetImport
                             'loai_ctr_id' => $ctr->id,
                             'dt_gt' => (float)str_replace( ',', '.', $i['dt_gt']),
                             'dt_vg' => (float)str_replace( ',', '.', $i['dt_vg']),
+                            'nangsuat_bq' => (float)str_replace( ',', '.', $i['nangsuat_bq']),
                         ])->all());
 
                     }
@@ -126,7 +128,7 @@ class DichteSheetImport extends SheetImport
                         $gh = LoaiGh::where($gh_data = ['ten' => $i['loai_gh']])->first();
                         $ctr = Caytrong::where($ctr_data = ['ten' => $i['loai_ctr']])->first();
 
-                        abort_unless($ctr, '404', 'Not found model LoaiGh: '.$i['loai_gh']. '(row: '.($k+1).'})');
+                        abort_unless($gh, '404', 'Not found model LoaiGh: '.$i['loai_gh']. '(row: '.($k+1).'})');
                         abort_unless($ctr, '404', 'Not found model Caytrong: '.$i['loai_ctr']. '(row: '.($k+1).'})');
 
                         if(!$gh) $gh= LoaiGh::create($gh_data);

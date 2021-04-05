@@ -57,13 +57,14 @@ class NonghoStats extends Layout
         $q2 = Ranhthua::select('id')->whereIntersection($geom);
 
         $hc_case = $maquan ? ['table' => 'hc_phuong', 'code' => 'maphuong', 'label' => 'tenphuong'] : ['table' => 'hc_quan', 'code' => 'maquan', 'label' => 'tenquan'];
+        $has_maquan =  $maquan ? "maquan = '{$maquan}'" : '1=1';
         $has_qtsx =  (fn($col) => $qtsx->isNotEmpty() ? ($col.' in ('.$q->toSql().')') : '1=1');
         $hc_geom =  (fn($col) => $geom ? ($col.' in ('.$q2->toSql().')') : '1=1');
         $maquan = null;
 
         $q0 = DB::table('nongho')->selectRaw($hc_case['code'].', count(*)')
             ->groupBy($hc_case['code'])
-            ->andFilterWhere(['maquan' => $maquan])
+            ->whereRaw($has_maquan)
             ->whereRaw($has_qtsx('id'))
             ->whereRaw($hc_geom('id'))
         ;
@@ -72,7 +73,7 @@ class NonghoStats extends Layout
             ->selectRaw('nh.'.$hc_case['code'])
             ->leftJoin(DB::raw('nongho nh'), 'nh.id',  '=', 'dt.nongho_id')
             ->groupBy('nh.'.$hc_case['code'])
-            ->andFilterWhere(['maquan' => $maquan])
+            ->whereRaw($has_maquan)
             ->whereRaw($has_qtsx('nongho_id'))
             ->whereRaw($hc_geom('nongho_id'));
 
@@ -83,7 +84,7 @@ class NonghoStats extends Layout
             ->selectRaw("hc.{$hc_case['code']} code, hc.{$hc_case['label']} as label, nh.count, ".($ctrs->isEmpty() ? 'dt' : $ctrs->pluck('alias')->implode(', ')))
             ->leftJoin(DB::raw("({$q0->toSql()}) nh"), 'nh.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
             ->leftJoin(DB::raw("({$q1->toSql()}) dt"), 'dt.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
-            ->whereRaw($maquan ? "maquan = '{$maquan}'" : '1=1')
+            ->whereRaw($has_maquan)
             ->get()
             ->map(function ($v) use ($ctrs){
                 $aliases = $ctrs->pluck('alias');

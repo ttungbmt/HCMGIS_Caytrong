@@ -98,6 +98,10 @@ function toMapLayers(data) {
         props.component = ___default['default'].get(layer, 'component', 'l-geojson');
         props.geojson = data;
         break;
+
+      case 'geotiff':
+        props.component = ___default['default'].get(layer, 'component', 'l-geotiff');
+        break;
     }
 
     return props;
