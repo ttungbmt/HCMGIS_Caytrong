@@ -15,16 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect(config('nova.path'). '/nova-map');
+    if (Request::secure()) return redirect(Request::fullUrl().config('nova.path') . '/nova-map');
+    return redirect(config('nova.path') . '/nova-map');
 //    return view('welcome');
 });
 
-Route::get('/test', function (){
+Route::get('/test', function () {
 //    Excel::import(new NonghoImport, 'imports/giaolong.xlsx');
 //    Excel::import(new NonghoImport, 'imports/tanphu.xlsx');
 //    Excel::import(new NonghoImport, 'imports/vinhbinh.xlsx');
 //    Excel::import(new NonghoImport, 'imports/thanhphong.xlsx');
-   return [];
+    return [];
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
