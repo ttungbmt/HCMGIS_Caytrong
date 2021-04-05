@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    if (Request::secure()) return redirect(Request::fullUrl().config('nova.path') . '/nova-map');
+Route::get('/', function () {	
+    if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) return redirect(Str::replaceFirst('http', 'https', Request::fullUrl()).config('nova.path') . '/nova-map');
     return redirect(config('nova.path') . '/nova-map');
 //    return view('welcome');
 });
