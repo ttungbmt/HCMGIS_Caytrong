@@ -60,7 +60,6 @@ class NonghoStats extends Layout
         $has_maquan =  $maquan ? "maquan = '{$maquan}'" : '1=1';
         $has_qtsx =  (fn($col) => $qtsx->isNotEmpty() ? ($col.' in ('.$q->toSql().')') : '1=1');
         $hc_geom =  (fn($col) => $geom ? ($col.' in ('.$q2->toSql().')') : '1=1');
-        $maquan = null;
 
         $q0 = DB::table('nongho')->selectRaw($hc_case['code'].', count(*)')
             ->groupBy($hc_case['code'])

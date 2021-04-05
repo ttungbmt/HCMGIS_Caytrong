@@ -25,7 +25,6 @@ class KdNongsanStats
     {
         $quan = HcQuan::pluck('tenquan', 'maquan');
         $kd = KdNongsan::orderBy('id')->pluck('ten', 'id');
-        //dd($kd);
         return [
             Select::make(__('app.quan'), 'maquan')->options($quan)->displayUsingLabels()->nullable(),
             Map::make(__('Map'), 'geom')->setStatsEditor()
@@ -41,7 +40,6 @@ class KdNongsanStats
 
         $has_maquan = $maquan ? "maquan = '{$maquan}'" : '1=1';
         $hc_case = $maquan ? ['table' => 'hc_phuong', 'code' => 'maphuong', 'label' => 'tenphuong'] : ['table' => 'hc_quan', 'code' => 'maquan', 'label' => 'tenquan'];
-        //dd($hc_case);
         $hc_geom =  (fn($col) => $geom ? ($col.' in ('.$q2->toSql().')') : '1=1');
 
         $q0 = KdNongsan::selectRaw($hc_case['code'].', count(*)')

@@ -41,7 +41,6 @@ class KdThuocBVTVStats
 
         $has_maquan = $maquan ? "maquan = '{$maquan}'" : '1=1';
         $hc_case = $maquan ? ['table' => 'hc_phuong', 'code' => 'maphuong', 'label' => 'tenphuong'] : ['table' => 'hc_quan', 'code' => 'maquan', 'label' => 'tenquan'];
-        //dd($hc_case);
         $hc_geom =  (fn($col) => $geom ? ($col.' in ('.$q2->toSql().')') : '1=1');
 
         $q0 = KdThuocBVTV::selectRaw($hc_case['code'].', count(*)')

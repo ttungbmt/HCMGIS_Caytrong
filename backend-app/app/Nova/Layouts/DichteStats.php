@@ -30,7 +30,7 @@ class DichteStats extends Layout
         $quan = HcQuan::pluck('tenquan', 'maquan');
         $ctr = Caytrong::orderBy('id')->pluck('ten', 'id');
         $ngh = NhomGh::orderby('id')->pluck('ten', 'id');
-//dd($ngh);
+
         return [
             Select::make(__('app.quan'), 'maquan')->options($quan)->displayUsingLabels()->nullable(),
             Multiselect::make(__('app.loai_ctr'), 'loai_ctr_ids')->options($ctr->all()),
@@ -46,41 +46,43 @@ class DichteStats extends Layout
         $maquan = $resource->maquan;
         $geom = ($geojson = data_get($resource, 'polygon_geom.data')) ? json_encode($geojson) : null;
 
-        $ctrs = Caytrong::whereIn('id', $loai_ctr_ids)->get()->map(fn($v, $k) => ['id' => $v->id, 'ten' => $v->ten, 'alias' => 'dt_'.($k+1)]);
-        $nghs = NhomGh::whereIn('id', $nhom_gh_ids)->get()->map(fn($n, $l) => ['id' => $n->id, 'ten' => $n->ten, 'alias' => 'gh_'.($l+1)]);
-//dd($nghs);
-
         $q2 = Ranhthua::select('id')->whereIntersection($geom);
 
         $hc_case = $maquan ? ['table' => 'hc_phuong', 'code' => 'maphuong', 'label' => 'tenphuong'] : ['table' => 'hc_quan', 'code' => 'maquan', 'label' => 'tenquan'];
+        $has_maquan =  $maquan ? "maquan = '{$maquan}'" : '1=1';
         $hc_geom =  (fn($col) => $geom ? ($col.' in ('.$q2->toSql().')') : '1=1');
-        $maquan = null;
 
-        $q0 = DB::table('nongho')->selectRaw($hc_case['code'].', count(*)')
+        $q0 = DB::table(DB::raw('dichte dt'))
+            ->leftJoin(DB::raw('nongho nh'), 'nh.id',  '=', 'dt.nongho_id')
+            ->leftJoin(DB::raw('dm_loai_gh gh'), 'gh.id',  '=', 'dt.loai_gh_id')
+            ->selectRaw(collect([
+                $hc_case['code'],
+                'COUNT ( DISTINCT loai_gh_id ) loai_gh',
+                'COUNT ( DISTINCT thuoc_bvtv ) thuoc_bvtv',
+                'COUNT ( DISTINCT loai_ctr_id ) loai_ctr',
+                'SUM(solan_vu) solan_vu',
+                'AVG(hieuqua_sdt) hieuqua_sdt',
+            ])->implode(', '))
             ->groupBy($hc_case['code'])
-            ->andFilterWhere(['maquan' => $maquan])
-            ->whereRaw($hc_geom('id'))
+            ->whereRaw($has_maquan)
+            ->whereRaw($loai_ctr_ids->isNotEmpty() ? "dt.loai_ctr_id in (".$loai_ctr_ids->implode(',').")" : '1=1')
+            ->whereRaw($nhom_gh_ids->isNotEmpty() ? "gh.nhom_gh_id in (".$nhom_gh_ids->implode(',').")" : '1=1')
+            ->whereRaw($hc_geom('nongho_id'))
         ;
-        
-        $q1 = DB::table('dichte')
-            ->selectRaw('dt.'.$hc_case['code'])
-            ->leftJoin(DB::raw('dichte dt'), 'dt.id',  '=', 'dt.nghs')
-            ->groupBy('nh.'.$hc_case['code'])
-            ->andFilterWhere(['maquan' => $maquan])
-            ->whereRaw($has_qtsx('nongho_id'))
-            ->whereRaw($hc_geom('nongho_id'));
-
-//dd($q1->ToSql());
 
         $data = DB::table(DB::raw($hc_case['table'].' hc'))
-            ->selectRaw("hc.{$hc_case['code']} code, hc.{$hc_case['label']} as label, nh.count")
-            ->leftJoin(DB::raw("({$q0->toSql()}) nh"), 'nh.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
-            ->whereRaw($maquan ? "maquan = '{$maquan}'" : '1=1');
-           // ->get();
-dd($data->ToSql());
+            ->selectRaw(collect([
+                "hc.{$hc_case['code']} code",
+                "hc.{$hc_case['label']} as label",
+                'dt.*',
+            ])->implode(', '))
+            ->leftJoin(DB::raw("({$q0->toSql()}) dt"), 'dt.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
+            ->whereRaw($has_maquan)
+            ->get()
+        ;
 
         return [
-            'html' => view('stats.dichte', compact('data', 'ctrs'))->render()
+            'html' => view('stats.dichte', compact('data'))->render()
         ];
     }
 }
