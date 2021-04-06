@@ -3,12 +3,14 @@
 namespace App\Nova;
 
 use App\Nova\Fields\Place;
+use App\Nova\Filters\PhuongFilter;
+use App\Nova\Filters\QuanFilter;
 use App\Support\Helper;
+use Larabase\Nova\Cards\FiltersSummary;
 use Illuminate\Http\Request;
 use Larabase\Nova\Map\Fields\Map;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 
 class KdThuocBVTV extends Resource
 {
@@ -32,7 +34,7 @@ class KdThuocBVTV extends Resource
      * @var array
      */
     public static $search = [
-        'ten',
+        'ten', 'diachi'
     ];
 
     public static function group()
@@ -70,7 +72,9 @@ class KdThuocBVTV extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            FiltersSummary::make(),
+        ];
     }
 
     /**
@@ -81,7 +85,10 @@ class KdThuocBVTV extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            QuanFilter::make(),
+            PhuongFilter::make(),
+        ];
     }
 
     /**

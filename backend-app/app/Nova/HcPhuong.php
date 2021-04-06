@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\PhuongFilter;
+use App\Nova\Filters\QuanFilter;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Larabase\Nova\Map\Fields\Map;
@@ -93,7 +95,10 @@ class HcPhuong extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            QuanFilter::make(),
+            PhuongFilter::make()
+        ];
     }
 
     /**

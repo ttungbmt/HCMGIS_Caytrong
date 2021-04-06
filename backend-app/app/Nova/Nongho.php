@@ -4,7 +4,11 @@ namespace App\Nova;
 use App\Models\LoaiGh;
 use App\Models\NhomGh;
 use App\Nova\Fields\Place;
+use App\Nova\Filters\PhuongFilter;
+use App\Nova\Filters\QuanFilter;
+use App\Nova\Filters\QuytrinhSxFilter;
 use App\Support\Helper;
+use Larabase\Nova\Cards\FiltersSummary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Larabase\Nova\Map\Fields\Map;
@@ -39,7 +43,7 @@ class Nongho extends Resource
      * @var array
      */
     public static $search = [
-        'hoten',
+        'hoten', 'diachi'
     ];
 
     public static function group()
@@ -51,14 +55,6 @@ class Nongho extends Resource
     {
         return __('app.nongho');
     }
-
-    public function __construct($resource)
-    {
-        parent::__construct($resource);
-
-
-    }
-
 
     /**
      * Get the fields displayed by the resource.
@@ -126,7 +122,9 @@ class Nongho extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            FiltersSummary::make(),
+        ];
     }
 
     /**
@@ -137,7 +135,11 @@ class Nongho extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            QuanFilter::make(),
+            PhuongFilter::make(),
+            QuytrinhSxFilter::make()
+        ];
     }
 
     /**

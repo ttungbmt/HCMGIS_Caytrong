@@ -32,7 +32,7 @@ class KdNongsan extends Resource
      * @var array
      */
     public static $search = [
-        'ten',
+        'ten', 'diachi'
     ];
 
     public static function group()

@@ -2,12 +2,13 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\NhomGhFilter;
+use Larabase\Nova\Cards\FiltersSummary;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 
 class LoaiGh extends Resource
 {
@@ -23,7 +24,7 @@ class LoaiGh extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'ten';
 
     /**
      * The columns that should be searched.
@@ -70,7 +71,9 @@ class LoaiGh extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            FiltersSummary::make(),
+        ];
     }
 
     /**
@@ -81,7 +84,9 @@ class LoaiGh extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            NhomGhFilter::make()
+        ];
     }
 
     /**

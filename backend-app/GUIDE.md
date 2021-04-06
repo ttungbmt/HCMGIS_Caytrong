@@ -1,4 +1,6 @@
 https://www.gso.gov.vn/phuong-phap-thong-ke/danh-muc/don-vi-hanh-chinh/
+
+https://robindirksen.com/blog/laravel-redirect-to-https-a-middleware-to-force-https
 -------------------
 
 composer require laravel/jetstream

@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\PhuongFilter;
+use App\Nova\Filters\QuanFilter;
 use App\Support\Helper;
 use Illuminate\Http\Request;
 use Larabase\Nova\Map\Fields\Map;
@@ -95,7 +97,9 @@ class Ranhthua extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+
+        ];
     }
 
     /**

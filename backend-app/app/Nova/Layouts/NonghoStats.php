@@ -6,6 +6,7 @@ use App\Models\Caytrong;
 use App\Models\HcQuan;
 use App\Models\Nongho;
 use App\Models\Ranhthua;
+use App\Nova\Filters\QuytrinhSxFilter;
 use Illuminate\Support\Facades\DB;
 use Larabase\Nova\Map\Fields\Map;
 use Laravel\Nova\Fields\BooleanGroup;
@@ -27,14 +28,12 @@ class NonghoStats extends Layout
     {
         $quan = HcQuan::pluck('tenquan', 'maquan');
         $ctr = Caytrong::orderBy('id')->pluck('ten', 'id');
+        $qtsx = array_flip(with(new QuytrinhSxFilter)->options($request));
 
         return [
             Select::make(__('app.quan'), 'maquan')->options($quan)->displayUsingLabels()->nullable(),
             Multiselect::make(__('app.loai_ctr'), 'loai_ctr_ids')->options($ctr->all()),
-            BooleanGroup::make(__('app.quytrinh_sx'), 'quytrinh_sx')->options([
-                'th' => 'Truyền thống',
-                'vg' => 'VietGAP',
-            ]),
+            BooleanGroup::make(__('app.quytrinh_sx'), 'quytrinh_sx')->options($qtsx),
             Map::make(__('Map'), 'geom')->setStatsEditor()
         ];
     }

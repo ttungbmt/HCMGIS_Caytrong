@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\QuanFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Larabase\Nova\Map\Fields\Map;
@@ -81,7 +82,9 @@ class HcQuan extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            QuanFilter::make()
+        ];
     }
 
     /**
