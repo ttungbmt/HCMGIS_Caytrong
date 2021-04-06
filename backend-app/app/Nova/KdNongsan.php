@@ -9,6 +9,10 @@ use Larabase\Nova\Map\Fields\Map;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Filters\PhuongFilter;
+use App\Nova\Filters\QuanFilter;
+use Larabase\Nova\Cards\FiltersSummary;
+use Larabase\Nova\Actions\DownloadExcel;
 
 class KdNongsan extends Resource
 {
@@ -70,7 +74,9 @@ class KdNongsan extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            FiltersSummary::make(),
+        ];
     }
 
     /**
@@ -81,7 +87,10 @@ class KdNongsan extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            QuanFilter::make(),
+            PhuongFilter::make(),
+        ];
     }
 
     /**
@@ -103,6 +112,8 @@ class KdNongsan extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel,
+        ];
     }
 }

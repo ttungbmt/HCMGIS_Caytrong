@@ -4,6 +4,8 @@ namespace App\Nova;
 
 use App\Nova\Filters\PhuongFilter;
 use App\Nova\Filters\QuanFilter;
+use Larabase\Nova\Cards\FiltersSummary;
+use Larabase\Nova\Actions\DownloadExcel;
 use App\Support\Helper;
 use Illuminate\Http\Request;
 use Larabase\Nova\Map\Fields\Map;
@@ -86,7 +88,9 @@ class Ranhthua extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            //FiltersSummary::make(),
+        ];
     }
 
     /**
@@ -98,7 +102,8 @@ class Ranhthua extends Resource
     public function filters(Request $request)
     {
         return [
-
+            //QuanFilter::make(),
+            //PhuongFilter::make(),
         ];
     }
 
@@ -121,6 +126,8 @@ class Ranhthua extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel,
+        ];
     }
 }

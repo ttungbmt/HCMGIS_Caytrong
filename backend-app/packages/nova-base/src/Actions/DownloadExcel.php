@@ -15,7 +15,8 @@ class DownloadExcel extends \Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel 
             ->withHeadings()
             ->withChunkCount(300)
             ->askForFilename()
-            ->askForWriterType();
+            ->askForWriterType()
+            ->except('geom');
     }
 
     public function styles(Worksheet $sheet)

@@ -8,6 +8,9 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Filters\CaytrongFilter;
+use Larabase\Nova\Cards\FiltersSummary;
+use Larabase\Nova\Actions\DownloadExcel;
 
 class Dichte extends Resource
 {
@@ -73,7 +76,9 @@ class Dichte extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            FiltersSummary::make(),
+        ];
     }
 
     /**
@@ -84,7 +89,10 @@ class Dichte extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            CaytrongFilter::make(),
+            //DichteFilter::make(),
+        ];
     }
 
     /**
@@ -106,6 +114,8 @@ class Dichte extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new DownloadExcel,
+        ];
     }
 }

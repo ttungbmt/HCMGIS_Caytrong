@@ -2675,7 +2675,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/base",
-                "reference": "cfb2efa981b7e8925297d9f106974291227d6520"
+                "reference": "f3f13b5d20b60a5bf75ae5460f08ad161cdf66fe"
             },
             "require": {
                 "joelbutcher/socialstream": "^2.4",
@@ -2728,7 +2728,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/nova-base",
-                "reference": "d2f09cdd8667ef044ecfa1a564ad279c074090ef"
+                "reference": "db9a8a3458b241ca33c219c5f99a6c1e8ebde6aa"
             },
             "require": {
                 "digital-creative/collapsible-resource-manager": "^1.2",
@@ -2782,7 +2782,7 @@
             "dist": {
                 "type": "path",
                 "url": "./nova-components/NovaMap",
-                "reference": "b232d5723065e02a337ee63d2c0557851bba5c88"
+                "reference": "c743ed93b81298294bc5fc21841d6bd13c8a2efc"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -2818,7 +2818,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/nova-page",
-                "reference": "7122d1fd39a811d80f9cd73905175303793620f8"
+                "reference": "3ed8c715452c9321ec418d7d0d409a7f382aa542"
             },
             "require": {
                 "laravel/nova": "^3.0",
@@ -2855,7 +2855,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/nova-theme",
-                "reference": "725d920bedc73c0f9444935fe02fdc86333a616b"
+                "reference": "bf39c8ea40cd85875d22ca4c7ca3d6241527cd4e"
             },
             "require": {
                 "gregoriohc/laravel-nova-theme-responsive": "^0.8.1",
@@ -3190,7 +3190,7 @@
             "dist": {
                 "type": "path",
                 "url": "./nova",
-                "reference": "4ba9fb7ea196e0039e61cbea574e570a6b15535c"
+                "reference": "e7c63514378fb4b0da2b78d1aaca17df6d873721"
             },
             "require": {
                 "brick/money": "^0.5.0",
