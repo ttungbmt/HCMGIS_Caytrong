@@ -46,7 +46,7 @@ class DichteStats extends Layout
         $maquan = $resource->maquan;
         $geom = ($geojson = data_get($resource, 'polygon_geom.data')) ? json_encode($geojson) : null;
 
-        $q2 = Ranhthua::select('id')->whereIntersection($geom);
+        $q2 = Ranhthua::select('id')->whereIntersection('geom', $geom);
 
         $hc_case = $maquan ? ['table' => 'hc_phuong', 'code' => 'maphuong', 'label' => 'tenphuong'] : ['table' => 'hc_quan', 'code' => 'maquan', 'label' => 'tenquan'];
         $has_maquan =  $maquan ? "maquan = '{$maquan}'" : '1=1';
