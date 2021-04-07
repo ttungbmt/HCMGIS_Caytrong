@@ -46,7 +46,7 @@
     </div>
 
     <card v-if="html">
-        <div v-html="html"></div>
+      <div v-html="html"></div>
     </card>
   </loading-view>
 </template>
@@ -73,13 +73,25 @@
     async created() {
       this.getFields();
     },
+
+    beforeDestroy() {
+      console.log('Main Vue destroyed')
+    },
     watch: {
       $route(to, from) {
-        if (to.params.id !== from.params.id) this.getFields();
+        if (to.params.id !== from.params.id) {
+          this.getFields()
+          this.resetData()
+        }
       },
     },
     methods: {
+      resetData() {
+        this.html = ''
+        this.validationErrors = new Errors()
+      },
       async getFields() {
+
         this.loading = true;
         this.fields = [];
 
@@ -91,11 +103,11 @@
         } = await Nova.request()
           .get('/nova-vendor/nova-page/page', {params})
           .catch(error => {
-            console.log(error)
-            // if (error.response.status == 404) {
-            //   this.$router.push({ name: '404' });
-            //   return;
-            // }
+            console.error(error)
+            if (error.response.status == 404) {
+              this.$router.push({name: '404'});
+              return;
+            }
           });
         this.fields = fields;
         this.panels = panels;
@@ -132,7 +144,7 @@
       },
       updateRequest() {
         return Nova.request().post('/nova-vendor/nova-page/page', this.formData);
-      },
+      }
     },
     computed: {
       formData() {

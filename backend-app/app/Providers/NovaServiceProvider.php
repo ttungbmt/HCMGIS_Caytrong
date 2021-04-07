@@ -4,14 +4,20 @@ namespace App\Providers;
 
 use App\Models\User;
 use App\Nova\Metrics\Caytrongs;
+use App\Nova\Metrics\DientichSxChart;
 use App\Nova\Metrics\NewThuadat;
 use App\Nova\Metrics\NewUsers;
 use App\Nova\Layouts\NonghoStats;
 use App\Nova\Layouts\KdThuocBVTVStats;
 use App\Nova\Layouts\KdNongsanStats;
 use App\Nova\Layouts\DichteStats;
+use App\Nova\Metrics\NonghoTrend;
+use App\Nova\Metrics\QuytrinhSxCount;
 use App\Support\Helper;
+use Coroowicaksono\ChartJsIntegration\BarChart;
 use IDF\HtmlCard\HtmlCard;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Larabase\Nova\Map\NovaMap;
 use Larabase\NovaPage\NovaPage;
@@ -40,7 +46,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         NovaPage::addLayout(KdNongsanStats::class);
         NovaPage::addLayout(DichteStats::class);
 
-        NovaMap::setConfig(function (){
+        NovaMap::setConfig(function () {
             $layers = [
                 [
                     'control' => 'basemap',
@@ -161,9 +167,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function routes()
     {
         Nova::routes()
-                ->withAuthenticationRoutes()
-                ->withPasswordResetRoutes()
-                ->register();
+            ->withAuthenticationRoutes()
+            ->withPasswordResetRoutes()
+            ->register();
     }
 
     /**
@@ -182,6 +188,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         });
     }
 
+
     /**
      * Get the cards that should be displayed on the default Nova dashboard.
      *
@@ -189,16 +196,17 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function cards()
     {
-        return [
+        $isDashboards = request()->is('nova-api/dashboards*');
+
+        return collect([
             (new Caytrongs),
-            (new NewThuadat),
+            (new NonghoTrend),
+            (new QuytrinhSxCount),
+            !$isDashboards ?: (new DientichSxChart)->height(200)->width('2/3'),
+            (new NewThuadat)->width('1/3'),
+            !$isDashboards ?: (new HtmlCard())->view('cards.stats_hc')->width('2/3'),
             (new NewUsers),
-            (new HtmlCard())->width('1/3')->view('cards.stats_hc')->width('2/3'),
-//            (new \Larabase\Nova\Map\NovaMapCard)
-//                ->width('full')
-//                ->height('full')
-//                ->configUrl('/api/map/config')
-        ];
+        ])->filter()->all();
     }
 
     /**

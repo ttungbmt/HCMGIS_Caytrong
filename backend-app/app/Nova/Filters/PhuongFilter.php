@@ -19,6 +19,6 @@ class PhuongFilter extends DependentFilter
     public function options(Request $request, array $filters = [])
     {
         $maquan = data_get($filters, 'maquan');
-        return HcPhuong::whereRaw($maquan ? "maquan = '{$maquan}'" : '1=0')->get()->sortBy('tenphuong', SORT_NATURAL)->pluck('tenphuong', 'maphuong');
+        return HcPhuong::when($maquan, fn($q) => $q->where('maquan', $maquan))->get()->sortBy('tenphuong', SORT_NATURAL)->pluck('tenphuong', 'maphuong');
     }
 }

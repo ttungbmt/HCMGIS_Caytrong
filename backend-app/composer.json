@@ -10,6 +10,7 @@
     "require": {
         "php": ">=7.4",
         "awesome-nova/dependent-filter": "^1.1",
+        "coroowicaksono/chart-js-integration": "*@dev",
         "degecko/nova-filters-summary": "*@dev",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",

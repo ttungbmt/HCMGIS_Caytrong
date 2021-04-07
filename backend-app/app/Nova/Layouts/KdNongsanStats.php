@@ -36,7 +36,7 @@ class KdNongsanStats
         $maquan = $resource->maquan;
         $geom = ($geojson = data_get($resource, 'polygon_geom.data')) ? json_encode($geojson) : null;
 
-        $q2 = Ranhthua::select('id')->whereIntersection($geom);
+        $q2 = Ranhthua::select('id')->whereIntersection('geom', $geom);
 
         $has_maquan = $maquan ? "maquan = '{$maquan}'" : '1=1';
         $hc_case = $maquan ? ['table' => 'hc_phuong', 'code' => 'maphuong', 'label' => 'tenphuong'] : ['table' => 'hc_quan', 'code' => 'maquan', 'label' => 'tenquan'];
@@ -48,10 +48,9 @@ class KdNongsanStats
             ->whereRaw($hc_geom('id'))
         ;
 
-
         $data = DB::table(DB::raw($hc_case['table'].' hc'))
             ->selectRaw("hc.{$hc_case['code']} code, hc.{$hc_case['label']} as label, nh.count")
-            ->leftJoin(DB::raw("({$q0->toSql()}) nh"), 'nh.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
+            ->leftJoinSub($q0, 'nh', 'nh.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
             ->whereRaw($maquan ? "maquan = '{$maquan}'" : '1=1')
             ->get()
         ;

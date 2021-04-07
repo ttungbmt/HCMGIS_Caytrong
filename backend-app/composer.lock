@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2265fd23602f3f9e971e5fc95199152c",
+    "content-hash": "a327b7db5d303c10880af0046b1c6e8d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -401,6 +401,53 @@
                 "source": "https://github.com/cakephp/chronos"
             },
             "time": "2021-02-06T03:37:44+00:00"
+        },
+        {
+            "name": "coroowicaksono/chart-js-integration",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./packages/nova-chartjs",
+                "reference": "01ebc5fffd4881f5013e53d58aa0e5b0aaa6123a"
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Coroowicaksono\\ChartJsIntegration\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Coroowicaksono\\ChartJsIntegration\\": "src/",
+                    "Coroowicaksono\\ChartJsIntegration\\Api\\": "src/api"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kuncoro Wicaksono",
+                    "email": "coroo.wicaksono@gmail.com",
+                    "role": "Software Engineer"
+                }
+            ],
+            "description": "A Simple Dashboard Chart in Laravel Nova using Chart JS. Starting create your own dashboard with Chart JS Integration can save your time and help you maintain consistency across standard elements such as Bar, Stacked, Line, Area, Doughnut and Pie Chart.",
+            "homepage": "https://github.com/coroo",
+            "keywords": [
+                "chart js",
+                "laravel",
+                "nova",
+                "stacked chart"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "dasprid/enum",
@@ -2675,10 +2722,11 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/base",
-                "reference": "f3f13b5d20b60a5bf75ae5460f08ad161cdf66fe"
+                "reference": "15a79422032ab6db2a27bddab4c7c4abbd3ec281"
             },
             "require": {
                 "joelbutcher/socialstream": "^2.4",
+                "larabase/laravel-builder-macros": "*@dev",
                 "laravel/jetstream": "^2.2",
                 "laravel/sanctum": "^2.6",
                 "livewire/livewire": "^2.0",
@@ -2723,12 +2771,55 @@
             }
         },
         {
+            "name": "larabase/laravel-builder-macros",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./packages/laravel-builder-macros",
+                "reference": "99a04ade2596954adbb82f300ea08b63ca4fb809"
+            },
+            "require": {
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.2.5|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larabase\\BuilderMacros\\BuilderMacroServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larabase\\BuilderMacros\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Truong Thanh Tung",
+                    "email": "ttungbmt@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A set of useful Laravel builder macros.",
+            "homepage": "https://github.com/ttungbmt/laravel-builder-macros",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "larabase/nova",
             "version": "0.0.1",
             "dist": {
                 "type": "path",
                 "url": "./packages/nova-base",
-                "reference": "db9a8a3458b241ca33c219c5f99a6c1e8ebde6aa"
+                "reference": "d2f09cdd8667ef044ecfa1a564ad279c074090ef"
             },
             "require": {
                 "digital-creative/collapsible-resource-manager": "^1.2",
@@ -2782,7 +2873,7 @@
             "dist": {
                 "type": "path",
                 "url": "./nova-components/NovaMap",
-                "reference": "c743ed93b81298294bc5fc21841d6bd13c8a2efc"
+                "reference": "b232d5723065e02a337ee63d2c0557851bba5c88"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -2818,7 +2909,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/nova-page",
-                "reference": "3ed8c715452c9321ec418d7d0d409a7f382aa542"
+                "reference": "7122d1fd39a811d80f9cd73905175303793620f8"
             },
             "require": {
                 "laravel/nova": "^3.0",
@@ -2855,7 +2946,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/nova-theme",
-                "reference": "bf39c8ea40cd85875d22ca4c7ca3d6241527cd4e"
+                "reference": "725d920bedc73c0f9444935fe02fdc86333a616b"
             },
             "require": {
                 "gregoriohc/laravel-nova-theme-responsive": "^0.8.1",
@@ -2951,16 +3042,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.35.1",
+            "version": "v8.36.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d118c0df39e7524131176aaf76493eae63a8a602"
+                "reference": "91c454715b81b9a39f718651d4e2f8104d45e7c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d118c0df39e7524131176aaf76493eae63a8a602",
-                "reference": "d118c0df39e7524131176aaf76493eae63a8a602",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/91c454715b81b9a39f718651d4e2f8104d45e7c2",
+                "reference": "91c454715b81b9a39f718651d4e2f8104d45e7c2",
                 "shasum": ""
             },
             "require": {
@@ -3115,20 +3206,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-03-30T21:34:17+00:00"
+            "time": "2021-04-06T21:14:06+00:00"
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "fffe15710e61c09f6cb919ff949a3c66c8244150"
+                "reference": "39d50ec0dda28ae2077baf9df307509a09307d75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/fffe15710e61c09f6cb919ff949a3c66c8244150",
-                "reference": "fffe15710e61c09f6cb919ff949a3c66c8244150",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/39d50ec0dda28ae2077baf9df307509a09307d75",
+                "reference": "39d50ec0dda28ae2077baf9df307509a09307d75",
                 "shasum": ""
             },
             "require": {
@@ -3182,7 +3273,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2021-03-30T21:35:46+00:00"
+            "time": "2021-04-06T14:26:21+00:00"
         },
         {
             "name": "laravel/nova",
@@ -3190,7 +3281,7 @@
             "dist": {
                 "type": "path",
                 "url": "./nova",
-                "reference": "e7c63514378fb4b0da2b78d1aaca17df6d873721"
+                "reference": "4ba9fb7ea196e0039e61cbea574e570a6b15535c"
             },
             "require": {
                 "brick/money": "^0.5.0",
@@ -3273,16 +3364,16 @@
         },
         {
             "name": "laravel/sanctum",
-            "version": "v2.9.3",
+            "version": "v2.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sanctum.git",
-                "reference": "81f3027af262590ffb63f202cba6d055d562a9a1"
+                "reference": "dd84a9141012c5509922df0c72866110f45026cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/81f3027af262590ffb63f202cba6d055d562a9a1",
-                "reference": "81f3027af262590ffb63f202cba6d055d562a9a1",
+                "url": "https://api.github.com/repos/laravel/sanctum/zipball/dd84a9141012c5509922df0c72866110f45026cb",
+                "reference": "dd84a9141012c5509922df0c72866110f45026cb",
                 "shasum": ""
             },
             "require": {
@@ -3333,20 +3424,20 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-            "time": "2021-03-30T21:29:22+00:00"
+            "time": "2021-04-06T14:32:48+00:00"
         },
         {
             "name": "laravel/socialite",
-            "version": "v5.2.2",
+            "version": "v5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "8d25d574b4f2005411c0b9cb527ef5e745c1b07d"
+                "reference": "1960802068f81e44b2ae9793932181cf1cb91b5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/8d25d574b4f2005411c0b9cb527ef5e745c1b07d",
-                "reference": "8d25d574b4f2005411c0b9cb527ef5e745c1b07d",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/1960802068f81e44b2ae9793932181cf1cb91b5c",
+                "reference": "1960802068f81e44b2ae9793932181cf1cb91b5c",
                 "shasum": ""
             },
             "require": {
@@ -3402,7 +3493,7 @@
                 "issues": "https://github.com/laravel/socialite/issues",
                 "source": "https://github.com/laravel/socialite"
             },
-            "time": "2021-03-02T16:50:47+00:00"
+            "time": "2021-04-06T14:38:16+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4057,16 +4148,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "3.1.29",
+            "version": "3.1.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "1e567e6e19a04fd65b5876d5bc92f4015f09fab4"
+                "reference": "aa5d2e4d25c5c8218ea0a15103da95f5f8728953"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/1e567e6e19a04fd65b5876d5bc92f4015f09fab4",
-                "reference": "1e567e6e19a04fd65b5876d5bc92f4015f09fab4",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/aa5d2e4d25c5c8218ea0a15103da95f5f8728953",
+                "reference": "aa5d2e4d25c5c8218ea0a15103da95f5f8728953",
                 "shasum": ""
             },
             "require": {
@@ -4119,7 +4210,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Maatwebsite/Laravel-Excel/issues",
-                "source": "https://github.com/Maatwebsite/Laravel-Excel/tree/3.1.29"
+                "source": "https://github.com/Maatwebsite/Laravel-Excel/tree/3.1.30"
             },
             "funding": [
                 {
@@ -4131,7 +4222,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-16T11:56:39+00:00"
+            "time": "2021-04-06T17:17:02+00:00"
         },
         {
             "name": "maatwebsite/laravel-nova-excel",
@@ -5946,16 +6037,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "906a5fafabe5e6ba51ef3dc65b2722a677908837"
+                "reference": "d369510df0ebd5e1a5d0fe3d4d23c55fa87a403d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/906a5fafabe5e6ba51ef3dc65b2722a677908837",
-                "reference": "906a5fafabe5e6ba51ef3dc65b2722a677908837",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d369510df0ebd5e1a5d0fe3d4d23c55fa87a403d",
+                "reference": "d369510df0ebd5e1a5d0fe3d4d23c55fa87a403d",
                 "shasum": ""
             },
             "require": {
@@ -6037,7 +6128,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.6"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.7"
             },
             "funding": [
                 {
@@ -6053,7 +6144,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-03-10T13:58:31+00:00"
+            "time": "2021-04-06T14:00:11+00:00"
         },
         {
             "name": "pragmarx/google2fa",
@@ -11521,16 +11612,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.4.10",
+            "version": "v1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "4f0b2bac128ee60a11d9758651f103f78157474a"
+                "reference": "e46a3228da4e95a411a981ac807bd119ab2485fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/4f0b2bac128ee60a11d9758651f103f78157474a",
-                "reference": "4f0b2bac128ee60a11d9758651f103f78157474a",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/e46a3228da4e95a411a981ac807bd119ab2485fa",
+                "reference": "e46a3228da4e95a411a981ac807bd119ab2485fa",
                 "shasum": ""
             },
             "require": {
@@ -11577,7 +11668,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2021-03-30T21:26:44+00:00"
+            "time": "2021-04-06T14:00:39+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -13795,6 +13886,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "coroowicaksono/chart-js-integration": 20,
         "degecko/nova-filters-summary": 20,
         "larabase/base": 20,
         "larabase/nova": 20,

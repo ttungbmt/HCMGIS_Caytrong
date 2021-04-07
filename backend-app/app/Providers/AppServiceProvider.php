@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Macros\Query\ToRawSql;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\ServiceProvider;
 

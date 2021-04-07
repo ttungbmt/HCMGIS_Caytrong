@@ -47,42 +47,41 @@ class NonghoStats extends Layout
 
         $ctrs = Caytrong::whereIn('id', $loai_ctr_ids)->get()->map(fn($v, $k) => ['id' => $v->id, 'ten' => $v->ten, 'alias' => 'dt_'.($k+1)]);
 
-        $q =  DB::table('dientich_sx')->selectRaw('nongho_id')->groupBy('nongho_id');
-        $qtsx->each(function ($k) use(&$q){
-            $k === 'vg' && $q->whereRaw('dt_gt > 0');
-            $k === 'tr' && $q->whereRaw('dt_vg > 0');
-        });
+        $q_dt =  DB::table('dientich_sx')
+            ->selectRaw('nongho_id')->groupBy('nongho_id')
+            ->when($qtsx->contains('th'), fn($q) => $q->whereRaw('dt_gt > 0'))
+            ->when($qtsx->contains('vg'), fn($q) => $q->whereRaw('dt_vg > 0'))
+        ;
 
-        $q2 = Ranhthua::select('id')->whereIntersection($geom);
+        $q2 = Ranhthua::select('id')->whereIntersection('geom', $geom);
 
         $hc_case = $maquan ? ['table' => 'hc_phuong', 'code' => 'maphuong', 'label' => 'tenphuong'] : ['table' => 'hc_quan', 'code' => 'maquan', 'label' => 'tenquan'];
-        $has_maquan =  $maquan ? "maquan = '{$maquan}'" : '1=1';
-        $has_qtsx =  (fn($col) => $qtsx->isNotEmpty() ? ($col.' in ('.$q->toSql().')') : '1=1');
-        $hc_geom =  (fn($col) => $geom ? ($col.' in ('.$q2->toSql().')') : '1=1');
+        $has_qtsx = (fn($col) => [$qtsx->isNotEmpty(), fn($q) => $q->whereRaw("{$col} in ({$q_dt->toSql()})")]);
+        $hc_geom =  (fn($col) => [$geom, fn($q) => $q->whereRaw("{$col} in ('{$q2->toSql()}')")]);
 
         $q0 = DB::table('nongho')->selectRaw($hc_case['code'].', count(*)')
             ->groupBy($hc_case['code'])
-            ->whereRaw($has_maquan)
-            ->whereRaw($has_qtsx('id'))
-            ->whereRaw($hc_geom('id'))
+            ->whereFilter('maquan', $maquan)
+            ->when(...$has_qtsx('id'))
+            ->when(...$hc_geom('id'))
         ;
 
         $q1 = DB::table(DB::raw('dientich_sx dt'))
             ->selectRaw('nh.'.$hc_case['code'])
             ->leftJoin(DB::raw('nongho nh'), 'nh.id',  '=', 'dt.nongho_id')
             ->groupBy('nh.'.$hc_case['code'])
-            ->whereRaw($has_maquan)
-            ->whereRaw($has_qtsx('nongho_id'))
-            ->whereRaw($hc_geom('nongho_id'));
+            ->whereFilter('maquan', $maquan)
+            ->when(...$has_qtsx('nongho_id'))
+            ->when(...$hc_geom('nongho_id'));
 
         if($ctrs->isEmpty()) $q1 = $q1->addSelect(DB::raw('SUM (dt_gt) dt'));
         else $q1 = $q1->addSelect(DB::raw($ctrs->map(fn($v, $k) => "SUM(dt_gt) FILTER (WHERE dt.loai_ctr_id = {$v['id']}) {$v['alias']}")->values()->implode(', ')));
 
         $data = DB::table(DB::raw($hc_case['table'].' hc'))
             ->selectRaw("hc.{$hc_case['code']} code, hc.{$hc_case['label']} as label, nh.count, ".($ctrs->isEmpty() ? 'dt' : $ctrs->pluck('alias')->implode(', ')))
-            ->leftJoin(DB::raw("({$q0->toSql()}) nh"), 'nh.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
-            ->leftJoin(DB::raw("({$q1->toSql()}) dt"), 'dt.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
-            ->whereRaw($has_maquan)
+            ->leftJoinSub($q0, 'nh', 'nh.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
+            ->leftJoinSub($q1, 'dt', 'dt.'.$hc_case['code'], '=', 'hc.'.$hc_case['code'])
+            ->whereFilter('maquan', $maquan)
             ->get()
             ->map(function ($v) use ($ctrs){
                 $aliases = $ctrs->pluck('alias');
