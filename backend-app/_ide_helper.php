@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.35.1.
+ * Generated for Laravel 8.36.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -2798,7 +2798,7 @@
                     /**
          * Dispatch a command to its appropriate handler in the current process.
          * 
-         * Queuable jobs will be dispatched to the "sync" queue.
+         * Queueable jobs will be dispatched to the "sync" queue.
          *
          * @param mixed $command
          * @param mixed $handler
@@ -16602,6 +16602,29 @@
                         return $instance->formatConfig($config);
         }
                     /**
+         * Forget all of the resolved driver instances.
+         *
+         * @return \Laravel\Socialite\SocialiteManager 
+         * @static 
+         */ 
+        public static function forgetDrivers()
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->forgetDrivers();
+        }
+                    /**
+         * Set the container instance used by the manager.
+         *
+         * @param \Illuminate\Contracts\Container\Container $container
+         * @return \Laravel\Socialite\SocialiteManager 
+         * @static 
+         */ 
+        public static function setContainer($container)
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->setContainer($container);
+        }
+                    /**
          * Get the default driver name.
          *
          * @return string 
@@ -16660,29 +16683,6 @@
         {            //Method inherited from \Illuminate\Support\Manager         
                         /** @var \Laravel\Socialite\SocialiteManager $instance */
                         return $instance->getContainer();
-        }
-                    /**
-         * Set the container instance used by the manager.
-         *
-         * @param \Illuminate\Contracts\Container\Container $container
-         * @return \Laravel\Socialite\SocialiteManager 
-         * @static 
-         */ 
-        public static function setContainer($container)
-        {            //Method inherited from \Illuminate\Support\Manager         
-                        /** @var \Laravel\Socialite\SocialiteManager $instance */
-                        return $instance->setContainer($container);
-        }
-                    /**
-         * Forget all of the resolved driver instances.
-         *
-         * @return \Laravel\Socialite\SocialiteManager 
-         * @static 
-         */ 
-        public static function forgetDrivers()
-        {            //Method inherited from \Illuminate\Support\Manager         
-                        /** @var \Laravel\Socialite\SocialiteManager $instance */
-                        return $instance->forgetDrivers();
         }
          
     }
@@ -18084,6 +18084,61 @@
      
 }
 
+    namespace Illuminate\Database\Query { 
+            /**
+     * 
+     *
+     */ 
+        class Builder {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function toRawSql()
+        {
+                        return \Illuminate\Database\Query\Builder::toRawSql();
+        }
+                    /**
+         * 
+         *
+         * @param mixed $column
+         * @param mixed $operator
+         * @param mixed $value
+         * @param mixed $boolean
+         * @static 
+         */ 
+        public static function whereFilter($column, $operator = null, $value = null, $boolean = 'and')
+        {
+                        return \Illuminate\Database\Query\Builder::whereFilter($column, $operator, $value, $boolean);
+        }
+                    /**
+         * 
+         *
+         * @param mixed $column
+         * @param mixed $geom
+         * @static 
+         */ 
+        public static function whereIntersection($column, $geom)
+        {
+                        return \Illuminate\Database\Query\Builder::whereIntersection($column, $geom);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\AppServiceProvider::register()
+         * @param array $condition
+         * @static 
+         */ 
+        public static function andFilterWhere($condition)
+        {
+                        return \Illuminate\Database\Query\Builder::andFilterWhere($condition);
+        }
+         
+    }
+     
+}
+
     namespace Illuminate\Testing { 
             /**
      * 
@@ -18163,28 +18218,6 @@
         public static function dropAuditableWithDeletes()
         {
                         return \Illuminate\Database\Schema\Blueprint::dropAuditableWithDeletes();
-        }
-         
-    }
-     
-}
-
-    namespace Illuminate\Database\Query { 
-            /**
-     * 
-     *
-     */ 
-        class Builder {
-                    /**
-         * 
-         *
-         * @see \App\Providers\AppServiceProvider::register()
-         * @param array $condition
-         * @static 
-         */ 
-        public static function andFilterWhere($condition)
-        {
-                        return \Illuminate\Database\Query\Builder::andFilterWhere($condition);
         }
          
     }
@@ -19510,6 +19543,56 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->unless($value, $callback, $default);
+            }
+             
+                /**
+             * 
+             *
+             * @see \Larabase\BuilderMacros\BuilderMacroServiceProvider::register()
+             * @static 
+             */ 
+            public static function toRawSql()
+            {
+                                return \Illuminate\Database\Eloquent\Builder::toRawSql();
+            }
+             
+                /**
+             * 
+             *
+             * @param mixed $column
+             * @param mixed $operator
+             * @param mixed $value
+             * @param mixed $boolean
+             * @static 
+             */ 
+            public static function whereFilter($column, $operator = null, $value = null, $boolean = 'and')
+            {
+                                return \Illuminate\Database\Eloquent\Builder::whereFilter($column, $operator, $value, $boolean);
+            }
+             
+                /**
+             * 
+             *
+             * @see \Larabase\BuilderMacros\BuilderMacroServiceProvider::register()
+             * @param mixed $column
+             * @param mixed $geom
+             * @static 
+             */ 
+            public static function whereIntersection($column, $geom)
+            {
+                                return \Illuminate\Database\Eloquent\Builder::whereIntersection($column, $geom);
+            }
+             
+                /**
+             * 
+             *
+             * @param mixed $columns
+             * @param string $value
+             * @static 
+             */ 
+            public static function whereLike($columns, $value)
+            {
+                                return \Illuminate\Database\Eloquent\Builder::whereLike($columns, $value);
             }
              
                 /**

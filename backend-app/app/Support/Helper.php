@@ -50,4 +50,8 @@ class Helper
             return json_decode($geometry, true) ;
         });
     }
+
+    public static function numberFormat($number, $decimals = 2){
+        return $number ? number_format($number, $decimals) : $number;
+    }
 }
