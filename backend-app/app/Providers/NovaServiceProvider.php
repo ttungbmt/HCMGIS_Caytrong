@@ -227,7 +227,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools()
     {
         $tools = [
-            (new NovaMap()),
+//            (new NovaMap()),
             (new NovaPage),
             (new \Mastani\NovaPasswordReset\NovaPasswordReset)->canSeeWhen('users.change-password', User::class),
             (new \Vyuldashev\NovaPermission\NovaPermissionTool)
