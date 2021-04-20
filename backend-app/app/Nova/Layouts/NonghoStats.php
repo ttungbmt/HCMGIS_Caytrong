@@ -48,7 +48,7 @@ class NonghoStats extends Layout
 
         $data = DB::table('dientich_sx as dt')
             ->selectRaw(collect([
-                'maquan', 'loai_ctr_id', 'SUM(dt_gt) dt_gt', 'SUM(nangsuat_bq) nangsuat_bq'
+                'maquan', 'loai_ctr_id', 'SUM(dt_gt+dt_vg) dt_gt', 'SUM(nangsuat_bq) nangsuat_bq'
             ])->implode(', '))
             ->leftJoin('nongho as nh', 'nh.id', '=', 'dt.nongho_id')
             ->groupByRaw('maquan, loai_ctr_id')->get()
