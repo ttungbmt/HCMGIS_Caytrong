@@ -234,6 +234,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ->roleResource(\Larabase\Nova\Resources\Role::class)
                 ->permissionResource(\Larabase\Nova\Resources\Permission::class),
             (new \Infinety\Filemanager\FilemanagerTool)->canSeeWhen('filemanager', User::class),
+            new \CodencoDev\NovaGridSystem\NovaGridSystem
         ];
 
         return $tools;

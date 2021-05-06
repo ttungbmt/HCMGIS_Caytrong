@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'baocao' => 'Báo cáo',
     'stats-nongho' => 'Nông hộ',
     'stats-kt-thuoc-bvtv' => 'KD thuốc BVTV',
     'navigationItemTitle' => 'Thống kê',
@@ -67,5 +68,10 @@ return [
     'loai_ctr_id' => 'Nhóm cây trồng',
     'solan_vu' => 'Số lần/vụ',
     'hieuqua_sdt' => 'Hiệu quả sử dụng thuốc (%)',
-    'dichtes' => 'Dịch tễ'
+    'dichtes' => 'Dịch tễ',
+
+    'dt_hc' => 'Diện tích hiện có',
+    'dt_trm' => 'Trong đó: Trồng mới',
+    'dt_sp' => 'Diện tích cho SP',
+    'sanluong_th' => 'Sản lượng thu hoạch',
 ];

@@ -1,0 +1,27 @@
+.sidebar-header {
+    padding-top: 0;
+}
+
+.sticky-navbar {
+    position: sticky;
+    top: 0;
+}
+
+.fixed-sidebar {
+    .sidebar-content {
+        position: relative;
+        flex: 1;
+
+        .sidebar-scroll {
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            position: absolute;
+        }
+    }
+
+    .content {
+        overflow: auto;
+        height: 100vh;
+    }
+}

@@ -111,6 +111,8 @@ class NonghoStats extends Layout
 //            })
 //        ;
 
+//        dd($hcs, $ctrs, $data);
+
         return [
 //            'html' => view('stats.nongho', compact('data', 'ctrs'))->render()
             'html' => view('stats.nongho', compact('hcs', 'ctrs', 'data'))->render()

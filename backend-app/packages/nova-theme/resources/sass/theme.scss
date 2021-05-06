@@ -1,5 +1,9 @@
-@import "_scrollbar";
-@import "_loader";
+@import "responsive";
+@import "loader";
+@import "scrollbar";
+@import "fixed_sidebar";
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+
 
 /************************* Header **************************/
 .page-header {
@@ -32,7 +36,7 @@
 
 /************************* Content **************************/
 .content div[data-testid="content"] {
-  padding-top: 10px;
+    padding-top: 15px;
 }
 
 .page-content {
@@ -121,7 +125,7 @@
 */
 
 input[type="radio"].checkbox {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 /************************* Button **************************/

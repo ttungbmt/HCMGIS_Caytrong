@@ -33,21 +33,11 @@
 </head>
 <body class="min-w-site bg-40 text-90 font-medium min-h-full">
     <div id="nova">
-        @include('nova::partials.loader')
+        @include('nova-theme::loader')
 
         <div v-cloak class="flex min-h-screen">
             <!-- Sidebar -->
-            <div class="min-h-screen flex-none pt-header min-h-screen w-sidebar bg-grad-sidebar px-6">
-                <a href="{{ \Laravel\Nova\Nova::path() }}">
-                    <div class="absolute pin-t pin-l pin-r bg-logo flex items-center w-sidebar h-header px-6 text-white justify-center">
-                       @include('nova::partials.logo')
-                    </div>
-                </a>
-
-                @foreach (\Laravel\Nova\Nova::availableTools(request()) as $tool)
-                    {!! $tool->renderNavigation() !!}
-                @endforeach
-            </div>
+            @include('nova-theme::sidebar')
 
             <!-- Content -->
             <div class="content">
