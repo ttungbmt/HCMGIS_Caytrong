@@ -20,14 +20,15 @@ $e_ns = fn($code, $ctr_id) => data_get($data->where('maquan', (string)$code)->wh
     <tbody>
     @foreach($ctrs as $ctr_id => $ctr)
         @php
-            $sl = $data->where('loai_ctr_id', $ctr_id)->sum('sanluong_th')
+            $sl = $data->where('loai_ctr_id', $ctr_id)->sum('sanluong_th');
+            $dt = $data->where('loai_ctr_id', $ctr_id)->sum('dt_sp');
         @endphp
 
         <tr>
             <td rowspan="5">{{$ctr}}</td>
             <td>Diện tích hiện có</td>
             <td>Ha</td>
-            <td>{{$dt = $format($data->where('loai_ctr_id', $ctr_id)->sum('dt_hc'))}}</td>
+            <td>{{$format($data->where('loai_ctr_id', $ctr_id)->sum('dt_hc'))}}</td>
             @foreach($hcs as $code => $hc)
                 <td>{{$format($e_v($code, $ctr_id, 'dt_hc'))}}</td>
             @endforeach
@@ -35,7 +36,7 @@ $e_ns = fn($code, $ctr_id) => data_get($data->where('maquan', (string)$code)->wh
         <tr>
             <td>Trong đó: Trồng mới</td>
             <td>Ha</td>
-            <td>{{$dt = $format($data->where('loai_ctr_id', $ctr_id)->sum('dt_trm'))}}</td>
+            <td>{{$format($data->where('loai_ctr_id', $ctr_id)->sum('dt_trm'))}}</td>
             @foreach($hcs as $code => $hc)
                 <td>{{$format($e_v($code, $ctr_id, 'dt_trm'))}}</td>
             @endforeach
@@ -43,7 +44,7 @@ $e_ns = fn($code, $ctr_id) => data_get($data->where('maquan', (string)$code)->wh
         <tr>
             <td>Diện tích cho SP</td>
             <td>Ha</td>
-            <td>{{$dt = $format($data->where('loai_ctr_id', $ctr_id)->sum('dt_sp'))}}</td>
+            <td>{{$format($dt)}}</td>
             @foreach($hcs as $code => $hc)
                 <td>{{$format($e_v($code, $ctr_id, 'dt_sp'))}}</td>
             @endforeach
