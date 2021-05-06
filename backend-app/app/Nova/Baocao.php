@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Models\HcQuan;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -52,6 +53,7 @@ class Baocao extends Resource
     {
         $hcs = HcQuan::getCacheAll()->sortBy('tenquan', SORT_NATURAL)->pluck('tenquan', 'maquan');
         $ctrs = \App\Models\Caytrong::pluck('ten', 'id');
+        $step = 1e-15;
 
         return [
             ID::make(__('ID'), 'id')->sortable(),
@@ -60,10 +62,10 @@ class Baocao extends Resource
                 ->addLayout('Quận huyện', 'stats_loai_ctr', [
                     Select::make(__('app.quan'), 'maquan')->options($hcs)->displayUsingLabels(),
                     Select::make(__('app.loai_ctr_id'), 'loai_ctr_id')->options($ctrs)->displayUsingLabels(),
-                    Text::make(__('app.dt_hc'), 'dt_hc'),
-                    Text::make(__('app.dt_trm'), 'dt_trm'),
-                    Text::make(__('app.dt_sp'), 'dt_sp'),
-                    Text::make(__('app.sanluong_th'), 'sanluong_th'),
+                    Number::make(__('app.dt_hc'), 'dt_hc')->withMeta(['step' => $step]),
+                    Number::make(__('app.dt_trm'), 'dt_trm')->withMeta(['step' => $step]),
+                    Number::make(__('app.dt_sp'), 'dt_sp')->withMeta(['step' => $step]),
+                    Number::make(__('app.sanluong_th'), 'sanluong_th')->withMeta(['step' => $step]),
                 ])->button('Thêm mới')->onlyOnForms(),
 
             Text::make('', function () use($hcs, $ctrs){

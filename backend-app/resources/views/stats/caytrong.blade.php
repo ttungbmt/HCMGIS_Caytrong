@@ -20,7 +20,7 @@ $e_ns = fn($code, $ctr_id) => data_get($data->where('maquan', (string)$code)->wh
     <tbody>
     @foreach($ctrs as $ctr_id => $ctr)
         @php
-            $sl = $format($data->where('loai_ctr_id', $ctr_id)->sum('sanluong_th'))
+            $sl = $data->where('loai_ctr_id', $ctr_id)->sum('sanluong_th')
         @endphp
 
         <tr>
@@ -51,7 +51,7 @@ $e_ns = fn($code, $ctr_id) => data_get($data->where('maquan', (string)$code)->wh
         <tr>
             <td>Năng suất trên DT cho SP</td>
             <td>Tạ/ha</td>
-            <td>{{$ns = $format($sl/$dt*10, 2)}}</td>
+            <td>{{$dt ? $format($sl/$dt*10, 2) : ''}}</td>
             @foreach($hcs as $code => $hc)
                 <td>{{$format($e_v($code, $ctr_id, 'sanluong_th')/$e_v($code, $ctr_id, 'dt_sp')*10, 2)}}</td>
             @endforeach
@@ -59,7 +59,7 @@ $e_ns = fn($code, $ctr_id) => data_get($data->where('maquan', (string)$code)->wh
         <tr>
             <td>Sản lượng thu hoạch</td>
             <td>Tấn</td>
-            <td>{{$sl}}</td>
+            <td>{{$format($sl)}}</td>
             @foreach($hcs as $code => $hc)
                 <td>{{$format($e_v($code, $ctr_id, 'sanluong_th'))}}</td>
             @endforeach
