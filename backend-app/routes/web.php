@@ -14,17 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {	
+Route::get('/', function () {
     if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) return redirect(Str::replaceFirst('http', 'https', Request::fullUrl()).config('nova.path') . '/nova-map');
     return redirect(config('nova.path') . '/nova-map');
 //    return view('welcome');
 });
 
 Route::get('/test', function () {
+//    $table = DB::table('m_thanhphong')->get();
+//    foreach ($table as $i){
+//        $rt = DB::table('pg_ranhthua')->where('maphuong', $i->maphuong)->where('sh_thua', $i->sh_thua)->where('sh_bando', $i->sh_bando)->get();
+//        dd($rt);
+//    }
+
+
 //    Excel::import(new NonghoImport, 'imports/giaolong.xlsx');
 //    Excel::import(new NonghoImport, 'imports/tanphu.xlsx');
 //    Excel::import(new NonghoImport, 'imports/vinhbinh.xlsx');
-//    Excel::import(new NonghoImport, 'imports/thanhphong.xlsx');
+    Excel::import(new NonghoImport, 'imports/thanhphong.xlsx');
     return [];
 });
 

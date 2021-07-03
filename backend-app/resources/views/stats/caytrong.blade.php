@@ -1,9 +1,15 @@
 <?php
 use \App\Support\Helper;
 $format = fn($n, $decimal = 0) => $n == 0 ? '' : Helper::numberFormat($n, $decimal);
-$e_v = fn($code, $ctr_id, $type = 'dt_hc') => data_get($data->where('maquan', (string)$code)->where('loai_ctr_id', (string)$ctr_id)->first(), $type, '');
+$e_v = fn($code, $ctr_id, $type = 'dt_hc') => floatval(data_get($data->where('maquan', (string)$code)->where('loai_ctr_id', (string)$ctr_id)->first(), $type, ''));
 $e_ns = fn($code, $ctr_id) => data_get($data->where('maquan', (string)$code)->where('loai_ctr_id', $ctr_id)->first(), 'nangsuat_bq', '');
-
+$data = $data->map(function ($i){
+    $i['dt_hc'] = floatval($i['dt_hc']);
+    $i['dt_trm'] = floatval($i['dt_trm']);
+    $i['dt_sp'] = floatval($i['dt_sp']);
+    $i['sanluong_th'] = floatval($i['sanluong_th']);
+    return $i;
+})
 ?>
 
 <table class="table w-full mt-5">
@@ -54,7 +60,7 @@ $e_ns = fn($code, $ctr_id) => data_get($data->where('maquan', (string)$code)->wh
             <td>Tạ/ha</td>
             <td>{{$dt ? $format($sl/$dt*10, 2) : ''}}</td>
             @foreach($hcs as $code => $hc)
-                <td>{{$format($e_v($code, $ctr_id, 'sanluong_th')/$e_v($code, $ctr_id, 'dt_sp')*10, 2)}}</td>
+                <td>{{$e_v($code, $ctr_id, 'dt_sp') != 0 ? $format($e_v($code, $ctr_id, 'sanluong_th')/$e_v($code, $ctr_id, 'dt_sp')*10, 2) : ''}}</td>
             @endforeach
         </tr>
         <tr>
